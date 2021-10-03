@@ -1,0 +1,126 @@
+html,
+body {
+  height: 100%;
+}
+/* whole webpage */
+body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+  /* background-image: url("pawprintbackground.jpg");
+  background-position: 50% 0;
+  background-size: 50%; */
+
+  height: 100%;
+  background-image: url("pawprintbackground.jpg");
+  background-repeat: repeat-y;
+  background-size: 50% auto;
+}
+
+
+/* all content on page (homepage) */
+.form-homepage {
+  display: flex;
+  width: 100%;
+  padding: 15px;
+  margin: auto;
+  flex-direction: row;
+}
+
+/* Remebering the user */
+.form-homepage .checkbox {
+  font-weight: 400;
+  margin-left: 40px;
+}
+
+.form-homepage .form-homepage:focus-within {
+  z-index: 2;
+}
+
+/* signin email input  */
+.form-homepage input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 20;
+  border-bottom-left-radius: 50;
+}
+/* signin password input */
+.form-homepage input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 20;
+  border-top-right-radius: 50;
+}
+
+
+/* signin section */
+.form-signin{
+  background-color: #f5f5f5;
+  float: left;
+  border: 2px solid #e6e6e6;
+  border-radius: 50px 15px;
+  width: 400px;
+  padding: 15px;
+  margin: auto;
+  margin-left: 50px;
+
+}
+
+/* login content spacing */
+.form-login {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  
+}
+/* login button formatting */
+.form-signin button[id=loginButton]{
+  width: 50%;
+  margin-left: 86px;
+  margin-top: 0px;
+  padding: 5px;
+
+}
+/*  login forgot password button */
+.form-signin button[id=forgotPasswordButton]{
+  width: 40%;
+  margin-left: 170px;
+  margin-top: -170px;
+  padding: 5px;
+
+}
+
+/* registration section */
+.form-registration{
+  background-color: #f5f5f5;
+  /* border: 2px solid green; */
+  border-radius: 15px 50px;
+  width: 500px;
+  padding: 20px;
+  margin: auto;
+
+}
+/* registration button formatting */
+.form-registration button{
+  width: 50%;
+  margin-left: 86px;
+  margin-top: 50px;
+  padding: 5px;
+  
+}
+/* registration content spacing */
+.form-reg {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+
+
+
+/* OnlyPets logo */
+img{
+  margin: 0 auto;
+  margin-left: 95px;
+  width: 75%;
+}
