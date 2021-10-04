@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <title>OnlyPets Login</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link href="index.css" rel="stylesheet">
+  <script src="index.js"></script>
+</head>
+
+<body>
+
+  <main class="form-homepage">
+    <div class="form-signin">
+      <form>
+        <!-- Login: Title -->
+        <div class="form-login">
+          <h1>Login</h1>
+        </div>
+        <!-- Login: Email Address  -->
+        <div class="form-login">
+          <label for="floatingInput">Email address:</label>
+          <input type="email" class="form" id="emailLoginInput" placeholder="name@example.com" required>
+        </div>
+        <!-- Login: Password  -->
+        <div class="form-login">
+          <label for="floatingPassword">Password:</label>
+          <input type="password" class="form" id="passwordLoginInput" placeholder="Password" required>
+        </div>
+        <!-- Login: Remember Me  -->
+        <div class="form-login checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+
+        <!-- Login: Button -->
+        <button class="btn btn-outline-success" type="button" id="loginButton">Sign in</button>
+        <!-- Login: Forgot Password Button -->
+        <button class="btn btn-link btn-sm" type="button" id="forgotPasswordButton">Forgot Password</button>
+      </form>
+
+    </div>
+
+    <div>
+      <img src="logoWithBorder.png" alt="Logo">
+    </div>
+
+    <!-- Register -->
+    <div class="form-registration">
+      <form id="registerForm">
+
+        <!-- Register: title -->
+        <div class="form-reg">
+          <h1>Register</h1>
+        </div>
+
+        <!-- Register: Pet's Name -->
+        <div class="form-reg">
+          <label for="floatingInput">Your Pet's Name:*</label>
+          <input type="Name" class="form" id="petNameInput" placeholder="ex. Guinness" required>
+
+        </div>
+
+        <!-- Register: Email Address -->
+        <div class="form-reg">
+          <label for="floatingInput">Email Address:*</label>
+          <input type="email" class="form" id="emailInput" placeholder="name@example.com" required>
+
+        </div>
+        <!-- Register: Confirm Email Address -->
+        <div class="form-reg">
+          <label for="floatingInput">Confirm Email Address:*</label>
+          <input type="email" class="form" id="confirmEmailInput" placeholder="name@example.com" required>
+
+        </div>
+
+        <!-- Register: Password -->
+        <div class="form-reg">
+          <label for="floatingPassword">Password:*</label>
+          <input type="password" class="form" id="passwordInput" placeholder="Password" required>
+
+        </div>
+
+        <!-- Register: Date of Birth -->
+        <div class="form-reg">
+          <label for="birthday">Birthday:*</label>
+          <input type="date" id="birthday" name="birthday" required>
+
+        </div>
+
+        <!-- Register: Species of Pet -->
+        <div class="form-reg">
+          <label for="Type_of_Pet">Type of Pet:*</label>
+          <select name="Animal" id="animals" required>
+
+            <option value="Mammal">Mammal</option>
+            <option value="Bird">Bird</option>
+            <option value="Reptiles">Reptiles</option>
+            <option value="Ampibians">Ampibians</option>
+            <option value="Fish">Fish</option>
+            <option value="Invertebrates">Invertebrates</option>
+
+          </select>
+        </div>
+
+        <!-- Register: Breed -->
+        <div class="form-reg">
+          <label for="breed">Breed (if applicable):</label>
+          <input type="breed" id="breed" name="breed" placeholder="ex. Pomeranian">
+        </div>
+
+        <button class="btn btn-outline-success" type="button" id="registerPetButton">Register Your Pet!</button>
+      </form>
+    </div>
+
+
+
+  </main>
+
+
+
+
+</body>
+
+</html>

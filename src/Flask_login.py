@@ -8,7 +8,7 @@ from models.user import search_by_username, authentication, search_by_username
 
 app = Flask(__name__)
 
-app.secret_key =  'jose'
+app.secret_key = 'jose'
 
 CORS(app)
 
@@ -42,13 +42,9 @@ def getUsersList():
     querystr = str(request.args.get('query_string'))
     return search_by_username(querystr)
 
-
-
 @app.route('/logout', methods=['GET'])
 def logout():
     session.pop('userid', None)
-
-
 
 api.add_resource(User,'/user')
 api.add_resource(UserRegister,'/register')
