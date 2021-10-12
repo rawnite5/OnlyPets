@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 
+<meta content="width=device-width, initial-scale=1" name="viewport">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,6 +14,8 @@
   <link href="index.css" rel="stylesheet">
   <script src="index.js"></script>
 </head>
+
+
 
 <body>
 
@@ -32,23 +36,24 @@
           <label for="floatingPassword">Password:</label>
           <input type="password" class="form" id="passwordLoginInput" placeholder="Password" required>
         </div>
+
         <!-- Login: Remember Me  -->
         <div class="form-login checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
+          <label><input type="checkbox" value="remember-me"> Remember me</label>
         </div>
 
         <!-- Login: Button -->
         <button class="btn btn-outline-success" type="button" id="loginButton">Sign in</button>
+
         <!-- Login: Forgot Password Button -->
-        <button class="btn btn-link btn-sm" type="button" id="forgotPasswordButton">Forgot Password</button>
+        <button class="btn btn-link btn-sm" type="button" id="forgotPasswordButton" onclick="document.location='forgot-password.html'">Forgot Password</button>
       </form>
 
     </div>
 
-    <div>
-      <img src="logoWithBorder.png" alt="Logo">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="logoWithBorder.png" alt="Logo" class=logo>
     </div>
 
     <!-- Register -->
@@ -94,6 +99,28 @@
 
         </div>
 
+
+        <!-- Register : Security Question -->
+        <div class="form-reg">
+          <label for="Security_Question">Security Question:*</label>
+
+          <select name="security_question" id="security_q" required>
+            <option value="question1">In what city were you born?</option>
+            <option value="question2">What is the name of your favorite pet?</option>
+            <option value="question3">What is your oldest sibling's middle name?</option>
+            <option value="question4">What is your maternal grandmother's maiden name?</option>
+            <option value="question5">What is your favorite sport?</option>
+            <option value="question6">In what year was your father born?</option>
+
+          </select>
+        </div>
+        <!-- Register: Security Question Answer-->
+        <div class="form-reg">
+          <label for="sq_answer">Answer:*</label>
+          <input type="answer" id="answer" name="answer" required>
+        </div>
+
+
         <!-- Register: Species of Pet -->
         <div class="form-reg">
           <label for="Type_of_Pet">Type of Pet:*</label>
@@ -115,6 +142,7 @@
           <input type="breed" id="breed" name="breed" placeholder="ex. Pomeranian">
         </div>
 
+        <!-- Register : Submit Button-->
         <button class="btn btn-outline-success" type="button" id="registerPetButton">Register Your Pet!</button>
       </form>
     </div>
