@@ -13,6 +13,9 @@
     integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
   <link href="index.css" rel="stylesheet">
   <script src="index.js"></script>
+<!-- NEED SERVER -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
 </head>
 
 
@@ -48,6 +51,10 @@
         <!-- Login: Forgot Password Button -->
         <button class="btn btn-link btn-sm" type="button" id="forgotPasswordButton" onclick="document.location='forgot-password.html'">Forgot Password</button>
       </form>
+
+      <!-- NEED SERVER TO SHOW Sign in with Google -->
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+      <a href="#" onclick="signOut();">Sign out</a>
 
     </div>
 
@@ -151,9 +158,24 @@
 
   </main>
 
-
-
-
 </body>
+
+<script>
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+
+</script>
 
 </html>

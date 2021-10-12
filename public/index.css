@@ -92,12 +92,10 @@ body {
 
 /* registration section */
 .form-registration{
-  /* background-color: #f5f5f5; */
-  /* border: 2px solid green; */
-  border-radius: 15px 50px;
+  margin: 40px 60px 0 0; /* top, right, bottom, left */
+  border-radius: 15px 50px; 
   width: 500px;
-  padding: 20px;
-  margin: auto;
+  /* padding: 20px; */
 
 }
 /* .form-registration[id=security_q]{
@@ -128,8 +126,7 @@ body {
 
 /* OnlyPets logo */
 .logo{
-  margin: 0 auto;
-  /* margin-left: 95px; */
+  margin: 50px 0 50px 70px; /* top, right, bottom, left */
   width: 65%;
 }
 
@@ -165,4 +162,32 @@ body {
   margin: 0 auto;
   bottom: 300px;
   padding-top: 10px;
+}
+
+.form-resetPassword{
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid red; */
+  /* width: 420px; */
+  padding: 10px;
+  float: right;
+  position: relative;
+  /* left: 400px; */
+  /* bottom: 270px; */
+  margin: 0 auto;
+
+}
+/* reset password: logo */
+.resetPassword-logo{
+  padding: 20px;
+  margin: 55px 750px 0 0; 
+}
+
+#resetPassword-form{
+  margin: 200px 300px 0 -300px;
+  padding: 20px;
+}
+#resetPasswordshit{
+  margin: 200px 300px 0 -300px;
+  padding: 20px;
 }
