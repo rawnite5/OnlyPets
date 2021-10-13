@@ -3,8 +3,6 @@
 body {
   display: flex;
   margin: 0 auto;
-  /* padding-top: 40px;
-  padding-bottom: 40px; */
   padding: 40px 0 40px 0;
   background-color: #f5f5f5;
   /* background-image: url("pawprintbackground.jpg");
@@ -16,6 +14,7 @@ body {
   background-image: url("pawPrintBackground.jpg");
   background-repeat: repeat-y;
   background-size: 50% auto;
+  object-fit: contain;
 
 }
 
@@ -98,13 +97,7 @@ body {
   /* padding: 20px; */
 
 }
-/* .form-registration[id=security_q]{
-  background-color: #f5f5f5;
-  border-radius: 15px 50px;
-  width: 200px;
-  padding: 20px;
-  margin: auto;
-} */
+
 #security_q{
   width: 60%;
 }
@@ -132,11 +125,14 @@ body {
 
 /* Forgot Password : Logo */
 #forgotPassword-logo{
-  width: 500px;
+  /* width: 500px; */
+  /* padding: 20px; */
+  margin: 0 200px 400px 0;
   padding: 20px;
-  margin: right;
+  /* margin: 55px 750px 0 30px;  */
 }
 
+/* Forgot Password: entire main class */
 .form-forgotPassword{
   display: flex;
   justify-content: center;
@@ -150,12 +146,16 @@ body {
   margin: 0 auto;
 
 }
-
+/* Forgot Password: entire form */
+.forgotPasswordForm{
+  margin: 250px -200px 400px 0;
+}
+/* Forgot Password: title */
 #forgotPassTitle{
   padding-bottom: 10px;
 
 }
-
+/* Forgot Password: button */
 .forgotButton{
   display: flex;
   justify-content: center;
@@ -163,31 +163,34 @@ body {
   bottom: 300px;
   padding-top: 10px;
 }
-
+/* Forgot Password: button */
+#forgotPassButton{
+  margin-top: 20px;
+  margin-left: 40px;
+}
+/* Reset Password: entire main class */
 .form-resetPassword{
   display: flex;
   justify-content: center;
-  /* border: 1px solid red; */
-  /* width: 420px; */
   padding: 10px;
   float: right;
   position: relative;
-  /* left: 400px; */
-  /* bottom: 270px; */
   margin: 0 auto;
 
 }
 /* reset password: logo */
 .resetPassword-logo{
   padding: 20px;
-  margin: 55px 750px 0 0; 
+  margin: 55px 750px 0 30px; 
 }
-
+/* Reset Password: entire form */
 #resetPassword-form{
   margin: 200px 300px 0 -300px;
-  padding: 20px;
+  padding: 30px;
 }
-#resetPasswordshit{
-  margin: 200px 300px 0 -300px;
-  padding: 20px;
-}
+
+
+/* #resetPasswordshit{
+  margin: 200px 400px 0 300px;  /* top, right, bottom, left */
+  /* padding: 20px;
+} */
