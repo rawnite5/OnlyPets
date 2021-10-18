@@ -1,24 +1,64 @@
-import sqlite3
 import json
+import os
+import pymysql
+from flask import jsonify
+
+db_user = os.environ.get('CLOUD_SQL_USERNAME')
+db_password = os.environ.get('CLOUD_SQL_PASSWORD')
+db_name = os.environ.get('CLOUD_SQL_DATABASE_NAME')
+db_connection_name = os.environ.get('CLOUD_SQL_CONNECTION_NAME')
+
+def open_connection():
+    unix_socket = '/cloudsql/{}'.format(db_connection_name)
+    try:
+        if os.environ.get('GAE_ENV') == 'standard':
+            conn = pymysql.connect(user=db_user,
+								   password=db_password,
+                                   unix_socket=unix_socket,
+								   db=db_name,
+                                   cursorclass=pymysql.cursors.DictCursor)
+    except pymysql.MySQLError as e:
+        print(e)
+
+    return conn
+
+def get_songs():
+    conn = open_connection()
+    with conn.cursor() as cursor:
+        result = cursor.execute('SELECT * FROM songs;')
+        songs = cursor.fetchall()
+        if result > 0:
+            got_songs = jsonify(songs)
+        else:
+            got_songs = 'No Songs in DB'
+    conn.close()
+    return got_songs
+
+def add_songs(song):
+    conn = open_connection()
+    with conn.cursor() as cursor:
+        cursor.execute('INSERT INTO songs (title, artist, genre) VALUES(%s, %s, %s)', (song["title"], song["artist"], song["genre"]))
+    conn.commit()
+    conn.close()
 
 def search_by_username(username):
     try:
-        connection = sqlite3.connect('database.db')
-        connection.row_factory = lambda cursor, row: row[0]
-        cursor = connection.cursor()
-        query = 'SELECT username FROM WHERE username LIKE ?'
-        results = cursor.execute(query, ('%'+username+'%',)).fetchall()
+        connection = open_connection()
+        with connection.cursor() as cursor:
+            query = 'SELECT username FROM WHERE username LIKE ?'
+            results = cursor.execute(query, ('%'+username+'%',)).fetchall()
+        connection.close()
         return json.dumps(results)
     except:
         return json.dumps([])
 
 def authentication(username, password):
     try:
-        connection = sqlite3.connect('database.db')
-        connection.row_factory = lambda cursor, row: row[0]
-        cursor = connection.cursor()
-        query = "SELECT password FROM users WHERE username = ?"
-        result = cursor.execute(query, (username,)).fetchone()
+        connection = open_connection()
+        with connection.cursor() as cursor:
+            query = "SELECT password FROM users WHERE username = ?"
+            result = cursor.execute(query, (username,)).fetchone()
+        connection.close()
         if result == password:
             return {'message': 'User verified'}, 200
     except Exception as e:
@@ -35,11 +75,11 @@ class UserModel:
 
     @classmethod
     def find_by_username(cls, username):
-        connection = sqlite3.connect('database.db')
-        cursor = connection.cursor()
-        query = "SELECT * FROM users WHERE username = ?"
-        result = cursor.execute(query, (username,))
-        row = result.fetchone()
+        connection = open_connection()
+        with connection.cursor() as cursor:
+            query = "SELECT * FROM users WHERE username = ?"
+            result = cursor.execute(query, (username,))
+            row = result.fetchone()
 
         if row is not None:
             user = cls(*row)
@@ -51,11 +91,11 @@ class UserModel:
 
     @classmethod
     def find_by_userid(cls, userid):
-        connection = sqlite3.connect('database.db')
-        cursor = connection.cursor()
-        query = "SELECT * FROM users WHERE userid = ?"
-        result = cursor.execute(query, (userid,))
-        row = result.fetchone()
+        connection = open_connection()
+        with connection.cursor() as cursor:
+            query = "SELECT * FROM users WHERE userid = ?"
+            result = cursor.execute(query, (userid,))
+            row = result.fetchone()
 
         if row is not None:
             user = cls(*row)
@@ -67,10 +107,10 @@ class UserModel:
 
     def delete(self):
         try:
-            connection = sqlite3.connect('database.db')
-            cursor = connection.cursor()
-            query = "DELETE FROM users WHERE userid=?"
-            cursor.execute(query,(self.userid,))
+            connection = open_connection()
+            with connection.cursor() as cursor:
+                query = "DELETE FROM users WHERE userid=?"
+                cursor.execute(query,(self.userid,))
             connection.commit()
             connection.close()
         except:
@@ -78,10 +118,10 @@ class UserModel:
     
     def update_password(self, password):
         try:
-            connection = sqlite3.connect('database.db')
-            cursor = connection.cursor()
-            query = "UPDATE users SET password = ? WHERE userid = ?"
-            cursor.execute(query, (password, self.userid))
+            connection = open_connection()
+            with connection.cursor() as cursor:
+                query = "UPDATE users SET password = ? WHERE userid = ?"
+                cursor.execute(query, (password, self.userid))
             connection.commit()
             connection.close()
             self.password = password
@@ -90,10 +130,10 @@ class UserModel:
     
     def create_new_user(self):
         try:
-            connection = sqlite3.connect('database.db')
-            cursor = connection.cursor()
-            query = "INSERT INTO users VALUES (?, ?, ?)"
-            cursor.execute(query, (self.userid, self.username, self.password,))
+            connection = open_connection()
+            with connection.cursor() as cursor:
+                query = "INSERT INTO users VALUES (?, ?, ?)"
+                cursor.execute(query, (self.userid, self.username, self.password,))
             connection.commit()
             connection.close()
         except Exception as e:

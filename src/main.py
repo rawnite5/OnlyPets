@@ -7,11 +7,8 @@ from resources.user import UserRegister, User, getUserDetailsByName
 from models.user import search_by_username, authentication, search_by_username
 
 app = Flask(__name__)
-
 app.secret_key = 'jose'
-
 CORS(app)
-
 api = Api(app)
 
 @app.route('/')
