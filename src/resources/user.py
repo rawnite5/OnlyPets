@@ -2,7 +2,7 @@ import sqlite3
 import json
 import uuid
 from flask_restful import Resource,reqparse
-from models.user import UserModel
+from ..models.user import UserModel
 
 def getUserDetailsByName(username):
     user = UserModel.find_by_username(username)
