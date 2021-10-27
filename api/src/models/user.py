@@ -17,10 +17,9 @@ def open_connection():
                                    unix_socket=unix_socket,
 								   db=db_name,
                                    cursorclass=pymysql.cursors.DictCursor)
+            return conn
     except pymysql.MySQLError as e:
         print(e)
-
-    return conn
 
 def search_by_username(username):
     try:
