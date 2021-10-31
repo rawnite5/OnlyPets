@@ -137,6 +137,11 @@ body{
     padding: 10px;
 }
 
+.profileSettings{
+    background-color: palegoldenrod;
+    height: 350px;
+}
+
 .coverimage{
     /* border: solid pink; */
     background-color: pink;
@@ -145,4 +150,12 @@ body{
     height: 275px;
 }
 
+#coverimagetext{
+    margin-left: 350px;
+    margin-top: 125px;
+}
+
+#bioCard{
+    height: 300px;
+}
 /* ---------------------------- Profile ------------------------------------ */
