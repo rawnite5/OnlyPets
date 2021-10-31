@@ -1,0 +1,161 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
+
+/*All pages using this css file*/
+body{
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+}
+#logo{
+    width: 3%; /* you can use % */
+    margin-left: 20px;
+    /* height: auto; */
+
+}
+/* ---------------------------- HOMEPAGE ------------------------------------*/
+
+.entire-homepage{
+
+}
+.navbar{
+
+    background-color: #fff;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+    color: #888;
+    overflow: hidden;
+    width: 100%; 
+    margin: 0 auto;
+    padding: 0;
+
+}
+
+/* #logo2{
+    width: 10%;
+    margin-left: 650px;
+} */
+
+.navbar2{
+    /* margin-left: 250px; */
+    border: solid pink;
+    background-color: pink;
+    width: 120px;
+    margin: -950px 0 0px 1100px;/* top, right, bottom, left */
+}
+#home{
+    color: grey;
+    font-size: medium;
+}
+#profile{
+    color: grey;
+    font-size: medium;
+}
+#Settings{
+    color: grey;
+    font-size: medium;
+}
+#logout{
+    color: grey;
+    font-size: medium;
+}
+
+.search-bar{
+    width: 250px;
+    margin-left: 700px;
+}
+
+
+#postCard{
+    margin: 0 auto;
+    padding: 10px;
+    margin-bottom: 2px;
+    box-shadow: inset;
+}
+
+.card-body{
+    margin: 0 auto;
+}
+
+#post_content{
+    padding: 20px;
+    margin-left: 20px;
+}
+
+#editContent{
+    margin: 0 450px 0 0;
+    border-right: none;
+    border-left: none;
+    border-color: #E8E8E8;
+
+
+}
+#postButton{
+    margin-left: 550px;
+    font-size: 11.5px;
+}
+
+.glyphicon.glyphicon-search{
+     font-size: 20px;
+     margin-left: 10px;
+
+}
+
+.glyphicon.glyphicon-camera{
+    font-size: 20px;
+    padding: 10px;
+}
+.glyphicon.glyphicon-film{
+    font-size: 20px;
+    padding: 10px;
+   
+}
+
+.dropdown{
+    margin-left: 478px;
+    margin-bottom: -26.5px;
+}
+
+.chatting{
+    border: solid pink;
+    background-color: pink;
+    width: 300px;
+    height: 700px; 
+    margin: -220px 500px 250px 30px; /* top, right, bottom, left */
+
+
+
+}
+/* ---------------------------- HOMEPAGE ------------------------------------*/
+
+/* ---------------------------- Profile ------------------------------------ */
+
+.everythingButNavBar{
+    padding: 10px;
+}
+
+.profileSettings{
+    background-color: palegoldenrod;
+    height: 350px;
+}
+
+.coverimage{
+    /* border: solid pink; */
+    background-color: pink;
+    margin: 0 auto;
+    width: 800px;
+    height: 275px;
+}
+
+#coverimagetext{
+    margin-left: 350px;
+    margin-top: 125px;
+}
+
+#bioCard{
+    height: 300px;
+}
+/* ---------------------------- Profile ------------------------------------ */
