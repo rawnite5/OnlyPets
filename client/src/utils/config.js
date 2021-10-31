@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:5000'
+const baseUrl = 'https://api-dot-onlypets-328604.uc.r.appspot.com'
 
 const exports = { baseUrl }
 

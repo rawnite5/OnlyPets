@@ -1,4 +1,3 @@
-import sqlite3
 import json
 import uuid
 from flask_restful import Resource,reqparse
@@ -7,7 +6,7 @@ from ..models.user import UserModel
 def getUserDetailsByName(username):
     user = UserModel.find_by_username(username)
     if user is None:
-        return {'message': 'No user with username: {}'.format(username)}, 400
+        return {'message': 'No user with username: {}'.format(username)}, 200
     return json.dumps(user.__dict__)
 
 
@@ -18,13 +17,13 @@ class UserRegister(Resource):
 
     def post(self):
         data = UserRegister.parser.parse_args()
-        userid = str(uuid.uuid4())
+        userid = str(uuid.uuid4()).replace('-','')
 
         if UserModel.find_by_username(data['username']) is not None:
-            return {"message": "A user with this username already exists"}, 400
+            return {"message": "A user with this username already exists"}, 200
         
         while UserModel.find_by_userid(userid) is not None:
-            userid = str(uuid.uuid4())
+            userid = str(uuid.uuid4()).replace('-','')
 
         user = UserModel(userid= userid, username=data['username'], password=data['password'])
 

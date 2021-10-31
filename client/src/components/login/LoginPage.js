@@ -3,6 +3,7 @@ import logWithBorder from '../../assests/logoWithBorder.jpg';
 import { Helmet } from "react-helmet";
 import './LoginPage.css';
 import config from '../../utils/config';
+const axios = require('axios').default;
 
 const apiURL = config.baseUrl;
 
@@ -190,36 +191,21 @@ const loginScript = () => {
 				return;
 			};
 
-			// put the data being sent in an object to be converted to JSON
-			const data = {
-				username: email.value,
+			const accountDetails = {
+				username: petName.value,
 				password: password.value,
 			};
 
-			// send the request to the register API with the data
-			fetch(`${apiURL}/register`, {
-				method: 'POST',
-				body: JSON.stringify(data),
-				headers: {
-					'Content-type': 'application/json',
-					'Accept': 'application/json'
-				}
-			})
-				.then(response => response.json()
-				/*
-				{
-					console.log(response);
-					
-				} */)
-				.then(json => {
-					console.log(json);
-
-					if (json.message === "A user with this username already exists") {
+			// send the request to the login API with the data
+			axios.post(`${apiURL}/register`, accountDetails)
+				.then(response => {
+					if (response.data.message === "A user with this username already exists") {
 						alert("A user with that name already exists");
 					} else {
 						alert("You have been registered and logged in");
 					}
-				});
+				})
+				.catch(error => console.log(error));
 		});
 
 		loginButton.addEventListener("click", event => {
@@ -232,35 +218,23 @@ const loginScript = () => {
 			};
 
 			// put the data being sent in an object to be converted to JSON
-			const data = {
+			const loginCredentials = {
 				username: emailLogin.value,
 				password: passwordLogin.value,
 			};
 
 			// send the request to the login API with the data
-			fetch(`${apiURL}/login`, {
-				method: 'POST',
-				body: JSON.stringify(data),
-				headers: {
-					'Content-type': 'application/json',
-					'Accept': 'application/json'
-				}
-			})
+			axios.post(`${apiURL}/login`, loginCredentials)
 				.then(response => {
-					console.log(response);
-					response.json()
-				})
-				.then(json => {
-					console.log(json);
-
-					if (json.message === "Invalid User") {
+					if (response.data.message === "Invalid User") {
 						alert("Invalid username or password");
 					} else {
 						alert("You have been logged in");
 					}
-				});
+				})
+				.catch(error => console.log(error));
 		});
 	}
 }
 
-export default LoginPage
+export default LoginPage;

@@ -26,7 +26,6 @@ def login():
         return {'message':'Please provide the valid imformation to authenticate'}, 401
     return authentication(data['username'], data['password'])
 
-
 @app.route('/userdetails', methods=['POST'])
 def getUserDetails():
     if request.is_json is None:
