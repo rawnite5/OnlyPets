@@ -119,12 +119,12 @@ body{
     margin-bottom: -26.5px;
 }
 
-.chatting{
+/* .chatting{
     border: solid pink;
     background-color: pink;
     width: 300px;
     height: 700px; 
-    margin: -220px 500px 250px 30px; /* top, right, bottom, left */
+    margin: -220px 500px 250px 30px; top, right, bottom, left */
 
 
 
@@ -137,25 +137,28 @@ body{
     padding: 10px;
 }
 
-.profileSettings{
+/* .profileSettings{
     background-color: palegoldenrod;
     height: 350px;
-}
+} */
 
-.coverimage{
-    /* border: solid pink; */
-    background-color: pink;
+.coverimage-container{
     margin: 0 auto;
     width: 800px;
     height: 275px;
+    padding: 20px;
+    color: #626262;
 }
-
+.cover-img{
+    width: 100%;
+    border-radius: 6px;
+}
 #coverimagetext{
     margin-left: 350px;
     margin-top: 125px;
 }
 
-#bioCard{
+/* #bioCard{
     height: 300px;
-}
+} */
 /* ---------------------------- Profile ------------------------------------ */
