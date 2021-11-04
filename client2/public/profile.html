@@ -22,14 +22,22 @@
         <div class="navbar">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <img src="logoWithBorder.png" alt="Logo" class=logo id="logo">
-                <a class="nav-link" href="homepage.html" id="home">Home <span class="sr-only"></span></a>
-                <a class="nav-link" href="profile.html" id="profile">Profile <span class="sr-only"></span></a>
-                <a class="nav-link" href="settings.html" id="Settings">Settings <span class="sr-only"></span></a>
-                <a class="nav-link" href="index.html" id="logout">Log Out <span class="sr-only"></span></a>
+                <a class="nav-link glyphicon glyphicon-home" href="homepage.html" id="home"><span
+                        class="sr-only"></span></a>
+                <a class="nav-link glyphicon glyphicon-user" href="profile.html" id="profile"> <span
+                        class="sr-only"></span></a>
+                <a class="nav-link glyphicon glyphicon-wrench" href="settings.html" id="settings"><span
+                        class="sr-only"></span></a>
+                <a class="nav-link glyphicon glyphicon-heart" href="#" id="notifications"> <span
+                        class="sr-only"></span></a>
+                <a class="nav-link glyphicon glyphicon-envelope" href="messages.html" id="messages"> <span
+                        class="sr-only"></span></a>
+                <a class="nav-link glyphicon glyphicon-log-out" href="index.html" id="logout"><span
+                        class="sr-only"></span></a>
 
 
                 <div class="search-bar">
-                    <input id="search" type="search" id="form1" class="form-control" />
+                    <input id="search" type="search" class="form-control" />
                 </div>
 
                 <a href="search.html"><span class="glyphicon glyphicon-search"></span></a>
@@ -39,13 +47,72 @@
 
         <div class="everythingButNavBar">
 
-            <div class="coverimage-container">
+            <div class="profile-container">
                 <img src="dog-facebook-cover-12.jpeg" class="cover-img">
-                <div class="profile-details"></div>
-                    <div class="profiledetail-left">
-                        <div class="profiledetail-row"></div>
+                <div class="profile-details">
+                    <div class="card shadow p-3 mb-5 bg-white rounded" id="bioCard">
+                        <div class="profiledetails-left">
+                            <div class="profiledetails-row">
+                                <img src="Guinness.png" class="profile-img">
+                                <div>
+                                    <h3 id="friendsname">Woof Smith</h3>
+                                    <p id="friendsdetails">2 Friends - 1 mutual</p>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="profiledetails-right">
+
+                            <button type="button" class="glyphicon glyphicon-plus "> Friend </button>
+                            <button type="button" class="glyphicon glyphicon-envelope"> Message </button>
+                            <button type="button" class="glyphicon glyphicon-option-vertical"> </button>
+                            <!-- <a class="glyphicon glyphicon-option-vertical"></a> -->
+                        </div>
                     </div>
-                    <div class="profiledetail-right"></div>
+
+                    <div class="profileinfo">
+                        <div class="info-col"></div>
+                        <div class="post-col">
+                            <div class="card w-50 shadow p-3 mb-5 bg-white rounded" id="profilepostCard">
+                                <!-- card's body -->
+                                <div class="-profile-card-body">
+                                    <h5 class="card-title" id="cardTitle">*Input Username Here</h5>
+
+                                    <div class="col-xs-12" id="post_content">
+                                        <div class="textarea_wrap"> <textarea class="col-xs-11"
+                                                placeholder="What's on your mind?" id="editContent"></textarea> </div>
+                                    </div>
+
+                                    <a href="#"><span class="glyphicon glyphicon-camera" id="importPhoto"></span></a>
+                                    <a href="#"><span class="glyphicon glyphicon-film" id="importVideo"></span></a>
+
+                
+
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false"> Privacy </button>
+                                            
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Only Me</a>
+                                            <a class="dropdown-item" href="#">Everyone</a>
+                                            <a class="dropdown-item" href="#">Friends Only</a>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary" id="publishPostButton">Publish</button>
+        
+                        
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
 
 
 
