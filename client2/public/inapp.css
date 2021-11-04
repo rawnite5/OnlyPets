@@ -35,6 +35,10 @@ body{
 
 }
 
+/* #logo{
+    width: 4%;
+} */
+
 
 #home{
     color: grey;
@@ -270,3 +274,27 @@ body{
     margin-top: -48px;
 }
 /* ---------------------------- Profile ------------------------------------ */
+/* ---------------------------- Profile: About ------------------------------------ */
+
+#AboutCard{
+    width: 375px;
+    height: 275px;
+}
+
+#IntroCard{
+    margin-right: 200px;
+    width: 600px;
+    height: 275px;
+}
+/* 
+#MoreCard{
+    margin-right: 700px;
+
+
+} */
+.profiledetails-bottom #AnotherBioCard{
+    width: 1000px;
+    height: 300px;
+    margin-left: 220px;
+}
+/* ---------------------------- Profile: About ------------------------------------ */
