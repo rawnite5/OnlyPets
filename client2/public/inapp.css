@@ -163,6 +163,11 @@ body{
     border-radius: 6px;
 }
 
+#coverphotobutton{
+    margin-top: -75px;
+    margin-left: 890px;
+}
+
 #contentCard{
     margin-top: 15px;
     height: 50px;
