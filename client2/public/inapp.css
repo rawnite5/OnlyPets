@@ -298,3 +298,87 @@ body{
     margin-left: 220px;
 }
 /* ---------------------------- Profile: About ------------------------------------ */
+/* ---------------------------- Settings: General Settings ------------------------------------*/
+.settings-container{
+    padding: 20px;
+}
+.settings-container #settings-container-background{
+    margin-left:525px;
+    width: 800px;
+    height: 700px;
+}
+
+
+.settings-options-container #settings-options-background{
+    margin-top: -745px;
+    margin-left: 150px;
+    width: 300px;
+    height: 300px;
+}
+
+.full-settings-container{
+    align-items: center;
+}
+
+#settingHeader{
+    margin: 0 auto;
+}
+
+#settingsButtonGroup{
+    margin: 0 auto;
+    padding: 20px;
+}
+/* Settings buttons: pill1 (General), pill2 (Privacy),
+ pill3 (Blocking), pill4 (Notifications) */
+#pill1{
+        background-color: #ddd;
+        border: none;
+        color: black;
+        padding: 10px 53px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+      }
+#pill2{
+        background-color: #ddd;
+        border: none;
+        color: black;
+        padding: 10px 53px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+      }
+#pill3{
+        background-color: #ddd;
+        border: none;
+        color: black;
+        padding: 10px 50px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+      }
+#pill4{
+        background-color: #ddd;
+        border: none;
+        color: black;
+        padding: 10px 40px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+    
+      }
+
+/* ---------------------------- Settings: General Settings ------------------------------------*/
+
