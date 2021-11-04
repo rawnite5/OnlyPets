@@ -163,6 +163,41 @@ body{
     border-radius: 6px;
 }
 
+#contentCard{
+    margin-top: 15px;
+    height: 50px;
+}
+
+.profile-navbar{
+    display: inline-block;
+    width: 1010px;
+}
+
+#profile-about{
+    margin: 0 auto;
+    /* margin-left: 20px; */
+    color: grey;
+    font-size: medium;
+}
+#profile-posts{
+    margin: 0 auto;
+    color: grey;
+    font-size: medium;
+} 
+#profile-friends{
+    margin: 0 auto;
+    color: grey;
+    font-size: medium;
+}
+#profile-photos{
+    margin: 0 auto;
+    color: grey;
+    font-size: medium;
+} 
+
+
+
+
 .profile-img{
     width: 50%;
     margin-right: 20px;
@@ -176,6 +211,7 @@ body{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    margin-left: 200px;
 
 }
 /* #coverimagetext{
@@ -183,10 +219,10 @@ body{
     margin-top: 125px;
 } */
 
-
-#bioCard{
+ 
+ #bioCard{
     width: 20%;
-}
+} 
 
 .profiledetails-right button{
     background: #1876f2;
@@ -214,7 +250,8 @@ body{
 
 }
 .post-col{
-    width: 200%;
+    width: 160%;
+    margin-right: 170px;
 
 }
 
