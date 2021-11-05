@@ -86,8 +86,96 @@ body{
 
 /* ---------------------------- Nav Bar ------------------------------------*/
 /* ---------------------------- HOMEPAGE ------------------------------------*/
+
+.sec-nav-container{
+    display: flex;
+    background: white;
+    width: 240px;
+    height: 220px;
+    margin-left: 1150px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)
+
+
+}
+
+#quickNavText{
+    color: lightslategray;
+    white-space: nowrap;
+    text-align: center;
+    padding: 10px;
+}
+
+#moreSettingsButtonGroup{
+    margin-left: -120px;
+    margin-top: 40px;
+
+}
+
+#profilePill{
+    background-color: rgb(255, 222, 222);
+    border: none;
+    color: black;
+    padding: 10px 53px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+
+}
+#settingsPill{
+    background-color: rgb(253, 245, 202);
+    border: none;
+    color: black;
+    padding: 10px 49px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+
+}
+#pagesPill{
+    background-color: rgb(255, 223, 175);
+    border: none;
+    color: black;
+    padding: 10px 53px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+
+}
+
+#friendsPill{
+    background-color: rgb(242, 187, 123);
+    border: none;
+    color: black;
+    padding: 10px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+
+}
+
+
+
+
+.status-container{
+    margin-top: -200px;
+}
 /* Status Update  */
 #postCard{
+    display: flex;
     margin: 0 auto;
     padding: 10px;
     margin-bottom: 2px;
@@ -139,9 +227,6 @@ body{
     height: 700px; 
     margin: -220px 500px 250px 30px; top, right, bottom, left */
 
-
-
-}
 /* ---------------------------- HOMEPAGE ------------------------------------*/
 
 /* ---------------------------- Profile ------------------------------------ */
