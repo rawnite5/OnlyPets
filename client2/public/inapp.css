@@ -18,7 +18,8 @@ body{
 /* ---------------------------- Nav Bar ------------------------------------*/
 
 .entire-homepage{
-
+    width: 100%;
+    height: 100%;
 }
 /* Nav Bar Stuff */
 .navbar{
@@ -282,6 +283,15 @@ body{
 
 }
 
+.button-class #compose-message-button{
+    font-size: x-large;
+    margin-left: 20px;
+    margin-top: 25px;
+    background: white;
+    border-radius: 19px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)
+}
+
 /* ---------------------------- HOMEPAGE ------------------------------------*/
 
 /* ---------------------------- Profile ------------------------------------ */
@@ -319,7 +329,7 @@ body{
 
 .profile-navbar{
     display: inline-block;
-    width: 1010px;
+    width: 995px;
 }
 
 #profile-about{
@@ -343,8 +353,6 @@ body{
     color: grey;
     font-size: medium;
 } 
-
-
 
 
 .profile-img{
