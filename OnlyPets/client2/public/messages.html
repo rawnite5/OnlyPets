@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
-        <title>OnlyPets Settings</title>
+        <title>OnlyPets Homepage</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -21,7 +21,7 @@
 
 <body>
 
-        <main class="entire-settingspage">
+        <main class="entire-messagepage">
                 <!-- Navbar -->
                 <div class="navbar">
                         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -34,8 +34,8 @@
                                                 class="sr-only"></span></a>
                                 <a class="nav-link glyphicon glyphicon-bell" href="#" id="notifications"> <span
                                                 class="sr-only"></span></a>
-                                <a class="nav-link glyphicon glyphicon-envelope" href="messages.html" id="messages">
-                                        <span class="sr-only"></span></a>
+                                <a class="nav-link glyphicon glyphicon-envelope" href="#" id="messages"> <span
+                                                class="sr-only"></span></a>
                                 <a class="nav-link glyphicon glyphicon-log-out" href="index.html" id="logout"><span
                                                 class="sr-only"></span></a>
 
@@ -48,29 +48,25 @@
 
                         </nav>
                 </div>
-                <div class="full-settings-container">
 
-                        <div class="settings-container">
-                                <div class="card shadow p-3 mb-5 bg-white rounded" id="settings-container-background">
-
-                                </div>
+                <!-- User's Friends List -->
+                <div class="user-contacts-container">
+                        <h5 id="contactsText">Contacts</h5>
+                        <button class="btn glyphicon glyphicon-option-horizontal" id="moreOptContactsButton"></button>
+                        <div class="user-friends-list">
+                                <li>Friend 1</li>
+                                <li>Friend 2</li>
+                                <li>Friend 3</li>
+                                <li>Friend 4</li>
+                                <li>Friend 5</li>
+                                <li>Friend 6</li>
+                                <li>Friend 8</li>
+                                <li>Friend 9</li>
                         </div>
-                        <div class="settings-options-container">
-                                <div class="card shadow p-3 mb-5 bg-white rounded" id="settings-options-background">
-                                        <h1 id="settingHeader">Settings</h1>
-                                        <!-- When onclick, the respected info will be come visible -->
-                                        <div class="btn-group-vertical" id="settingsButtonGroup">
-                                                <button class="button" id="pill1">General</button>
-                                                <button class="button" id="pill2">Privacy</button>
-                                                <button class="button" id="pill3">Blocking</button>
-                                                <button class="button" id="pill4">Notifications</button>
-                                        </div>
 
-
-                                </div>
-                        </div>
 
                 </div>
+
 
 
         </main>
