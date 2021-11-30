@@ -1,6 +1,7 @@
 */requests
 */env
 *.yaml
+*/devScripts
 
 # dependencies
 */node_modules

@@ -1,10 +1,9 @@
 import React from 'react'
 import logWithBorder from '../../assests/logoWithBorder.jpg';
 import { Helmet } from "react-helmet";
-import './LoginPage.css';
+import '../components.css';
 import config from '../../utils/config';
 const axios = require('axios').default;
-
 const apiURL = config.baseUrl;
 
 const LoginPage = () => {
@@ -28,7 +27,7 @@ const LoginPage = () => {
 				*/}
 			</Helmet>
 
-			<main className="form-homepage">
+			<main className="loginMain">
 				<div className="form-signin">
 					<form>
 

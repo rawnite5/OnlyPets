@@ -6,9 +6,7 @@ from flask import jsonify
 
 db_user = os.environ.get('CLOUD_SQL_USERNAME')
 db_password = os.environ.get('CLOUD_SQL_PASSWORD')
-db_name = os.environ.get('CLOUD_SQL_DATABASE_NAME')
-db_connection_name = os.environ.get('CLOUD_SQL_CONNECTION_NAME')
-db_socket_dir = os.environ.get("DB_SOCKET_DIR", "/cloudsql")
+db_ip = os.environ.get('CLOUD_SQL_IP')
 
 """
 def open_connection2():
@@ -43,7 +41,7 @@ def open_connection() -> sqlalchemy.engine.Engine:
     )
     return engine
 """
-databaseName = "OnlyPetsDatabase"
+databaseName = "onlyPetsDatabase"
 
 meta = MetaData()
 user2 = Table(
@@ -54,7 +52,7 @@ user2 = Table(
 )
 
 def open_connection():
-    engineUrl = f"mysql+pymysql://joe:onlypets@34.67.163.10"
+    engineUrl = f"mysql+pymysql://{db_user}:{db_password}@{db_ip}"
     engine = create_engine(engineUrl, echo=True)
     return engine.connect()
 
@@ -62,7 +60,7 @@ def search_by_username(username):
     try:
         connection = open_connection()
         connection.execute(f'USE {databaseName}')
-        query = f'SELECT username FROM user2 WHERE username LIKE \"{username}\"'
+        query = f'SELECT username FROM user WHERE username LIKE \"{username}\"'
         results = connection.execute(query)
         connection.close()
         return json.dumps(results)
@@ -73,7 +71,7 @@ def authentication(username, password):
     try:
         connection = open_connection()
         connection.execute(f'USE {databaseName}')
-        query = f"SELECT password FROM user2 WHERE username = \"{username}\""
+        query = f"SELECT password FROM user WHERE username = \"{username}\""
         results = connection.execute(query)
         connection.close()
         for result in results:
@@ -96,7 +94,7 @@ class UserModel:
     def find_by_username(self, username):
         connection = open_connection()
         connection.execute(f'USE {databaseName}')
-        query = f"SELECT * FROM user2 WHERE username = \"{username}\""
+        query = f"SELECT * FROM user WHERE username = \"{username}\""
         results = connection.execute(query)
         row = results.fetchone()
         connection.close()
@@ -110,7 +108,7 @@ class UserModel:
     def find_by_userid(self, userid):
         connection = open_connection()
         connection.execute(f'USE {databaseName}')
-        query = f"SELECT * FROM user2 WHERE userid = \"{userid}\""
+        query = f"SELECT * FROM user WHERE userid = \"{userid}\""
         results = connection.execute(query)
         row = results.fetchone()
         connection.close()
@@ -125,7 +123,7 @@ class UserModel:
             connection = open_connection()
             trans = connection.begin()
             connection.execute(f'USE {databaseName}')
-            query = f"DELETE FROM user2 WHERE userid = \"{self.userid}\""
+            query = f"DELETE FROM user WHERE userid = \"{self.userid}\""
             results = connection.execute(query)
             trans.commit()
             connection.close()
@@ -137,7 +135,7 @@ class UserModel:
             connection = open_connection()
             trans = connection.begin()
             connection.execute(f'USE {databaseName}')
-            query = f"UPDATE user2 SET password = \"{self.password}\" WHERE userid = \"{self.userid}\""
+            query = f"UPDATE user SET password = \"{self.password}\" WHERE userid = \"{self.userid}\""
             results = connection.execute(query)
             trans.commit()
             connection.close()
@@ -150,7 +148,7 @@ class UserModel:
             connection = open_connection()
             trans = connection.begin()
             connection.execute(f'USE {databaseName}')
-            query = text(f"INSERT INTO user2 (userid, username, password) VALUES (\"{self.userid}\", \"{self.username}\", \"{self.password}\")")
+            query = text(f"INSERT INTO user (userid, username, password) VALUES (\"{self.userid}\", \"{self.username}\", \"{self.password}\")")
             """ another way to insert
             query = user2.insert().values(
                 userid=self.userid,
