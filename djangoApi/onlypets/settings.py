@@ -12,7 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import io
 import os
 import pymysql
 import environ
@@ -21,14 +20,15 @@ pymysql.install_as_MySQLdb()
 env = environ.Env()
 environ.Env.read_env()
 
-db_user = os.environ.get('CLOUD_SQL_USERNAME')
-db_password = os.environ.get('CLOUD_SQL_PASSWORD')
-db_ip = os.environ.get('CLOUD_SQL_IP')
-db_conn_name = os.environ.get('CLOUD_SQL_CONNECTION_NAME')
-db_name = os.environ.get('DATABASE_NAME')
-db_ip = os.environ.get('CLOUD_SQL_IP')
+db_user = env('CLOUD_SQL_USERNAME')
+db_password = env('CLOUD_SQL_PASSWORD')
+db_ip = env('CLOUD_SQL_IP')
+db_conn_name = env('CLOUD_SQL_CONNECTION_NAME')
+db_name = env('DATABASE_NAME')
+db_ip = env('CLOUD_SQL_IP')
 
 SECRET_KEY = env('SECRET_KEY')
+DEBUG = env("DEBUG")
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
