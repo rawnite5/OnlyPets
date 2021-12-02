@@ -93,11 +93,15 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = CommentCollection
     template_name = 'home/comment_delete.html'
-    success_url = reverse_lazy('post-collection')
+
+    def get_success_url(self):
+        # pk = self.kwargs['pk']
+        post = self.get_object().post
+        return reverse_lazy('post-detail', kwargs = {'pk': post.id})
 
     def test_func(self):
-        post = self.get_object()
-        return self.request.user == post.author
+        comment = self.get_object()
+        return self.request.user == comment.author
 
 class HitLike(LoginRequiredMixin, View):
     def post(self, request, pk, *args, **kwargs):

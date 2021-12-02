@@ -22,8 +22,20 @@ class ProfileView(View):
         return render(request, 'userprofile/profile.html', context)
 
 
+class ProfileEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = UserProfile
+    fields = ['firstname', 'lastname', 'gender', 'bio', 'birthdate', 'displaypic', 'city', 'country']
+    template_name = 'userprofile/profile_edit.html'
 
+    def get_success_url(self) -> str:
+        pk = self.kwargs['pk']
+        return reverse_lazy('user-profile', kwargs = {'pk':pk})
 
+    def test_func(self) -> bool:
+        profile = self.get_object()
+        return self.request.user == profile.user
+
+    
 
 
 

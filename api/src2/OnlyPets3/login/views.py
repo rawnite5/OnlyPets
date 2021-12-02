@@ -5,7 +5,7 @@ from django.views import View
 # from django.contrib import messages
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 
-class Index(LoginRequiredMixin, View):
+class Index(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'login/index.html')
 
