@@ -19,12 +19,6 @@ const LoginPage = () => {
 					integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
 				<script dangerouslySetInnerHTML={{ __html: loginScript() }} type="text/javascript" />
 
-
-				{/* NEED SERVER */}
-				{/*
-				<script src="https://apis.google.com/js/platform.js" async defer></script>
-				<meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com" />
-				*/}
 			</Helmet>
 
 			<main className="loginMain">
@@ -57,12 +51,6 @@ const LoginPage = () => {
 						{/* Login: Forgot Password Button */}
 						<button className="btn btn-link btn-sm" type="button" id="forgotPasswordButton">Forgot Password</button>
 					</form>
-
-					{/* NEED SERVER TO SHOW Sign in with Google */}
-					<div className="g-signin2" data-onsuccess="onSignIn"></div>
-					{/* <a href="#" onclick="signOut();">Sign out</a> */}
-					<a href="https://luddy.indiana.edu/contact/profile/?Adeel_Bhutta" >Sign out</a>
-
 				</div>
 
 				{/* Logo */}

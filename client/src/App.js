@@ -15,6 +15,7 @@ function App() {
 
   return (
     <div>
+      {/* <Profile></Profile> */}
       <LoginPage></LoginPage>
     </div>
   );

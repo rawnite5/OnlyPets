@@ -27,7 +27,7 @@ img {
 	padding: 0;
   }
   
-  /* all content on page (homepage) */
+  /* all content on page (login page) */
   .loginMain {
 	/* css from main element that was transfering to main in related components*/
 	background-color: #f5f5f5;
@@ -114,7 +114,7 @@ img {
   
   /* registration section */
   .form-registration{
-	margin: 40px 60px 0 0; /* top, right, bottom, left */
+	margin: 150px 60px 0 0; /* top, right, bottom, left */
 	border-radius: 15px 50px; 
 	width: 500px;
 	/* padding: 20px; */
