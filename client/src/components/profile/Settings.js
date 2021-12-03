@@ -71,35 +71,45 @@ const Settings = () => {
 								<text>Once you block a Page, that Page can no longer interact with your posts or like or reply to your comments. You'll be unable to post to the Page's timeline or message the Page. If you currently like the Page, blocking it will also unline and unfollow.</text>
 								<h2>Privacy</h2>
 								<text>Status</text>
-								<div class="toggleDropdown" id="statusDropdownPrivacy">
-									<input id="menu-toggle" type="checkbox"></input>
-									<label id="menu-label" for="menu-toggle">
-										<img src={privacyimage} id="privacyDropDown" /> Privacy
-									</label>
-									<ul id="collapse-menu">
-										Only Me <input type="checkbox"></input>
-										<br></br>
-										Friends <input type="checkbox"></input>
-										<br></br>
-										Public <input type="checkbox"></input>
-
-									</ul>
-								</div>
+								
+								<br></br>
+								Only me
+								<label class="switch" id="onlyMePrivactySwitch">
+									<input type="checkbox"></input>
+									<span class="slider round"></span>
+								</label>
+								<br></br>
+								Friends
+								<label class="switch" id="friendsPrivactySwitch">
+									<input type="checkbox"></input>
+									<span class="slider round"></span>
+								</label>
+								<br></br>
+								Public
+								<label class="switch" id="publicPrivactySwitch"> 
+									<input type="checkbox"></input>
+									<span class="slider round"></span>
+								</label>
+								<br></br>
 								<text>Profile Page</text>
-								<div class="toggleDropdown" id="profileDropdownPrivacy">
-									<input id="menu-toggle" type="checkbox"></input>
-									<label id="menu-label" for="menu-toggle">
-										<img src={privacyimage} id="privacyDropDown" /> Privacy
-									</label>
-									<ul id="collapse-menu">
-										Only Me <input type="checkbox"></input>
-										<br></br>
-										Friends <input type="checkbox"></input>
-										<br></br>
-										Public <input type="checkbox"></input>
-
-									</ul>
-								</div>
+								<br></br>
+								Only me
+								<label class="switch" id="onlyMePrivactySwitch">
+									<input type="checkbox"></input>
+									<span class="slider round"></span>
+								</label>
+								<br></br>
+								Friends
+								<label class="switch" id="friendsPrivactySwitch">
+									<input type="checkbox"></input>
+									<span class="slider round"></span>
+								</label>
+								<br></br>
+								Public
+								<label class="switch" id="publicPrivactySwitch">
+									<input type="checkbox"></input>
+									<span class="slider round"></span>
+								</label>
 
 
 							</div>
