@@ -20,7 +20,8 @@ function App() {
 
       {/* <Homepage></Homepage> */}
 
-      <Profile></Profile>
+      {/* <Profile></Profile> */}
+      <ProfileAbout></ProfileAbout>
     </div>
   );
 }

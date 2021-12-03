@@ -4,6 +4,7 @@ import dogHeader from '../../assests/dogHeader.jpg';
 import { Helmet } from "react-helmet";
 import '../components.css';
 import config from '../../utils/config';
+import textlogo from '../../assests/textLogo.jpg';
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
 
@@ -22,7 +23,7 @@ const ProfileAbout = () => {
 				{/*  Navbar */}
 				<div class="navbar">
 					<nav class="navbar navbar-expand-lg navbar-light bg-light">
-						<img src={logWithBorder} alt="Logo" class="logo" id="logo" />
+					<img src={textlogo} id="navBarTextLogo" />
 						<a class="nav-link glyphicon glyphicon-home" href="homepage.html" id="home"><span
 							class="sr-only"></span></a>
 						<a class="nav-link glyphicon glyphicon-user" href="profile.html" id="profile"> <span
@@ -81,6 +82,7 @@ const ProfileAbout = () => {
 								<div class="profiledetails-row">
 									<div>
 										<h3 id="AboutCardTitle">Overview of Woof Smith</h3>
+										<button class="btn btn-light" id="editOverview">Edit</button>
 									</div>
 								</div>
 							</div>
@@ -90,6 +92,7 @@ const ProfileAbout = () => {
 							<div class="card shadow p-3 mb-5 bg-white rounded" id="IntroCard">
 								<div>
 									<h3 id="IntroCardTitle">Introductory</h3>
+									<button class="btn btn-light" id="editIntroButton">Edit</button>
 								</div>
 							</div>
 						</div>
@@ -97,10 +100,10 @@ const ProfileAbout = () => {
 
 					<div class="profiledetails-bottom">
 						<div class="card shadow p-3 mb-5 bg-white rounded" id="AnotherBioCard">
-							<div class="btn-group-vertical">
-								<button> Places Lived</button>
-								<button> Work & Education</button>
-								<button> Contact Information</button>
+							<div class="btn-group-vertical" id="profileCardButtonGroup">
+								<button class="btn btn-light" id="bioPlacesButton"> Places Lived</button>
+								<button class="btn btn-light" id="bioWorkButton"> Work & Education</button>
+								<button class="btn btn-light" id="bioContactButton"> Contact Information</button>
 							</div>
 						</div>
 					</div>

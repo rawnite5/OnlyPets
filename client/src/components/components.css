@@ -665,16 +665,50 @@ main{
     width: 600px;
     height: 275px;
 }
-/* 
-#MoreCard{
-    margin-right: 700px;
 
 
-} */
+#editOverview{
+    margin-bottom:auto;
+}
+
+#editIntroButton{
+    background: #dedede;
+
+}
 .profiledetails-bottom #AnotherBioCard{
     width: 1000px;
     height: 300px;
     margin-left: 220px;
+}
+
+#profileCardButtonGroup{
+    padding: 20px;
+
+    
+}
+
+#bioPlacesButton{
+    width: 250px;
+    height: 50px;
+    margin: 10px;
+    font-weight: bold;
+
+
+
+}
+#bioWorkButton{
+    width: 250px;
+    height: 50px;
+    margin: 10px;
+    font-weight: bold;
+
+}
+#bioContactButton{
+    width: 250px;
+    height: 50px;
+    margin: 10px;
+    font-weight: bold;
+
 }
 /* ---------------------------- Profile: About ------------------------------------ */
 /* ---------------------------- Settings: General Settings ------------------------------------*/
