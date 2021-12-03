@@ -1,6 +1,7 @@
 import React from 'react'
 import logWithBorder from '../../assests/logoWithBorder.jpg';
-import dogHeader from '../../assests/dogHeader.jpg';
+// import dogHeader from '../../assests/dogHeader.jpg';
+import textlogo from '../../assests/textLogo.jpg'
 import { Helmet } from "react-helmet";
 import '../components.css';
 import config from '../../utils/config';
@@ -22,7 +23,7 @@ const Homepage = () => {
 				{/* Navbar */}
 				<div class="navbar">
 					<nav class="navbar navbar-expand-lg navbar-light bg-light">
-						<img src={logWithBorder} alt="Logo" class="logo" id="logo" />
+						<img src={textlogo} id="navBarTextLogo" />
 						<a class="nav-link glyphicon glyphicon-home" href="homepage.html" id="home"><span class="sr-only"></span></a>
 						<a class="nav-link glyphicon glyphicon-user" href="profile.html" id="profile"> <span class="sr-only"></span></a>
 						<a class="nav-link glyphicon glyphicon-wrench" href="settings.html" id="settings"><span
@@ -42,6 +43,10 @@ const Homepage = () => {
 					</nav>
 				</div>
 
+				<div class="statusHeaderText-Container">
+					<h1 id="statusHeaderText">What's Up On OnlyPets...</h1>
+				</div>
+
 				{/* "side nav bar" */}
 				<div class="secondNav">
 					<div class="sec-nav-container">
@@ -55,39 +60,9 @@ const Homepage = () => {
 					</div>
 
 				</div>
-				{/* new post : using cards */}
-				<div class="status-container">
-					<div class="card w-50 shadow p-3 mb-5 bg-white rounded" id="postCard">
 
-						<div class="card-body">
-							<h5 class="card-title" id="cardTitle">*Input Username Here</h5>
-
-							<div class="col-xs-12" id="post_content">
-								<div class="textarea_wrap"> <textarea class="col-xs-11" placeholder="What's on your mind?"
-									id="editContent"></textarea> </div>
-							</div>
-
-							<a href="#"><span class="glyphicon glyphicon-camera" id="importPhoto"></span></a>
-							<a href="#"><span class="glyphicon glyphicon-film" id="importVideo"></span></a>
-
-							<div class="dropdown">
-								<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-									aria-haspopup="true" aria-expanded="false">
-									Privacy
-								</button>
-								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-									<a class="dropdown-item" href="#">Only Me</a>
-									<a class="dropdown-item" href="#">Everyone</a>
-									<a class="dropdown-item" href="#">Friends Only</a>
-								</div>
-							</div>
-							<button href="#" id="postButton" class="btn btn-primary">Publish</button>
-						</div>
-					</div>
-				</div>
-
-				{/* User's Friends List */}
-				<div class="user-contacts-container">
+								{/* User's Friends List */}
+								<div class="user-contacts-container">
 					<h5 id="contactsText">Contacts</h5>
 					<button class="btn glyphicon glyphicon-option-horizontal" id="moreOptContactsButton"></button>
 					<div class="user-friends-list">
@@ -124,6 +99,76 @@ const Homepage = () => {
 					<br />
 					<br />
 				</div>
+
+				{/* new post : using cards */}
+				<div class="status-container">
+					<div class="card w-50 shadow p-3 mb-5 bg-white rounded" id="postCard">
+
+						<div class="card-body">
+							<h5 class="card-title" id="cardTitle">*Input Username Here</h5>
+
+							<div class="col-xs-12" id="post_content">
+								<div class="textarea_wrap"> <textarea class="col-xs-11" placeholder="What's on your mind?"
+									id="editContent"></textarea> </div>
+							</div>
+
+							<a href="#"><span class="glyphicon glyphicon-camera" id="importPhoto"></span></a>
+							<a href="#"><span class="glyphicon glyphicon-film" id="importVideo"></span></a>
+
+							<div class="dropdown">
+								<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false">
+									Privacy
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item" href="#">Only Me</a>
+									<a class="dropdown-item" href="#">Everyone</a>
+									<a class="dropdown-item" href="#">Friends Only</a>
+								</div>
+							</div>
+							<button href="#" id="postButton" class="btn btn-primary">Publish</button>
+						</div>
+					</div>
+				</div>
+
+				{/* User's Friends List
+				<div class="user-contacts-container">
+					<h5 id="contactsText">Contacts</h5>
+					<button class="btn glyphicon glyphicon-option-horizontal" id="moreOptContactsButton"></button>
+					<div class="user-friends-list">
+						<li>Friend 1</li>
+						<li>Friend 2</li>
+						<li>Friend 3</li>
+						<li>Friend 4</li>
+						<li>Friend 5</li>
+						<li>Friend 6</li>
+						<li>Friend 8</li>
+						<li>Friend 9</li>
+					</div>
+
+
+				</div>
+
+				{/* For ads (<br> = filler for now) */}
+				{/* <div class="ads-container">
+					<h5 id="adTitleText">Advertisements</h5>
+					<div class="internal-ad-container">
+						<a class="nav-link" href="profile-about.html" id="create-ad-navlink">Create your own ad!<br /> (Rates and
+							restrictions apply)</a>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</div> */}
 
 				<div class="messenger-container">
 					<div class="button-class">

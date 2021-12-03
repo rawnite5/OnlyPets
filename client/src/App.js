@@ -15,8 +15,10 @@ function App() {
 
   return (
     <div>
-      {/* <Profile></Profile> */}
-      <LoginPage></LoginPage>
+      {/* <LoginPage></LoginPage> */}
+      {/* <ForgotPassword></ForgotPassword> */}
+
+      <Homepage></Homepage>
     </div>
   );
 }
