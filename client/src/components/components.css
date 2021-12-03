@@ -871,5 +871,24 @@ main{
     
       } */
 
+#menu-toggle {
+    display: none;
+    width: 100px;
+    height: 400px;
+  }
+  
+  #collapse-menu {
+    transition: transform 0.3s;
+    transform-origin: top;
+  }
+  
+  input:not(:checked) ~ #collapse-menu {
+    transform: scaleY(0);
+  }
+
+  #privacyDropDown{
+      width: 5%;
+  }
+
 /* ---------------------------- Settings: General Settings ------------------------------------*/
 

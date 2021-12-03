@@ -5,8 +5,10 @@ import { Helmet } from "react-helmet";
 import '../components.css';
 import config from '../../utils/config';
 import textlogo from '../../assests/textLogo.jpg';
+import privacyimage from '../../assests/_Pngtree_lock_icon_5091662-removebg-preview.png';
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
+
 
 const Settings = () => {
 	return (
@@ -54,21 +56,52 @@ const Settings = () => {
 						<div class="card shadow p-3 mb-5 bg-white rounded" id="settings-container-background">
 							<h1 id="settingsHeaderText">Settings</h1>
 							<div class="settingsToggleGroup">
-							<h2>Customize Your Display</h2>
-							<text>Customize your display by turning OnlyPets into dark mode!</text>
-							<br></br>
-							<br></br>
-							<text id="darkModeSwitchText">Turn on dark mode</text>
-									<label class="switch" id="customizeThemeSwitch">
-										<input type="checkbox"></input>
-										<span class="slider round"></span>
+								<h2>Customize Your Display</h2>
+								<text>Customize your display by turning OnlyPets into dark mode!</text>
+								<br></br>
+								<br></br>
+								<text id="darkModeSwitchText">Turn on/off dark mode</text>
+								<label class="switch" id="customizeThemeSwitch">
+									<input type="checkbox"></input>
+									<span class="slider round"></span>
+								</label>
+								<h2>Blocked Bitches</h2>
+								<text>Manage your blocked users. Once you block someone, that person can no longer see things you post on your timeline, tag you, start conversations with you, or add you as a friend. </text>
+								<h2>Blocked Pages</h2>
+								<text>Once you block a Page, that Page can no longer interact with your posts or like or reply to your comments. You'll be unable to post to the Page's timeline or message the Page. If you currently like the Page, blocking it will also unline and unfollow.</text>
+								<h2>Privacy</h2>
+								<text>Status</text>
+								<div class="toggleDropdown" id="statusDropdownPrivacy">
+									<input id="menu-toggle" type="checkbox"></input>
+									<label id="menu-label" for="menu-toggle">
+										<img src={privacyimage} id="privacyDropDown" /> Privacy
 									</label>
-									<h2>Blocked Bitches</h2>
-									<text>Manage your blocked users. Once you block someone, that person can no longer see things you post on your timeline, tag you, start conversations with you, or add you as a friend. </text>
-									<h2>Blocked Pages</h2>
-									<h2>Privacy</h2>
+									<ul id="collapse-menu">
+										Only Me <input type="checkbox"></input>
+										<br></br>
+										Friends <input type="checkbox"></input>
+										<br></br>
+										Public <input type="checkbox"></input>
 
-								
+									</ul>
+								</div>
+								<text>Profile Page</text>
+								<div class="toggleDropdown" id="profileDropdownPrivacy">
+									<input id="menu-toggle" type="checkbox"></input>
+									<label id="menu-label" for="menu-toggle">
+										<img src={privacyimage} id="privacyDropDown" /> Privacy
+									</label>
+									<ul id="collapse-menu">
+										Only Me <input type="checkbox"></input>
+										<br></br>
+										Friends <input type="checkbox"></input>
+										<br></br>
+										Public <input type="checkbox"></input>
+
+									</ul>
+								</div>
+
+
 							</div>
 
 						</div>
@@ -91,9 +124,12 @@ const Settings = () => {
 	)
 }
 
+
 const script = () => {
 	window.onload = function () {
 	}
+
+
 }
 
 export default Settings;
