@@ -5,6 +5,7 @@ import dogHeader from '../../assests/dogHeader.jpg';
 import { Helmet } from "react-helmet";
 import '../components.css';
 import config from '../../utils/config';
+import textlogo from '../../assests/textLogo.jpg';
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
 
@@ -23,7 +24,7 @@ const Profile = () => {
                 {/* Navbar */}
                 <div class="navbar">
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <img src={logWithBorder} alt="Logo" class="logo" id="logo" />
+                    <img src={textlogo} id="navBarTextLogo" />
                         <a class="nav-link glyphicon glyphicon-home" href="homepage.html" id="home"><span
                             class="sr-only"></span></a>
                         <a class="nav-link glyphicon glyphicon-user" href="profile.html" id="profile"> <span
@@ -93,9 +94,9 @@ const Profile = () => {
 
                             <div class="profiledetails-right">
 
-                                <button type="button" class="glyphicon glyphicon-plus "> Friend </button>
-                                <button type="button" class="glyphicon glyphicon-envelope"> Message </button>
-                                <button type="button" class="glyphicon glyphicon-option-vertical"> </button>
+                                <button type="button" class="glyphicon glyphicon-plus " id="friendButton"> Friend </button>
+                                <button type="button" class="glyphicon glyphicon-envelope" id="messageButton"> Message </button>
+                                <button type="button" class="glyphicon glyphicon-remove" id="profileBlockButton"> Block</button>
                                 {/* <a class="glyphicon glyphicon-option-vertical"></a> */}
                             </div>
                         </div>
@@ -118,7 +119,7 @@ const Profile = () => {
 
                                         <div class="dropdown">
                                             <button class="btn btn-primary dropdown-toggle" type="button"
-                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                id="privacyButton" data-toggle="dropdown" aria-haspopup="true"
                                                 aria-expanded="false"> Privacy </button>
 
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -127,7 +128,7 @@ const Profile = () => {
                                                 <a class="dropdown-item" href="#">Friends Only</a>
                                             </div>
                                         </div>
-                                        <button class="btn btn-primary" id="publishPostButton">Publish</button>
+                                        <button class="btn btn-primary" id="profilepublishPostButton">Publish</button>
                                     </div>
                                 </div>
                             </div>

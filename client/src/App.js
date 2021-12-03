@@ -18,7 +18,9 @@ function App() {
       {/* <LoginPage></LoginPage> */}
       {/* <ForgotPassword></ForgotPassword> */}
 
-      <Homepage></Homepage>
+      {/* <Homepage></Homepage> */}
+
+      <Profile></Profile>
     </div>
   );
 }
