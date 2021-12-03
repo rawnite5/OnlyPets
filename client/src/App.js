@@ -21,7 +21,8 @@ function App() {
       {/* <Homepage></Homepage> */}
 
       {/* <Profile></Profile> */}
-      <ProfileAbout></ProfileAbout>
+      {/* <ProfileAbout></ProfileAbout> */}
+      <Settings></Settings>
     </div>
   );
 }

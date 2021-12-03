@@ -4,6 +4,7 @@ import dogHeader from '../../assests/dogHeader.jpg';
 import { Helmet } from "react-helmet";
 import '../components.css';
 import config from '../../utils/config';
+import textlogo from '../../assests/textLogo.jpg';
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
 
@@ -22,7 +23,7 @@ const Settings = () => {
 				{/* }Navbar */}
 				<div class="navbar">
 					<nav class="navbar navbar-expand-lg navbar-light bg-light">
-						<img src={logWithBorder} alt="Logo" class="logo" id="logo" />
+						<img src={textlogo} id="navBarTextLogo" />
 						<a class="nav-link glyphicon glyphicon-home" href="homepage.html" id="home"><span
 							class="sr-only"></span></a>
 						<a class="nav-link glyphicon glyphicon-user" href="profile.html" id="profile"> <span
@@ -47,23 +48,43 @@ const Settings = () => {
 				</div>
 				<div class="full-settings-container">
 
+
 					<div class="settings-container">
+
 						<div class="card shadow p-3 mb-5 bg-white rounded" id="settings-container-background">
+							<h1 id="settingsHeaderText">Settings</h1>
+							<div class="settingsToggleGroup">
+							<h2>Customize Your Display</h2>
+							<text>Customize your display by turning OnlyPets into dark mode!</text>
+							<br></br>
+							<br></br>
+							<text id="darkModeSwitchText">Turn on dark mode</text>
+									<label class="switch" id="customizeThemeSwitch">
+										<input type="checkbox"></input>
+										<span class="slider round"></span>
+									</label>
+									<h2>Blocked Bitches</h2>
+									<text>Manage your blocked users. Once you block someone, that person can no longer see things you post on your timeline, tag you, start conversations with you, or add you as a friend. </text>
+									<h2>Blocked Pages</h2>
+									<h2>Privacy</h2>
+
+								
+							</div>
 
 						</div>
 					</div>
-					<div class="settings-options-container">
+					{/* <div class="settings-options-container">
 						<div class="card shadow p-3 mb-5 bg-white rounded" id="settings-options-background">
-							<h1 id="settingHeader">Settings</h1>
-							{/* When onclick, the respected info will be come visible */}
-							<div class="btn-group-vertical" id="settingsButtonGroup">
+							<h1 id="settingHeader">Settings</h1> */}
+					{/* When onclick, the respected info will be come visible */}
+					{/* <div class="btn-group-vertical" id="settingsButtonGroup">
 								<button class="button" id="pill1">General</button>
 								<button class="button" id="pill2">Privacy</button>
 								<button class="button" id="pill3">Blocking</button>
 								<button class="button" id="pill4">Notifications</button>
 							</div>
 						</div>
-					</div>
+					</div> */}
 				</div>
 			</main>
 		</div>

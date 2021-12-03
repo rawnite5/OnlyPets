@@ -714,36 +714,114 @@ main{
 /* ---------------------------- Settings: General Settings ------------------------------------*/
 .settings-container{
     padding: 20px;
+    /* margin: 0 auto; */
 }
 .settings-container #settings-container-background{
-    margin-left:525px;
-    width: 800px;
+    margin: 0 auto;
+    width: 600px;
     height: 700px;
+
 }
 
 
-.settings-options-container #settings-options-background{
+/* .settings-options-container #settings-options-background{
     margin-top: -745px;
     margin-left: 150px;
     width: 300px;
     height: 300px;
-}
+} */
 
 .full-settings-container{
     align-items: center;
 }
+#settingsHeaderText{
+    margin: 0 auto;
+    font-size: xx-large;
+}
 
+#customizeThemeSwitch{
+    margin-right: 450px;
+}
+
+#darkModeSwitchText{
+    /* margin-left: 200px; */
+    font-weight: bold;
+}
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 53px;
+    height: 25px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: black;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+/* 
 #settingHeader{
     margin: 0 auto;
-}
+} */
 
-#settingsButtonGroup{
+/* #settingsButtonGroup{
     margin: 0 auto;
     padding: 20px;
-}
+} */
 /* Settings buttons: pill1 (General), pill2 (Privacy),
  pill3 (Blocking), pill4 (Notifications) */
-#pill1{
+/* #pill1{
         background-color: #ddd;
         border: none;
         color: black;
@@ -791,7 +869,7 @@ main{
         cursor: pointer;
         border-radius: 16px;
     
-      }
+      } */
 
 /* ---------------------------- Settings: General Settings ------------------------------------*/
 
