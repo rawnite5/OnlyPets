@@ -5,6 +5,15 @@ import textlogo from '../../assests/textLogo.jpg'
 import { Helmet } from "react-helmet";
 import '../components.css';
 import config from '../../utils/config';
+import profilePhoto from '../../assests/dogPhoto1 copy.jpg';
+import video from '../../assests/video-call.svg';
+import call from '../../assests/call.svg';
+import settings from '../../assests/settings.svg';
+import upload from '../../assests/upload.svg';
+import camera from '../../assests/camera.svg';
+import check from'../../assests/check.svg';
+import like from'../../assests/like.svg';
+
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
 
@@ -61,8 +70,8 @@ const Homepage = () => {
 
 				</div>
 
-								{/* User's Friends List */}
-								<div class="user-contacts-container">
+				{/* User's Friends List */}
+				<div class="user-contacts-container">
 					<h5 id="contactsText">Contacts</h5>
 					<button class="btn glyphicon glyphicon-option-horizontal" id="moreOptContactsButton"></button>
 					<div class="user-friends-list">
@@ -170,21 +179,81 @@ const Homepage = () => {
 					<br />
 				</div> */}
 
-				<div class="messenger-container">
-					<div class="button-class">
-						<button class="btn glyphicon glyphicon-edit" id="compose-message-button"></button>
-					</div>
-				</div>
-				{/* JS Alert for logout is clicked (logs user out of system) */}
-				{/* JS for publishing status */}
+<div id="chat-bubble">
+      <div class="chat-container">
+        <div class="chat-header">
+          <div class="user-avatar" onclick={openChatBubble}>
+            <div class="img-container">
+              <img src="./icons/dogPhoto1 copy.jpg"></img>
+            </div>
+            <div class="user-status-info">
+              <a href="#">Woof Smith</a>
+              <p>Active now</p>
+            </div>
+          </div>
+		  </div>
+		  </div>
+
+          <div class="chat-comm">
+            <nav>
+              <a href="#">
+                <img src={video}></img>
+              </a>
+              <a href="#">
+                <img src={call}></img>
+              </a>
+              <a href="#">
+                <img src={settings}></img>
+              </a>
+              <a href="#" onclick={openChatBubble}>
+                <img  src={close}></img>
+              </a>
+            </nav>
+          </div>
+        </div>
+          {/* <div class="sender-me">
+            <div class="my-message">
+              Hello
+            </div>
+            <div class="seen-at">
+              <img class="check" src={check}> Seen 8:00 AM</img>
+            </div>
+          </div>
+        </div> */}
+
+
+        {/* <div class="chat-footer">
+          <input type="textarea" placeholder="Type a message..."></input>
+          <div class="chat-media">
+            <nav>
+              <a href="#">
+                <img class="upload" src={upload} alt=""></img>
+              </a>
+              <a href="#">
+                <img class="camera" src={camera} alt=""></img>
+              </a>
+            </nav>
+            <a href="#">
+              <img class="like" src={like}></img>
+            </a>
+          </div>
+		  </div>
+		  </div> */}
+
 			</main>
-		</div>
+		</div >
 	)
 }
 
 const script = () => {
 	window.onload = function () {
 	}
+}
+
+
+const openChatBubble = () => {
+	var element = document.getElementById("chat-bubble");
+	element.classList.toggle("open")
 }
 
 export default Homepage;

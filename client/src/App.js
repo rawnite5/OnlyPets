@@ -18,11 +18,11 @@ function App() {
       {/* <LoginPage></LoginPage> */}
       {/* <ForgotPassword></ForgotPassword> */}
 
-      {/* <Homepage></Homepage> */}
+      <Homepage></Homepage>
 
       {/* <Profile></Profile> */}
       {/* <ProfileAbout></ProfileAbout> */}
-      <Settings></Settings>
+      {/* <Settings></Settings> */}
     </div>
   );
 }
