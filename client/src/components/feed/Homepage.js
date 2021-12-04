@@ -193,7 +193,8 @@ const Homepage = () => {
           </div>
 		  </div>
 		  </div>
-
+		  </div>
+{/* 
           <div class="chat-comm">
             <nav>
               <a href="#">
@@ -210,7 +211,7 @@ const Homepage = () => {
               </a>
             </nav>
           </div>
-        </div>
+        </div> */}
           {/* <div class="sender-me">
             <div class="my-message">
               Hello
