@@ -30,11 +30,10 @@ from django.urls import include, path
 # from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('', include('login.urls')),
     path('home/', include('home.urls')),
     path('profile/', include('userprofile.urls'))
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 # [END gaestd_py_django_local_static]

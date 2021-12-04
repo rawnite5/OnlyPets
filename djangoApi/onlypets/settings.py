@@ -81,8 +81,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'crispy_forms',
 
-    "polls.apps.PollsConfig",
-
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -109,7 +107,7 @@ ROOT_URLCONF = "onlypets.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -174,16 +172,22 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-STATIC_ROOT = "static"
-STATIC_URL = "/static/"
-STATICFILES_DIRS = []
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# Static files (CSS, JavaScript, Images)
+STATIC_ROOT = "static"
+STATIC_URL = "/static/"
+
+LOGIN_REDIRECT_URL = 'post-collection'
+ACCOUNT_EMAIL_REQUIRED = True
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+STATISFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 """
 # [START gaestd_py_django_secret_config]
