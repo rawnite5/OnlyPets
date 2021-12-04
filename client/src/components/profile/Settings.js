@@ -67,49 +67,68 @@ const Settings = () => {
 								</label>
 								<h2>Blocked Bitches</h2>
 								<text>Manage your blocked users. Once you block someone, that person can no longer see things you post on your timeline, tag you, start conversations with you, or add you as a friend. </text>
+								
+								<div class="searchBarBlockedUsers-Container">
+									<input id="search" type="search" class="form-control" />
+									<button class="btn btn-primary" id="blockButton">Block</button>
+								</div>
+
 								<h2>Blocked Pages</h2>
 								<text>Once you block a Page, that Page can no longer interact with your posts or like or reply to your comments. You'll be unable to post to the Page's timeline or message the Page. If you currently like the Page, blocking it will also unline and unfollow.</text>
+
+								<div class="searchBarBlockedPages-Container">
+									<input id="search" type="search" class="form-control" />
+									<button class="btn btn-primary" id="blockButton">Block</button>
+								</div>
+
 								<h2>Privacy</h2>
-								<text>Status</text>
-								
+								<text id="statusText">Status</text>
+
 								<br></br>
-								Only me
-								<label class="switch" id="onlyMePrivactySwitch">
-									<input type="checkbox"></input>
-									<span class="slider round"></span>
-								</label>
-								<br></br>
-								Friends
-								<label class="switch" id="friendsPrivactySwitch">
-									<input type="checkbox"></input>
-									<span class="slider round"></span>
-								</label>
-								<br></br>
-								Public
-								<label class="switch" id="publicPrivactySwitch"> 
-									<input type="checkbox"></input>
-									<span class="slider round"></span>
-								</label>
-								<br></br>
-								<text>Profile Page</text>
-								<br></br>
-								Only me
-								<label class="switch" id="onlyMePrivactySwitch">
-									<input type="checkbox"></input>
-									<span class="slider round"></span>
-								</label>
-								<br></br>
-								Friends
-								<label class="switch" id="friendsPrivactySwitch">
-									<input type="checkbox"></input>
-									<span class="slider round"></span>
-								</label>
-								<br></br>
-								Public
-								<label class="switch" id="publicPrivactySwitch">
-									<input type="checkbox"></input>
-									<span class="slider round"></span>
-								</label>
+								<div class="statusToggle">
+									Only me
+									<label class="switch" id="onlyMePrivactySwitch">
+										<input type="checkbox"></input>
+										<span class="slider round"></span>
+									</label>
+									<br></br>
+									Friends
+									<label class="switch" id="friendsPrivactySwitch">
+										<input type="checkbox"></input>
+										<span class="slider round"></span>
+									</label>
+									<br></br>
+									Public
+									<label class="switch" id="publicPrivactySwitch">
+										<input type="checkbox"></input>
+										<span class="slider round"></span>
+									</label>
+									<br></br>
+								</div>
+
+								<div class="profileToggle">
+									<text id="profilePageText">Profile Page</text>
+									<br></br>
+									Only me
+									<label class="switch" id="onlyMePrivactySwitch">
+										<input type="checkbox"></input>
+										<span class="slider round"></span>
+									</label>
+									<br></br>
+									Friends
+									<label class="switch" id="friendsPrivactySwitch">
+										<input type="checkbox"></input>
+										<span class="slider round"></span>
+									</label>
+									<br></br>
+									Public
+									<label class="switch" id="publicPrivactySwitch">
+										<input type="checkbox"></input>
+										<span class="slider round"></span>
+									</label>
+								</div>
+
+
 
 
 							</div>
