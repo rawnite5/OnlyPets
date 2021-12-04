@@ -34,6 +34,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', include('login.urls')),
     path('home/', include('home.urls')),
-    path('profile/', include('userprofile.urls'))
+    path('profile/', include('profile.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 # [END gaestd_py_django_local_static]

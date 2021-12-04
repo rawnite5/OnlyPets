@@ -74,7 +74,7 @@ ALLOWED_HOSTS = ["*"]
 INSTALLED_APPS = [
     'home',
     'login',
-    'userprofile',
+    'profile',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -88,6 +88,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'django.contrib.sites',
+    'rest_framework',
 ]
 
 SITE_ID=1

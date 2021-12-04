@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import PostCollection, CommentCollection, User
-from userprofile.models import UserProfile
+from profile.models import Profile
 from django.http import HttpResponseRedirect
 from django.views import View
 from .forms import PostForm, CommentForm
@@ -126,7 +126,7 @@ class UserSearch(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         fname = self.request.GET.get('query')
 
-        user_profiles = UserProfile.objects.filter(Q(firstname__contains = fname))
+        user_profiles = Profile.objects.filter(Q(firstname__contains = fname))
 
         context = {
             'user_profiles' : user_profiles
