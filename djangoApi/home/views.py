@@ -9,64 +9,64 @@ from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.views.generic.edit import UpdateView, DeleteView
 from django.db.models import Q
 
-class PostCollectionView(LoginRequiredMixin, View):
-    def get(self, request, *args, **kwargs):
-        posts = PostCollection.objects.all().order_by('-post_timestamp')
-        form = PostForm()
+from .serializers import PostCollectionSerializer, CommentCollectionSerializer
+from rest_framework import status
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
-        context = {
-            'post_collection': posts,
-            'form': form,
-        }
-        return render(request, 'home/post_collection.html', context)
+class PostCollectionView(APIView):
+    def get(self, request, id=id):
+        if id:
+            try:
+                item = PostCollection.objects.get(id=id)
+                serializer = PostCollectionSerializer(item)
+                return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
+            except PostCollection.DoesNotExist:
+                return Response({"status": "error", "data": "post does not exist"}, status=status.HTTP_400_BAD_REQUEST)
 
-    def post(self, request, *args, **kwargs):
-        posts = PostCollection.objects.all().order_by('-post_timestamp')
-        form = PostForm(request.POST)
+        items = PostCollection.objects.all().order_by('-post_timestamp')
+        serializer = PostCollectionSerializer(items, many=True)
+        return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
 
-        if form.is_valid():
-            new_post = form.save(commit=False)
-            new_post.author = request.user
-            new_post.save()
+    def post(self, request):
+        serializer = PostCollectionSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
+        else:
+            return Response({"status": "error", "data": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
-        context = {
-            'post_collection': posts,
-            'form': form,
-        }
-        return render(request, 'home/post_collection.html', context)
+class PostDetailView(APIView):
+    def get(self, request, id):
+        try:
+            post = PostCollection.objects.get(id=id)
+            postSerializer = PostCollectionSerializer(post)
 
-class PostDetailView(LoginRequiredMixin, View):
-    def get(self, request, pk, *args, **kwargs):
-        post = PostCollection.objects.get(pk=pk)
-        form = CommentForm()
+            comments = CommentCollection.objects.filter(post = post).order_by('-comment_timestamp')
+            commentSerializer = CommentCollectionSerializer(comments)
+            
+            return Response({"status": "success", "data": {'post': postSerializer.data, 'comments': commentSerializer.data}}, status=status.HTTP_200_OK)
+        except PostCollection.DoesNotExist:
+            return Response({"status": "error", "data": "post does not exist"}, status=status.HTTP_400_BAD_REQUEST)
+
+    def post(self, request, id):
+        try:
+            post = PostCollection.objects.get(id=id)
+            postSerializer = PostCollectionSerializer(post)
+        except PostCollection.DoesNotExist:
+            return Response({"status": "error", "data": "post does not exist"}, status=status.HTTP_400_BAD_REQUEST)
+
         comments = CommentCollection.objects.filter(post = post).order_by('-comment_timestamp')
+        commentSerializer = CommentCollectionSerializer(comments)
 
-        context = {
-            'post': post,
-            'form': form,
-            'comments': comments
-        }
-
-        return render(request, 'home/post_detail.html', context)
-
-    def post(self, request, pk, *args, **kwargs):
-        post = PostCollection.objects.get(pk=pk)
-        comments = CommentCollection.objects.filter(post = post).order_by('-comment_timestamp')
-        form = CommentForm(request.POST)
-
-        if form.is_valid():
-            new_comment = form.save(commit= False)
+        if commentSerializer.is_valid():
+            new_comment = commentSerializer.save(commit= False)
             new_comment.author = request.user
             new_comment.post = post
             new_comment.save()
-
-        context = {
-            'post': post,
-            'form': form,
-            'comments': comments
-        }
-
-        return render(request, 'home/post_detail.html', context)
+            return Response({"status": "success", "data": {'post': postSerializer.data, 'comments': commentSerializer.data}}, status=status.HTTP_200_OK)
+        else:
+            return Response({"status": "error", "data": commentSerializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
 class PostEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = PostCollection
@@ -104,26 +104,26 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return self.request.user == comment.author
 
 class HitLike(LoginRequiredMixin, View):
-    def post(self, request, pk, *args, **kwargs):
-        xpost = PostCollection.objects.get(pk = pk)
+    def post(self, request, id):
+        post = PostCollection.objects.get(id = id)
 
         liked_ind = False
 
-        for like in xpost.likes.all():
+        for like in post.likes.all():
             if like == request.user:
                 liked_ind = True
-                xpost.likes.remove(request.user)
+                post.likes.remove(request.user)
                 break
         
         if not liked_ind:
-            xpost.likes.add(request.user)
+            post.likes.add(request.user)
 
         next = request.POST.get('next', '/')
         return HttpResponseRedirect(next)
         
 
 class UserSearch(LoginRequiredMixin, View):
-    def get(self, request, *args, **kwargs):
+    def get(self, request):
         fname = self.request.GET.get('query')
 
         user_profiles = Profile.objects.filter(Q(firstname__contains = fname))

@@ -4,11 +4,11 @@ from .views import PostCollectionView, PostDetailView, PostEditView, PostDeleteV
 
 urlpatterns = [
     path('', PostCollectionView.as_view(), name='post-collection'),
-    path('post/<pk>/', PostDetailView.as_view(), name='post-detail'),
-    path('post/edit/<pk>/', PostEditView.as_view(), name = 'post-edit'),
-    path('post/delete/<pk>/', PostDeleteView.as_view(), name = 'post-delete'),
-    path('post/<post_pk>/comment/delete/<pk>/', CommentDeleteView.as_view(), name = 'comment-delete'),
-    path('post/<pk>/like', HitLike.as_view(), name = 'like'), 
+    path('post/<uuid:id>/', PostDetailView.as_view(), name='post-detail'),
+    path('post/<uuid:id>/', PostEditView.as_view(), name = 'post-edit'),
+    path('post/<uuid:id>/', PostDeleteView.as_view(), name = 'post-delete'),
+    path('post/<uuid:postId>/comment/<uuid:commentId>/', CommentDeleteView.as_view(), name = 'comment-delete'),
+    path('post/<uuid:id>/like', HitLike.as_view(), name = 'like'),
     path('search/', UserSearch.as_view(), name = 'user-search'),
 ]
 
