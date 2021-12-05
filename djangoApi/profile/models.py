@@ -5,8 +5,8 @@ from django.db import models
 class Profile(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     username = models.CharField(max_length= 25, unique=True)
+    email = models.EmailField(max_length=30, unique=True, null = True)
     password = models.CharField(max_length= 25)
-    country = models.CharField(max_length=100, blank=True, null=True)
     firstname = models.CharField(max_length= 25, blank=True, null=True)
     lastname = models.CharField(max_length= 25, null = True, blank= True)
     gender = models.CharField(max_length= 25, null = True, blank= True)
