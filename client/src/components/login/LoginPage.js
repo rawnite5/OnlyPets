@@ -48,6 +48,7 @@ const LoginPage = () => {
 							alert("A user with that name already exists");
 						} else {
 							window.sessionStorage.setItem("username", accountDetails.username);
+							window.sessionStorage.setItem("userId", response.data.data.id);
 							navigate('/home');
 						}
 					})
@@ -78,6 +79,7 @@ const LoginPage = () => {
 							alert("Invalid username or password");
 						} else {
 							window.sessionStorage.setItem("username", loginCredentials.username);
+							window.sessionStorage.setItem("userId", response.data.data.id);
 							navigate('/home');
 						}
 					})

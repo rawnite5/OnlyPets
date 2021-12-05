@@ -13,17 +13,28 @@ import upload from '../../assests/upload.svg';
 import camera from '../../assests/camera.svg';
 import check from '../../assests/check.svg';
 import like from '../../assests/like.svg';
+import Post from './Post';
 
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
 import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react'
 
 const Homepage = () => {
 	let navigate = useNavigate();
+	const [posts, setPosts] = useState([])
+
+	useEffect(() => {
+		axios.get(`${apiURL}/home/`)
+			.then(response => {
+				setPosts(response.data.data);
+			})
+			.catch(error => console.log(error))
+	}, [])
 
 	const script = () => {
 		window.onload = function () {
-			
+
 		}
 	}
 
@@ -68,6 +79,8 @@ const Homepage = () => {
 
 				<div class="statusHeaderText-Container">
 					<h1 id="statusHeaderText">What's Up On OnlyPets...</h1>
+
+					{posts.map(post => <Post key={post.id} post={post}/>)}
 				</div>
 
 				{/* "side nav bar" */}
@@ -81,7 +94,6 @@ const Homepage = () => {
 							<Link to="/profileFriends"><button class="button" id="friendsPill">Friends</button> </Link>
 						</div>
 					</div>
-
 				</div>
 
 				{/* User's Friends List */}
@@ -141,7 +153,7 @@ const Homepage = () => {
 
 							<button class="glyphicon glyphicon-heart" id="likeButton"></button>
 							<div class="commentButton-Container">
-							<button class="glyphicon glyphicon-pencil" id="commentButton"></button>
+								<button class="glyphicon glyphicon-pencil" id="commentButton"></button>
 							</div>
 
 							<div class="dropdown">
@@ -258,10 +270,10 @@ function publishStatus() {
 		publishButton.style.display = "none";
 		likeIcon.style.display = "inline-block";
 		commentIcon.style.display = "inline-block";
-	  } else {
+	} else {
 		likeIcon.style.display = "inline-block";
 		commentIcon.style.display = "inline-block";
-	  }
+	}
 
 	privacyButton.style.display = "none";
 	publishButton.style.display = "none";

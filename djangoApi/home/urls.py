@@ -9,7 +9,7 @@ urlpatterns = [
     # path('post/<uuid:id>/', PostDeleteView.as_view(), name = 'post-delete'),
     path('post/<uuid:postId>/comment/', PostDetailView.as_view(), name = 'post-detail'),
     path('post/<uuid:postId>/comment/<uuid:commentId>/', CommentDetailView.as_view(), name = 'comment-detail'),
-    # path('post/<id>/like', HitLike.as_view(), name = 'like'),
+    # path('post/<id>/like', HitLike.as_view(), name = 'like'),post
     # path('search/', UserSearch.as_view(), name = 'user-search'),
 ]
 
