@@ -38,7 +38,7 @@ class PostCollectionView(APIView):
             return Response({"status": "error", "data": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
 
-class PostDetailView(APIView):
+class PostEditView(APIView):
 
     def get_object(self, *args, **kwargs):
         id = self.kwargs.get('pk')
@@ -61,10 +61,6 @@ class PostDetailView(APIView):
         serializer = PostCollectionSerializer(post, data=request.data, partial=True)
 
         if serializer.is_valid():
-            # if serializer.objects.get('comments'):
-                # commentSerializer = CommentCollectionSerializer(serializer.comments)
-                # commentSerializer.save()
-
             serializer.save()
 
             return Response({"status": "success", "data": serializer.data})
@@ -99,54 +95,110 @@ class PostDetailView(APIView):
     #         return Response({"status": "error", "data": commentSerializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
 
-class HitLike(APIView):
+# class HitLike(APIView):
+#     def post(self, request, *args, **kwargs):
+#         id = self.kwargs.get('pk')
+        
+#         post = PostCollection.objects.get(id = id)
+
+#         liked_ind = False
+
+#         for like in post.likes.all():
+#             if like == request.user:
+#                 liked_ind = True
+#                 post.likes.remove(request.user)
+#                 break
+        
+#         if not liked_ind:
+#             post.likes.add(request.user)
+
+#         serializer = PostCollectionSerializer(post)
+
+#         return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
+
+
+class PostDetailView(APIView):
+    def get_object(self, *args, **kwargs):
+        pid = self.kwargs.get('postId')
+
+        try: 
+            return PostCollection.objects.get(id = pid)
+        except PostCollection.DoesNotExist:
+            return Response({"status": "error", "data": "post does not exist"}, status=status.HTTP_400_BAD_REQUEST)
+       
+    def get(self, *args, **kwargs):
+        post = self.get_object()
+        postserializer = PostCollectionSerializer(post)
+
+        comments = CommentCollection.objects.filter(post=post).all()
+        commentserializer = CommentCollectionSerializer(comments, many = True)
+
+        return Response({"status": "success", "data": {"post": postserializer.data, "comments": commentserializer.data}}, status=status.HTTP_200_OK)
+
     def post(self, request, *args, **kwargs):
-        id = self.kwargs.get('pk')
+        # post = self.get_object()
+        # postserializer = PostCollectionSerializer(post)
+        commentserializer = CommentCollectionSerializer(data=request.data)
+
+        post = self.get_object()
+        postserializer = PostCollectionSerializer(post)
         
-        post = PostCollection.objects.get(id = id)
+        # commentserializer.post = self.kwargs.get('postId')
 
-        liked_ind = False
-
-        for like in post.likes.all():
-            if like == request.user:
-                liked_ind = True
-                post.likes.remove(request.user)
-                break
+        if commentserializer.is_valid():
+            commentserializer.save()
+            return Response({"status": "success", "data": {"post": postserializer.data,"comments":commentserializer.data}}, status=status.HTTP_200_OK)
+        else:
+            return Response({"status": "error", "data": commentserializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+            
+        post = self.get_object()
         
-        if not liked_ind:
-            post.likes.add(request.user)
+        serializer = PostCollectionSerializer(post, data=request.data, partial=True)
 
-        serializer = PostCollectionSerializer(post)
+        if serializer.is_valid():
+            serializer.save()
 
-        return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
+            return Response({"status": "success", "data": serializer.data})
+        else:
+            return Response({"status": "error", "data": serializer.errors})
+    
 
 
 class CommentDetailView(APIView):
 
-    def get_object(self, *args, **kwargs):
-        id = self.kwargs.get('pk')
+    def get_commentobject(self, *args, **kwargs):
+        cid = self.kwargs.get('commentId')
         try: 
-            return CommentCollection.objects.get(id = id)
+            return CommentCollection.objects.get(id = cid)
         except CommentCollection.DoesNotExist:
             return Response({"status": "error", "data": "comment does not exist"}, status=status.HTTP_400_BAD_REQUEST)
 
+    def get_postobject(self, *args, **kwargs):
+        pid = self.kwargs.get('postId')
+        try: 
+            return PostCollection.objects.get(id = pid)
+        except PostCollection.DoesNotExist:
+            return Response({"status": "error", "data": "post does not exist"}, status=status.HTTP_400_BAD_REQUEST)
+
+        pid = self.kwargs.get('postId')
+
     def get(self, request, *args, **kwargs):
-        comment = self.get_object()
+        comment = self.get_commentobject()
         serializer = CommentCollectionSerializer(comment)
 
         return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
 
-    def post(self, request, *args, **kwargs):
-        serializer = CommentCollectionSerializer(request.data) 
+    # def post(self, request, *args, **kwargs):
+    #     serializer = CommentCollectionSerializer(request.data) 
 
-        if serializer.is_valid():
-            serializer.save()
-            return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
-        else:
-            return Response({"status": "error", "data": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
+    #     else:
+    #         return Response({"status": "error", "data": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
-    def patch(self, request, id, *args, **kwargs):
-        comment = self.get_object(id)
+    def patch(self, request, *args, **kwargs):
+        comment = self.get_commentobject()
 
         serializer = CommentCollectionSerializer(comment, data=request.data, partial=True)
 
@@ -157,7 +209,7 @@ class CommentDetailView(APIView):
             return Response({"status": "error", "data": serializer.errors})
 
     def delete(self, request, *args, **kwargs):
-        comment = self.get_object()
+        comment = self.get_commentobject()
         comment.delete()
         
         return Response({"status": "error", "data": "comment deleted"})
