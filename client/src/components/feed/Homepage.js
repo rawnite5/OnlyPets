@@ -136,7 +136,10 @@ const Homepage = () => {
 							</div>
 
 							<a href="#"><span class="glyphicon glyphicon-camera" id="importPhoto"></span></a>
+							
 							<a href="#"><span class="glyphicon glyphicon-film" id="importVideo"></span></a>
+							<button class="glyphicon glyphicon-heart" id="likeButton"></button>
+							<button class="glyphicon glyphicon-pencil" id="commentButton"></button>
 
 							<div class="dropdown">
 								<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
@@ -149,7 +152,7 @@ const Homepage = () => {
 									<a class="dropdown-item" href="#">Friends Only</a>
 								</div>
 							</div>
-							<button href="#" id="postButton" class="btn btn-primary">Publish</button>
+							<button id="postButton" class="btn btn-primary" onClick={publishStatus} >Publish</button>
 						</div>
 					</div>
 				</div>
@@ -237,6 +240,40 @@ function toggle_light_mode() {
 		app.setAttribute("light-mode", "dark");
 	}
 }
+
+function publishStatus() {
+	alert("clicked");
+
+	var privacyButton = document.getElementsByTagName("dropdownMenuButton");
+	var publishButton = document.getElementsByTagName("postButton");
+	var cameraIcon = document.getElementsByTagName("importPhoto");
+	var videoIcon = document.getElementsByTagName("importVideo");
+	var likeIcon = document.getElementsByTagName("likeButton");
+	var commentIcon = document.getElementsByTagName("commentButton");
+	var isClicked = new Boolean(true);
+
+	if (isClicked === true){
+		privacyButton.style.display = "none";
+		publishButton.style.display = "none";
+		likeIcon.style.display = "show";
+		commentIcon.style.display = "show";
+		cameraIcon.style.display = "none";
+		videoIcon.style.display = "none";
+	  } else {
+		isClicked === false;
+		privacyButton.style.display = "show";
+		publishButton.style.display = "show";
+		likeIcon.style.display = "none";
+		commentIcon.style.display = "none";
+		cameraIcon.style.display = "show";
+		videoIcon.style.display = "show";
+	  }
+	
+
+
+}
+
+
 
 
 
