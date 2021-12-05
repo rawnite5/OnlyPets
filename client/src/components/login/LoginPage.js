@@ -12,7 +12,7 @@ const LoginPage = () => {
 		let navigate = useNavigate();
 
 		window.onload = function () {
-			let emailLogin = document.querySelector("#emailLoginInput");
+			let usernameLogin = document.querySelector("#usernameLoginInput");
 			let passwordLogin = document.querySelector("#passwordLoginInput");
 			let loginButton = document.querySelector("#loginButton");
 
@@ -37,13 +37,14 @@ const LoginPage = () => {
 
 				const accountDetails = {
 					username: petName.value,
+					firstname: petName.value,
 					password: password.value,
 				};
 
 				// send the request to the login API with the data
-				axios.post(`${apiURL}/register`, accountDetails)
+				axios.post(`${apiURL}/profile/`, accountDetails)
 					.then(response => {
-						if (response.data.message === "A user with this username already exists") {
+						if (response.status === 'error') {
 							alert("A user with that name already exists");
 						} else {
 							window.sessionStorage.setItem("username", accountDetails.username);
@@ -57,21 +58,23 @@ const LoginPage = () => {
 				event.preventDefault();
 
 				// didnt give us info for something
-				if (!emailLogin.value || !passwordLogin.value) {
+				if (!usernameLogin.value || !passwordLogin.value) {
 					alert("Please enter in all of your login info");
 					return;
 				};
 
 				// put the data being sent in an object to be converted to JSON
 				const loginCredentials = {
-					username: emailLogin.value,
+
+					username: usernameLogin.value,
+					firstname: usernameLogin.value,
 					password: passwordLogin.value,
 				};
 
 				// send the request to the login API with the data
-				axios.post(`${apiURL}/login`, loginCredentials)
+				axios.get(`${apiURL}/profile/${usernameLogin.value}`, loginCredentials)
 					.then(response => {
-						if (response.data.message === "Invalid User") {
+						if (response.status === 'error' || loginCredentials.password !== response.data.data.password) {
 							alert("Invalid username or password");
 						} else {
 							window.sessionStorage.setItem("username", loginCredentials.username);
@@ -106,8 +109,8 @@ const LoginPage = () => {
 						</div>
 						{/* Login: Email Address  */}
 						<div className="form-login">
-							<label htmlFor="floatingInput">Email address: </label>
-							<input type="email" className="form" id="emailLoginInput" placeholder="name@example.com" required />
+							<label htmlFor="floatingInput">Username: </label>
+							<input type="Name" className="form" id="usernameLoginInput" placeholder="Username" required />
 						</div>
 						{/* Login: Password  */}
 						<div className="form-login">
@@ -144,8 +147,8 @@ const LoginPage = () => {
 
 						{/* Register: Pet's Name */}
 						<div className="form-reg">
-							<label htmlFor="floatingInput">Your Pet's Name:*</label>
-							<input type="Name" className="form" id="petNameInput" placeholder="ex. Guinness" required />
+							<label htmlFor="floatingInput">Username:*</label>
+							<input type="Name" className="form" id="petNameInput" placeholder="Username" required />
 
 						</div>
 

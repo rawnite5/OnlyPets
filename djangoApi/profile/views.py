@@ -12,7 +12,7 @@ class ProfileView(APIView):
             serializer.save()
             return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
         else:
-            return Response({"status": "error", "data": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"status": "error", "data": serializer.errors}, status=status.HTTP_200_OK)
 
     def get(self, request, username=None):
         if username:
@@ -21,7 +21,7 @@ class ProfileView(APIView):
                 serializer = ProfileSerializer(item)
                 return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
             except Profile.DoesNotExist:
-                return Response({"status": "error", "data": "username does not exist"}, status=status.HTTP_400_BAD_REQUEST)
+                return Response({"status": "error", "data": "username does not exist"}, status=status.HTTP_200_OK)
 
         items = Profile.objects.all()
         serializer = ProfileSerializer(items, many=True)
@@ -31,7 +31,7 @@ class ProfileView(APIView):
         try:
             item = Profile.objects.get(username=username)
         except Profile.DoesNotExist:
-            return Response({"status": "error", "data": "username does not exist"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"status": "error", "data": "username does not exist"}, status=status.HTTP_200_OK)
 
         item.delete()
         return Response({"status": "success", "data": "Item Deleted"})
@@ -40,7 +40,7 @@ class ProfileView(APIView):
         try:
             item = Profile.objects.get(username=username)
         except Profile.DoesNotExist:
-            return Response({"status": "error", "data": "username does not exist"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"status": "error", "data": "username does not exist"}, status=status.HTTP_200_OK)
 
         serializer = ProfileSerializer(item, data=request.data, partial=True)
         if serializer.is_valid():

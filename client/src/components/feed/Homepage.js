@@ -23,7 +23,7 @@ const Homepage = () => {
 
 	const script = () => {
 		window.onload = function () {
-
+			
 		}
 	}
 
