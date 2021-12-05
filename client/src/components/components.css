@@ -449,45 +449,61 @@ main{
     margin-left: 425px;
     margin-top: -8px;
     font-size: 10px;
-    display: show;
+    display: block;
     width: 60px;
+    border-radius: 30px;
+    background-color:rgb(247, 228, 247);
+    border-color: rgb(247, 228, 247);
+    color: black;
 }
 
 #likeButton{
-  margin-left: -75px;
+  margin-right: 300px;
+  margin-top: 50px;
   font-size: 15px;
   border-radius: 30px;
- color:rgb(250, 151, 151);
- display: none;
+ color:rgb(250, 156, 156);
+ display: inline-block;
 
 
 
 }
 #commentButton{
-  margin-left: 10px;
+  margin-left: 50px;
   font-size: 15px;
   border-radius: 30px;
   color: rgb(214, 151, 250);
-  display: none;
+  display: show;
+}
+.commentButton-Container{
+  margin-top: -23px;
 }
 
 
-.glyphicon.glyphicon-camera{
+/* .glyphicon.glyphicon-camera{
     font-size: 20px;
     padding: 10px;
-    display: show;
+    display: inline-block;
 }
 .glyphicon.glyphicon-film{
     font-size: 20px;
     padding: 10px;
-    display: show;
-   
-}
+    display: inline-block;
+    /* display: contents; */
 
 .dropdown{
     margin-left: 478px;
     margin-bottom: -26.5px;
+    
 }
+
+#dropdownMenuButton{
+  border-radius: 30px;
+  background-color: #c3dbfc;
+  border-color: #c3dbfc;
+  color: black;
+}
+
 
 /* .chatting{
     border: solid pink;
@@ -995,6 +1011,7 @@ main{
 .post-col #dropdownMenuButton{
     margin-left:100px;
     margin-bottom: 30px;
+    border-radius: 30px;
 }
 
 .post-col #publishPostButton{

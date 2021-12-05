@@ -135,11 +135,14 @@ const Homepage = () => {
 									id="editContent"></textarea> </div>
 							</div>
 
-							<a href="#"><span class="glyphicon glyphicon-camera" id="importPhoto"></span></a>
+							{/* <a href="#"><span class="glyphicon glyphicon-camera" id="importPhoto"></span></a>
 							
-							<a href="#"><span class="glyphicon glyphicon-film" id="importVideo"></span></a>
+							<a href="#"><span class="glyphicon glyphicon-film" id="importVideo"></span></a> */}
+
 							<button class="glyphicon glyphicon-heart" id="likeButton"></button>
+							<div class="commentButton-Container">
 							<button class="glyphicon glyphicon-pencil" id="commentButton"></button>
+							</div>
 
 							<div class="dropdown">
 								<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
@@ -153,7 +156,7 @@ const Homepage = () => {
 								</div>
 							</div>
 						</div>
-						<button id="postButton" class="btn btn-primary" onClick={publishStatus} >Publish</button>
+						<button id="postButton" type="submit" class="btn btn-primary" onClick={publishStatus} >Publish</button>
 					</div>
 				</div>
 
@@ -242,34 +245,30 @@ function toggle_light_mode() {
 }
 
 function publishStatus() {
-	alert("clicked");
+	alert("Your Status was posted");
 
 	var privacyButton = document.getElementsByTagName("dropdownMenuButton");
 	var publishButton = document.getElementsByTagName("postButton");
-	var cameraIcon = document.getElementsByTagName("importPhoto");
-	var videoIcon = document.getElementsByTagName("importVideo");
+	// var cameraIcon = document.getElementsByTagName("importPhoto");
+	// var videoIcon = document.getElementsByTagName("importVideo");
 	var likeIcon = document.getElementsByTagName("likeButton");
 	var commentIcon = document.getElementsByTagName("commentButton");
-	var isClicked = new Boolean(true);
-
-	if (isClicked === true){
+	if (publishButton.style.display === "block") {
 		privacyButton.style.display = "none";
 		publishButton.style.display = "none";
-		likeIcon.style.display = "show";
-		commentIcon.style.display = "show";
-		cameraIcon.style.display = "none";
-		videoIcon.style.display = "none";
+		likeIcon.style.display = "inline-block";
+		commentIcon.style.display = "inline-block";
 	  } else {
-		isClicked === false;
-		privacyButton.style.display = "show";
-		publishButton.style.display = "show";
-		likeIcon.style.display = "none";
-		commentIcon.style.display = "none";
-		cameraIcon.style.display = "show";
-		videoIcon.style.display = "show";
+		likeIcon.style.display = "inline-block";
+		commentIcon.style.display = "inline-block";
 	  }
-	
 
+	privacyButton.style.display = "none";
+	publishButton.style.display = "none";
+	likeIcon.style.display = "inline-block";
+	commentIcon.style.display = "inline-block";
+	// cameraIcon.style.display = "none";
+	// videoIcon.style.display = "none";
 
 }
 
