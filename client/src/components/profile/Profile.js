@@ -28,30 +28,30 @@ const Profile = ({ username, setUsername, setPage }) => {
 
             <main class="entire-profilepage">
                 {/* Navbar */}
-				<div class="navbar">
-					<nav class="navbar navbar-expand-lg navbar-light bg-light">
-						<img src={textlogo} id="navBarTextLogo" />
-						<a class="nav-link glyphicon glyphicon-home" href="/home" id="home"><span class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-user" href="/profile" id="profile"> <span class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-wrench" href="/settings" id="settings"><span
-							class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-bell" href="/profile" id="notifications"> <span class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-envelope" href="/messages" id="messages"> <span
-							class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-log-out" href="/" id="logout"><span class="sr-only"></span></a>
+                <div class="navbar">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <img src={textlogo} id="navBarTextLogo" />
+                        <a class="nav-link glyphicon glyphicon-home" href="/home" id="home"><span class="sr-only"></span></a>
+                        <a class="nav-link glyphicon glyphicon-user" href="/profile" id="profile"> <span class="sr-only"></span></a>
+                        <a class="nav-link glyphicon glyphicon-wrench" href="/settings" id="settings"><span
+                            class="sr-only"></span></a>
+                        <a class="nav-link glyphicon glyphicon-bell" href="/profile" id="notifications"> <span class="sr-only"></span></a>
+                        <a class="nav-link glyphicon glyphicon-envelope" href="/messages" id="messages"> <span
+                            class="sr-only"></span></a>
+                        <a class="nav-link glyphicon glyphicon-log-out" href="/" id="logout"><span class="sr-only"></span></a>
 
-						<div class="search-bar">
-							<input id="search" type="search" class="form-control" />
-						</div>
+                        <div class="search-bar">
+                            <input id="search" type="search" class="form-control" />
+                        </div>
 
-						<a href="search.html"><span class="glyphicon glyphicon-search"></span></a>
+                        <a href="search.html"><span class="glyphicon glyphicon-search"></span></a>
 
-						<div class="lightModeButton3-container">
-							<button class="btn btn-dark" id="light-mode-button3" onClick={toggle_light_mode}>Dark Mode</button>
-						</div>
+                        <div class="lightModeButton3-container">
+                            <button class="btn btn-dark" id="light-mode-button3" onClick={toggle_light_mode}>Dark Mode</button>
+                        </div>
 
-					</nav>
-				</div>
+                    </nav>
+                </div>
 
                 <div class="everythingButNavBar">
 
@@ -115,22 +115,27 @@ const Profile = ({ username, setUsername, setPage }) => {
                                             <div class="textarea_wrap"> <textarea class="col-xs-11"
                                                 placeholder="What's on your mind?" id="editContent"></textarea> </div>
                                         </div>
-
+{/* 
                                         <a href="#"><span class="glyphicon glyphicon-camera" id="importPhoto"></span></a>
-                                        <a href="#"><span class="glyphicon glyphicon-film" id="importVideo"></span></a>
+                                        <a href="#"><span class="glyphicon glyphicon-film" id="importVideo"></span></a> */}
+
+                                        <button class="glyphicon glyphicon-heart" id="likeButton"></button>
+                                        <div class="commentButton-Container">
+                                            <button class="glyphicon glyphicon-pencil" id="commentButton"></button>
+                                        </div>
 
                                         <div class="dropdown">
                                             <button class="btn btn-primary dropdown-toggle" type="button"
-                                                id="privacyButton" data-toggle="dropdown" aria-haspopup="true"
+                                                id="profileStatusDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                                 aria-expanded="false"> Privacy </button>
 
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <div class="dropdown-menu" aria-labelledby="profileStatusDropdownMenuButton">
                                                 <a class="dropdown-item" href="#">Only Me</a>
                                                 <a class="dropdown-item" href="#">Everyone</a>
                                                 <a class="dropdown-item" href="#">Friends Only</a>
                                             </div>
                                         </div>
-                                        <button class="btn btn-primary" id="profilepublishPostButton">Publish</button>
+                                        <button class="btn btn-primary" id="postButton" onClick={postStatus}>Publish</button>
                                     </div>
                                 </div>
                             </div>
@@ -161,6 +166,12 @@ function toggle_light_mode() {
         app.setAttribute("light-mode", "dark");
     }
 }
+
+
+function postStatus() { 
+    alert("Status published");
+}
+
 
 
 export default Profile;
