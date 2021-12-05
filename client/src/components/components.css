@@ -444,10 +444,15 @@ main{
 
 }
 #postButton{
-    margin-left: 550px;
-    font-size: 11.5px;
+    /* margin-left: 570px; */
+    /* margin-right: 700px; */
+    margin-left: 425px;
+    margin-top: -8px;
+    font-size: 10px;
     display: show;
+    width: 60px;
 }
+
 #likeButton{
   margin-left: -75px;
   font-size: 15px;

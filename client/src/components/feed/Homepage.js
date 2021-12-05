@@ -152,8 +152,8 @@ const Homepage = () => {
 									<a class="dropdown-item" href="#">Friends Only</a>
 								</div>
 							</div>
-							<button id="postButton" class="btn btn-primary" onClick={publishStatus} >Publish</button>
 						</div>
+						<button id="postButton" class="btn btn-primary" onClick={publishStatus} >Publish</button>
 					</div>
 				</div>
 
