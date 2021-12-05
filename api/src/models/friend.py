@@ -6,6 +6,13 @@ import json
 #1. - Load libraries
 import sqlite3
 import pandas as pd
+import json
+import os
+import pymysql
+
+db_user = os.environ.get('CLOUD_SQL_USERNAME')
+db_password = os.environ.get('CLOUD_SQL_PASSWORD')
+db_ip = os.environ.get('CLOUD_SQL_IP')
 
 # 2.- Create your connection.
 def open_connection_sqlite3():
@@ -15,10 +22,9 @@ def open_connection_sqlite3():
     return cnx,cursor
 
 def open_connection():
-    engineUrl = f"mysql+pymysql://root:onlypets@34.67.163.10"
+    engineUrl = f"mysql+pymysql://{db_user}:{db_password}@{db_ip}"
     engine = create_engine(engineUrl, echo=True)
     return engine.connect()
-
 
 databaseName = "onlyPetsDatabase"
 

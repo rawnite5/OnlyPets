@@ -171,7 +171,7 @@ const LoginPage = () => {
 
 						{/* Register: Date of Birth */}
 						<div className="form-reg">
-							<label htmlFor="birthday">Birthday: *</label>
+							<label htmlFor="birthday">Birthday: </label>
 							<input type="date" id="birthday" name="birthday" required />
 
 						</div>
@@ -179,7 +179,7 @@ const LoginPage = () => {
 
 						{/* Register : Security Question */}
 						<div className="form-reg">
-							<label htmlFor="Security_Question">Security Question: *</label>
+							<label htmlFor="Security_Question">Security Question: </label>
 
 							<select name="security_question" id="security_q" required>
 								<option value="question1">In what city were you born?</option>
@@ -193,14 +193,14 @@ const LoginPage = () => {
 						</div>
 						{/* Register: Security Question Answer*/}
 						<div className="form-reg">
-							<label htmlFor="sq_answer">Answer: *</label>
+							<label htmlFor="sq_answer">Answer: </label>
 							<input type="answer" id="answer" name="answer" required />
 						</div>
 
 
 						{/* Register: Species of Pet */}
 						<div className="form-reg">
-							<label htmlFor="Type_of_Pet">Type of Pet: *</label>
+							<label htmlFor="Type_of_Pet">Type of Pet: </label>
 							<select name="Animal" id="animals" required>
 
 								<option value="Mammal">Mammal</option>
