@@ -177,7 +177,7 @@ const Profile = ({ username, setUsername, setPage }) => {
                         <div class="profileinfo">
                             <div class="info-col"></div>
                             <div class="post-col">
-                                <div class="card w-50 shadow p-3 mb-5 bg-white rounded" id="profilepostCard">
+                                <div class="card w-60 shadow p-3 mb-5 bg-white rounded" id="profilepostCard">
                                     {/*  card's body */}
                                     <div class="-profile-card-body">
                                         <h5 class="card-title" id="cardTitle">{username}</h5>
