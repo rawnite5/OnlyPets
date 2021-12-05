@@ -1008,11 +1008,20 @@ main{
 
 }
 
+/* 
 .post-col #dropdownMenuButton{
     margin-left:100px;
     margin-bottom: 30px;
     border-radius: 30px;
-}
+} */
+ #profileStatusDropdownMenuButton{
+   margin-left: 30px;
+   margin-bottom: 1px;
+   border-radius: 30px;
+   background-color: #c3dbfc;
+   border-color: #c3dbfc;
+   color: black;
+ }
 
 .post-col #publishPostButton{
     margin-left: 650px;
