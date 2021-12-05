@@ -6,7 +6,7 @@ import config from '../../utils/config';
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
 
-const LoginPage = ({username, setUsername, setPage}) => {
+const LoginPage = ({setPage}) => {
 	const loginScript = () => {
 		window.onload = function () {
 			let emailLogin = document.querySelector("#emailLoginInput");
@@ -43,7 +43,8 @@ const LoginPage = ({username, setUsername, setPage}) => {
 						if (response.data.message === "A user with this username already exists") {
 							alert("A user with that name already exists");
 						} else {
-							setUsername(accountDetails.username);
+							window.sessionStorage.setItem("username", accountDetails.username);
+							window.sessionStorage.setItem("currPage", "home");
 							setPage("home");
 						}
 					})
@@ -71,7 +72,8 @@ const LoginPage = ({username, setUsername, setPage}) => {
 						if (response.data.message === "Invalid User") {
 							alert("Invalid username or password");
 						} else {
-							setUsername(loginCredentials.username);
+							window.sessionStorage.setItem("username", loginCredentials.username);
+							window.sessionStorage.setItem("currPage", "home");
 							setPage("home");
 						}
 					})

@@ -16,18 +16,23 @@ import { lightTheme, darkTheme } from "./components/theme"
 import { useState } from 'react'
 
 function App() {
-  {/*
-  const [page, setPage] = useState('login')
-  const [username, setUsername] = useState('')
-  */}
-  const [page, setPage] = useState('settings')
-  const [username, setUsername] = useState('jeff')
+  const currPage = window.sessionStorage.getItem('currPage');
+
+  const defaultPage = "login";
+  let page, setPage;
+
+  if(currPage) {
+    [page, setPage] = useState(currPage);
+    window.sessionStorage.setItem("currPage", currPage);
+  } else {
+    [page, setPage] = useState(defaultPage);
+  }
 
   return (
     <div>
-      {page === "login" && (<LoginPage username={username} setUsername={setUsername} setPage={setPage} />)}
-      {page === "home" && (<Homepage username={username} setUsername={setUsername} setPage={setPage} />)}
-      {page === "profile" && (<Profile username={username} setUsername={setUsername} setPage={setPage} />)}
+      {page === "login" && (<LoginPage setPage={setPage} />)}
+      {page === "home" && (<Homepage setPage={setPage} />)}
+      {page === "profile" && (<Profile setPage={setPage} />)}
       {page === "profileAbout" && (<ProfileAbout setPage={setPage} />)}
       {page === "profileFriends" && (<ProfileFriends setPage={setPage} />)}
       {page === "profilePictures" && (<ProfilePictures setPage={setPage} />)}

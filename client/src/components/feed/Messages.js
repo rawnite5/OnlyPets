@@ -9,7 +9,53 @@ import textlogo from '../../assests/textLogo.jpg'
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
 
-const Messages = () => {
+const Messages = ({ username, setUsername, setPage }) => {
+	const script = () => {
+        window.onload = function () {
+
+            /* handle nav bar redirects*/
+            let homeIcon = document.querySelector("#home");
+            let profileIcon = document.querySelector("#profile");
+            let settingsIcon = document.querySelector("#settings");
+            let notificationsIcon = document.querySelector("#notifications");
+            let messagesIcon = document.querySelector("#messages");
+            let logoutIcon = document.querySelector("#logout");
+
+            homeIcon.addEventListener("click", event => {
+                event.preventDefault();
+                window.sessionStorage.setItem('currPage', "home");
+                setPage("home");
+            });
+            profileIcon.addEventListener("click", event => {
+                event.preventDefault();
+                window.sessionStorage.setItem('currPage', "profile");
+                setPage("profile");
+            });
+            settingsIcon.addEventListener("click", event => {
+                event.preventDefault();
+                window.sessionStorage.setItem('currPage', "settings");
+                setPage("settings");
+            });
+            notificationsIcon.addEventListener("click", event => {
+                event.preventDefault();
+                window.sessionStorage.setItem('currPage', "profile");
+                setPage("profile");
+            });
+            messagesIcon.addEventListener("click", event => {
+                event.preventDefault();
+                window.sessionStorage.setItem('currPage', "messages");
+                setPage("messages");
+            });
+            logoutIcon.addEventListener("click", event => {
+                event.preventDefault();
+                window.sessionStorage.setItem('currPage', "login");
+                sessionStorage.clear();
+                localStorage.clear();
+                setPage("login");
+            });
+        }
+    }
+
 	return (
 		<div>
 			<Helmet>
@@ -71,12 +117,6 @@ const Messages = () => {
 		</div>
 	)
 }
-
-const script = () => {
-	window.onload = function () {
-	}
-}
-
 
 function toggle_light_mode() {
 	var app = document.getElementsByTagName("MAIN")[0];

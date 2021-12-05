@@ -17,14 +17,10 @@ import like from '../../assests/like.svg';
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
 
-const Homepage = ({ username, setUsername, setPage }) => {
+const Homepage = ({setPage }) => {
 	const script = () => {
 		window.onload = function () {
 
-
-
-
-			
 			/* handle quick nav redirects*/
 			let profilePill = document.querySelector("#profilePill");
 			let settingsPill = document.querySelector("#settingsPill");
@@ -33,18 +29,22 @@ const Homepage = ({ username, setUsername, setPage }) => {
 
 			profilePill.addEventListener("click", event => {
 				event.preventDefault();
+				window.sessionStorage.setItem('page', "profile");
 				setPage("profile");
 			});
 			settingsPill.addEventListener("click", event => {
 				event.preventDefault();
+				window.sessionStorage.setItem('page', "settings");
 				setPage("settings");
 			});
 			pagesPill.addEventListener("click", event => {
 				event.preventDefault();
+				window.sessionStorage.setItem('page', "home");
 				setPage("home");
 			});
 			friendsPill.addEventListener("click", event => {
 				event.preventDefault();
+				window.sessionStorage.setItem('page', "profile");
 				setPage("profile");
 			});
 
@@ -58,26 +58,34 @@ const Homepage = ({ username, setUsername, setPage }) => {
 
 			homeIcon.addEventListener("click", event => {
 				event.preventDefault();
+				window.sessionStorage.setItem('currPage', "home");
 				setPage("home");
 			});
 			profileIcon.addEventListener("click", event => {
 				event.preventDefault();
+				window.sessionStorage.setItem('currPage', "profile");
 				setPage("profile");
 			});
 			settingsIcon.addEventListener("click", event => {
 				event.preventDefault();
+				window.sessionStorage.setItem('currPage', "settings");
 				setPage("settings");
 			});
 			notificationsIcon.addEventListener("click", event => {
 				event.preventDefault();
+				window.sessionStorage.setItem('currPage', "profile");
 				setPage("profile");
 			});
 			messagesIcon.addEventListener("click", event => {
 				event.preventDefault();
+				window.sessionStorage.setItem('currPage', "messages");
 				setPage("messages");
 			});
 			logoutIcon.addEventListener("click", event => {
 				event.preventDefault();
+				window.sessionStorage.setItem('currPage', "login");
+				sessionStorage.clear();
+				localStorage.clear();
 				setPage("login");
 			});
 		}
@@ -283,7 +291,7 @@ function openChatBubble() {
 
 function toggle_light_mode() {
 	var app = document.getElementsByTagName("MAIN")[0];
-	if (localStorage.lightMode == "dark") {
+	if (localStorage.lightMode === "dark") {
 		localStorage.lightMode = "light";
 		app.setAttribute("light-mode", "light");
 	} else {

@@ -17,7 +17,6 @@ const Settings = ({ username, setUsername, setPage }) => {
 	const script = () => {
         window.onload = function () {
 
-
             /* handle nav bar redirects*/
             let homeIcon = document.querySelector("#home");
             let profileIcon = document.querySelector("#profile");
@@ -28,26 +27,34 @@ const Settings = ({ username, setUsername, setPage }) => {
 
             homeIcon.addEventListener("click", event => {
                 event.preventDefault();
+                window.sessionStorage.setItem('currPage', "home");
                 setPage("home");
             });
             profileIcon.addEventListener("click", event => {
                 event.preventDefault();
+                window.sessionStorage.setItem('currPage', "profile");
                 setPage("profile");
             });
             settingsIcon.addEventListener("click", event => {
                 event.preventDefault();
+                window.sessionStorage.setItem('currPage', "settings");
                 setPage("settings");
             });
             notificationsIcon.addEventListener("click", event => {
                 event.preventDefault();
+                window.sessionStorage.setItem('currPage', "profile");
                 setPage("profile");
             });
             messagesIcon.addEventListener("click", event => {
                 event.preventDefault();
+                window.sessionStorage.setItem('currPage', "messages");
                 setPage("messages");
             });
             logoutIcon.addEventListener("click", event => {
                 event.preventDefault();
+                window.sessionStorage.setItem('currPage', "login");
+                sessionStorage.clear();
+                localStorage.clear();
                 setPage("login");
             });
         }
