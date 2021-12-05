@@ -15,7 +15,7 @@ import { lightTheme, darkTheme } from "./components/theme"
 import { useState } from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-import { BrowserRouter as Router, Routes, Route } from "react-router";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from 'react';
 
 function App() {
