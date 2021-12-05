@@ -113,9 +113,14 @@ const ProfileAbout = () => {
 					<div class="profiledetails-bottom">
 						<div class="card shadow p-3 mb-5 bg-white rounded" id="AnotherBioCard">
 							<div class="btn-group-vertical" id="profileCardButtonGroup">
-								<button class="btn btn-light" id="bioPlacesButton"> Places Lived</button>
-								<button class="btn btn-light" id="bioWorkButton"> Work & Education</button>
-								<button class="btn btn-light" id="bioContactButton"> Contact Information</button>
+								<button class="btn btn-light" id="bioPlacesButton" onClick={placesButton} > Places Lived</button>
+								<button class="btn btn-light" id="bioWorkButton" onClick={workButton}> Work & Education</button>
+								<button class="btn btn-light" id="bioContactButton" onClick={contactButton}> Contact Information</button>
+							</div>
+							<div class="text-container">
+							<text id="placesText"> Places lived: South Bend, Indiana</text>
+							<text id="workText"> Job: Stay at home puppy</text>
+							<text id="contactText"> Email: cmtidmarsh@gmail.com</text>
 							</div>
 						</div>
 					</div>
@@ -140,5 +145,48 @@ function toggle_light_mode() {
 	app.setAttribute("light-mode", "dark");
     }	
 }
+
+function placesButton(){
+	var placesTextVar = document.getElementById("placesText");
+	var workTextVar = document.getElementById("workText");
+	var contactTextVar = document.getElementById("contactText");
+	
+	if (placesTextVar.style.display === "none") {
+		placesTextVar.style.display = "block";
+		workTextVar.style.display = "none";
+		contactTextVar.style.display = "none";
+	  } else {
+		placesTextVar.style.display = "none";
+	  }
+}
+function workButton(){
+
+	var placesTextVar = document.getElementById("placesText");
+	var workTextVar = document.getElementById("workText");
+	var contactTextVar = document.getElementById("contactText");
+	if (workTextVar .style.display === "none") {
+		workTextVar .style.display = "block";
+		placesTextVar.style.display = "none";
+		contactTextVar.style.display = "none";
+	  } else {
+		workTextVar .style.display = "none";
+	  }
+}
+
+function contactButton(){
+	var placesTextVar = document.getElementById("placesText");
+	var workTextVar = document.getElementById("workText");
+	var contactTextVar = document.getElementById("contactText");
+	if (contactTextVar.style.display === "none") {
+		contactTextVar.style.display = "block";
+		workTextVar.style.display = "none";
+		placesTextVar.style.display = "none";
+	  } else {
+		contactTextVar.style.display = "none";
+	  }
+}
+
+
+
 
 export default ProfileAbout;
