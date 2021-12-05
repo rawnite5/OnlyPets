@@ -446,12 +446,14 @@ main{
 #postButton{
     margin-left: 550px;
     font-size: 11.5px;
+    display: show;
 }
 #likeButton{
   margin-left: -75px;
   font-size: 15px;
   border-radius: 30px;
  color:rgb(250, 151, 151);
+ display: none;
 
 
 
@@ -461,16 +463,19 @@ main{
   font-size: 15px;
   border-radius: 30px;
   color: rgb(214, 151, 250);
+  display: none;
 }
 
 
 .glyphicon.glyphicon-camera{
     font-size: 20px;
     padding: 10px;
+    display: show;
 }
 .glyphicon.glyphicon-film{
     font-size: 20px;
     padding: 10px;
+    display: show;
    
 }
 

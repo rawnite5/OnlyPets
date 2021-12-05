@@ -152,7 +152,7 @@ const Homepage = () => {
 									<a class="dropdown-item" href="#">Friends Only</a>
 								</div>
 							</div>
-							<button href="#" id="postButton" class="btn btn-primary" onClick={publishStatus}>Publish</button>
+							<button id="postButton" class="btn btn-primary" onClick={publishStatus} >Publish</button>
 						</div>
 					</div>
 				</div>
@@ -242,14 +242,38 @@ function toggle_light_mode() {
 }
 
 function publishStatus() {
-	var privacyButon = document.getElementsByTagName("dropdownMenuButton");
+	alert("clicked");
+
+	var privacyButton = document.getElementsByTagName("dropdownMenuButton");
+	var publishButton = document.getElementsByTagName("postButton");
 	var cameraIcon = document.getElementsByTagName("importPhoto");
 	var videoIcon = document.getElementsByTagName("importVideo");
 	var likeIcon = document.getElementsByTagName("likeButton");
+	var commentIcon = document.getElementsByTagName("commentButton");
+	var isClicked = new Boolean(true);
 
+	if (isClicked === true){
+		privacyButton.style.display = "none";
+		publishButton.style.display = "none";
+		likeIcon.style.display = "show";
+		commentIcon.style.display = "show";
+		cameraIcon.style.display = "none";
+		videoIcon.style.display = "none";
+	  } else {
+		isClicked === false;
+		privacyButton.style.display = "show";
+		publishButton.style.display = "show";
+		likeIcon.style.display = "none";
+		commentIcon.style.display = "none";
+		cameraIcon.style.display = "show";
+		videoIcon.style.display = "show";
+	  }
+	
 
 
 }
+
+
 
 
 
