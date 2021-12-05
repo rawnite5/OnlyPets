@@ -9,7 +9,69 @@ import textlogo from '../../assests/textLogo.jpg';
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
 
-const Profile = () => {
+const Profile = ({ username, setUsername, setPage }) => {
+    const script = () => {
+        window.onload = function () {
+
+
+            /* handle quick nav redirects*/
+            let profileAbout = document.querySelector("#profile-about");
+            let profilePosts = document.querySelector("#profile-posts");
+            let profileFriends = document.querySelector("#profile-friends");
+            let profilePhotos = document.querySelector("#profile-photos");
+
+            profileAbout.addEventListener("click", event => {
+                event.preventDefault();
+                setPage("profileAbout");
+            });
+            profilePosts.addEventListener("click", event => {
+                event.preventDefault();
+                setPage("profile");
+            });
+            profileFriends.addEventListener("click", event => {
+                event.preventDefault();
+                setPage("profileFriends");
+            });
+            profilePhotos.addEventListener("click", event => {
+                event.preventDefault();
+                setPage("ProfilePictures");
+            });
+
+            /* handle nav bar redirects*/
+            let homeIcon = document.querySelector("#home");
+            let profileIcon = document.querySelector("#profile");
+            let settingsIcon = document.querySelector("#settings");
+            let notificationsIcon = document.querySelector("#notifications");
+            let messagesIcon = document.querySelector("#messages");
+            let logoutIcon = document.querySelector("#logout");
+
+            homeIcon.addEventListener("click", event => {
+                event.preventDefault();
+                setPage("home");
+            });
+            profileIcon.addEventListener("click", event => {
+                event.preventDefault();
+                setPage("profile");
+            });
+            settingsIcon.addEventListener("click", event => {
+                event.preventDefault();
+                setPage("settings");
+            });
+            notificationsIcon.addEventListener("click", event => {
+                event.preventDefault();
+                setPage("profile");
+            });
+            messagesIcon.addEventListener("click", event => {
+                event.preventDefault();
+                setPage("messages");
+            });
+            logoutIcon.addEventListener("click", event => {
+                event.preventDefault();
+                setPage("login");
+            });
+        }
+    }
+
     return (
         <div>
             <Helmet>
@@ -24,7 +86,7 @@ const Profile = () => {
                 {/* Navbar */}
                 <div class="navbar">
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <img src={textlogo} id="navBarTextLogo" />
+                        <img src={textlogo} id="navBarTextLogo" />
                         <a class="nav-link glyphicon glyphicon-home" href="homepage.html" id="home"><span
                             class="sr-only"></span></a>
                         <a class="nav-link glyphicon glyphicon-user" href="profile.html" id="profile"> <span
@@ -46,9 +108,9 @@ const Profile = () => {
                         <a href="search.html"><span class="glyphicon glyphicon-search"></span></a>
 
 
-						<div class="lightModeButton4-container">
-						<button class="btn btn-dark" id="light-mode-button4" onClick={toggle_light_mode}>Dark Mode</button>
-						</div>
+                        <div class="lightModeButton4-container">
+                            <button class="btn btn-dark" id="light-mode-button4" onClick={toggle_light_mode}>Dark Mode</button>
+                        </div>
 
                     </nav>
                 </div>
@@ -110,7 +172,7 @@ const Profile = () => {
                                 <div class="card w-50 shadow p-3 mb-5 bg-white rounded" id="profilepostCard">
                                     {/*  card's body */}
                                     <div class="-profile-card-body">
-                                        <h5 class="card-title" id="cardTitle">*Input Username Here</h5>
+                                        <h5 class="card-title" id="cardTitle">{username}</h5>
 
                                         <div class="col-xs-12" id="post_content">
                                             <div class="textarea_wrap"> <textarea class="col-xs-11"
@@ -152,20 +214,15 @@ const Profile = () => {
     )
 }
 
-const script = () => {
-    window.onload = function () {
-    }
-}
-
 function toggle_light_mode() {
     var app = document.getElementsByTagName("MAIN")[0];
     if (localStorage.lightMode == "dark") {
-	localStorage.lightMode = "light";
-	app.setAttribute("light-mode", "light");
+        localStorage.lightMode = "light";
+        app.setAttribute("light-mode", "light");
     } else {
-	localStorage.lightMode = "dark";
-	app.setAttribute("light-mode", "dark");
-    }	
+        localStorage.lightMode = "dark";
+        app.setAttribute("light-mode", "dark");
+    }
 }
 
 

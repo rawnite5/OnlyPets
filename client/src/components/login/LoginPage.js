@@ -6,7 +6,80 @@ import config from '../../utils/config';
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
 
-const LoginPage = () => {
+const LoginPage = ({username, setUsername, setPage}) => {
+	const loginScript = () => {
+		window.onload = function () {
+			let emailLogin = document.querySelector("#emailLoginInput");
+			let passwordLogin = document.querySelector("#passwordLoginInput");
+			let loginButton = document.querySelector("#loginButton");
+	
+			let petName = document.querySelector("#petNameInput");
+			let email = document.querySelector("#emailInput");
+			let confirmEmail = document.querySelector("#confirmEmailInput");
+			let password = document.querySelector("#passwordInput");
+			let registerButton = document.querySelector("#registerPetButton");
+	
+			registerButton.addEventListener("click", event => {
+				event.preventDefault();
+	
+				if (!petName.value || !password.value || !email.value) {
+					alert("Please enter all the required information");
+					return;
+				};
+	
+				if (email.value !== confirmEmail.value) {
+					alert("Email addresses do not match");
+					return;
+				};
+	
+				const accountDetails = {
+					username: petName.value,
+					password: password.value,
+				};
+	
+				// send the request to the login API with the data
+				axios.post(`${apiURL}/register`, accountDetails)
+					.then(response => {
+						if (response.data.message === "A user with this username already exists") {
+							alert("A user with that name already exists");
+						} else {
+							setUsername(accountDetails.username);
+							setPage("home");
+						}
+					})
+					.catch(error => console.log(error));
+			});
+	
+			loginButton.addEventListener("click", event => {
+				event.preventDefault();
+	
+				// didnt give us info for something
+				if (!emailLogin.value || !passwordLogin.value) {
+					alert("Please enter in all of your login info");
+					return;
+				};
+	
+				// put the data being sent in an object to be converted to JSON
+				const loginCredentials = {
+					username: emailLogin.value,
+					password: passwordLogin.value,
+				};
+	
+				// send the request to the login API with the data
+				axios.post(`${apiURL}/login`, loginCredentials)
+					.then(response => {
+						if (response.data.message === "Invalid User") {
+							alert("Invalid username or password");
+						} else {
+							setUsername(loginCredentials.username);
+							setPage("home");
+						}
+					})
+					.catch(error => console.log(error));
+			});
+		}
+	}
+
 	return (
 		<div>
 			<Helmet>
@@ -151,77 +224,6 @@ const LoginPage = () => {
 			</main >
 		</div >
 	)
-}
-
-const loginScript = () => {
-	window.onload = function () {
-		let emailLogin = document.querySelector("#emailLoginInput");
-		let passwordLogin = document.querySelector("#passwordLoginInput");
-		let loginButton = document.querySelector("#loginButton");
-
-		let petName = document.querySelector("#petNameInput");
-		let email = document.querySelector("#emailInput");
-		let confirmEmail = document.querySelector("#confirmEmailInput");
-		let password = document.querySelector("#passwordInput");
-		let registerButton = document.querySelector("#registerPetButton");
-
-		registerButton.addEventListener("click", event => {
-			event.preventDefault();
-
-			if (!petName.value || !password.value || !email.value) {
-				alert("Please enter all the required information");
-				return;
-			};
-
-			if (email.value !== confirmEmail.value) {
-				alert("Email addresses do not match");
-				return;
-			};
-
-			const accountDetails = {
-				username: petName.value,
-				password: password.value,
-			};
-
-			// send the request to the login API with the data
-			axios.post(`${apiURL}/register`, accountDetails)
-				.then(response => {
-					if (response.data.message === "A user with this username already exists") {
-						alert("A user with that name already exists");
-					} else {
-						alert("You have been registered and logged in");
-					}
-				})
-				.catch(error => console.log(error));
-		});
-
-		loginButton.addEventListener("click", event => {
-			event.preventDefault();
-
-			// didnt give us info for something
-			if (!emailLogin.value || !passwordLogin.value) {
-				alert("Please enter in all of your login info");
-				return;
-			};
-
-			// put the data being sent in an object to be converted to JSON
-			const loginCredentials = {
-				username: emailLogin.value,
-				password: passwordLogin.value,
-			};
-
-			// send the request to the login API with the data
-			axios.post(`${apiURL}/login`, loginCredentials)
-				.then(response => {
-					if (response.data.message === "Invalid User") {
-						alert("Invalid username or password");
-					} else {
-						alert("You have been logged in");
-					}
-				})
-				.catch(error => console.log(error));
-		});
-	}
 }
 
 export default LoginPage;

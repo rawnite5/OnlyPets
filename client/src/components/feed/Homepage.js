@@ -17,7 +17,72 @@ import like from '../../assests/like.svg';
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
 
-const Homepage = () => {
+const Homepage = ({ username, setUsername, setPage }) => {
+	const script = () => {
+		window.onload = function () {
+
+
+
+
+			
+			/* handle quick nav redirects*/
+			let profilePill = document.querySelector("#profilePill");
+			let settingsPill = document.querySelector("#settingsPill");
+			let pagesPill = document.querySelector("#pagesPill");
+			let friendsPill = document.querySelector("#friendsPill");
+
+			profilePill.addEventListener("click", event => {
+				event.preventDefault();
+				setPage("profile");
+			});
+			settingsPill.addEventListener("click", event => {
+				event.preventDefault();
+				setPage("settings");
+			});
+			pagesPill.addEventListener("click", event => {
+				event.preventDefault();
+				setPage("home");
+			});
+			friendsPill.addEventListener("click", event => {
+				event.preventDefault();
+				setPage("profile");
+			});
+
+			/* handle nav bar redirects*/
+			let homeIcon = document.querySelector("#home");
+			let profileIcon = document.querySelector("#profile");
+			let settingsIcon = document.querySelector("#settings");
+			let notificationsIcon = document.querySelector("#notifications");
+			let messagesIcon = document.querySelector("#messages");
+			let logoutIcon = document.querySelector("#logout");
+
+			homeIcon.addEventListener("click", event => {
+				event.preventDefault();
+				setPage("home");
+			});
+			profileIcon.addEventListener("click", event => {
+				event.preventDefault();
+				setPage("profile");
+			});
+			settingsIcon.addEventListener("click", event => {
+				event.preventDefault();
+				setPage("settings");
+			});
+			notificationsIcon.addEventListener("click", event => {
+				event.preventDefault();
+				setPage("profile");
+			});
+			messagesIcon.addEventListener("click", event => {
+				event.preventDefault();
+				setPage("messages");
+			});
+			logoutIcon.addEventListener("click", event => {
+				event.preventDefault();
+				setPage("login");
+			});
+		}
+	}
+
 	return (
 		<div>
 			<Helmet>
@@ -49,7 +114,7 @@ const Homepage = () => {
 						<a href="search.html"><span class="glyphicon glyphicon-search"></span></a>
 
 						<div class="lightModeButton3-container">
-						<button class="btn btn-dark" id="light-mode-button3" onClick={toggle_light_mode}>Dark Mode</button>
+							<button class="btn btn-dark" id="light-mode-button3" onClick={toggle_light_mode}>Dark Mode</button>
 						</div>
 
 					</nav>
@@ -209,15 +274,9 @@ const Homepage = () => {
 	)
 }
 
-const script = () => {
-	window.onload = function () {
-	}
-}
-
-
 function openChatBubble() {
 	// doesnt give alert
-	alert("open"); 
+	alert("open");
 	var element = document.getElementById("chat-bubble");
 	element.classList.toggle("open")
 }

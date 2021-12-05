@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { ReactDOM } from 'react';
 import logWithBorder from '../../assests/logoWithBorder.jpg';
 import dogHeader from '../../assests/dogHeader.jpg';
@@ -13,7 +13,46 @@ const axios = require('axios').default;
 const apiURL = config.baseUrl;
 
 
-const Settings = () => {
+const Settings = ({ username, setUsername, setPage }) => {
+	const script = () => {
+        window.onload = function () {
+
+
+            /* handle nav bar redirects*/
+            let homeIcon = document.querySelector("#home");
+            let profileIcon = document.querySelector("#profile");
+            let settingsIcon = document.querySelector("#settings");
+            let notificationsIcon = document.querySelector("#notifications");
+            let messagesIcon = document.querySelector("#messages");
+            let logoutIcon = document.querySelector("#logout");
+
+            homeIcon.addEventListener("click", event => {
+                event.preventDefault();
+                setPage("home");
+            });
+            profileIcon.addEventListener("click", event => {
+                event.preventDefault();
+                setPage("profile");
+            });
+            settingsIcon.addEventListener("click", event => {
+                event.preventDefault();
+                setPage("settings");
+            });
+            notificationsIcon.addEventListener("click", event => {
+                event.preventDefault();
+                setPage("profile");
+            });
+            messagesIcon.addEventListener("click", event => {
+                event.preventDefault();
+                setPage("messages");
+            });
+            logoutIcon.addEventListener("click", event => {
+                event.preventDefault();
+                setPage("login");
+            });
+        }
+    }
+
 	return (
 		<div>
 			<Helmet>
@@ -144,15 +183,6 @@ const Settings = () => {
 	)
 }
 
-
-const script = () => {
-	window.onload = function () {
-
-	}
-
-
-
-}
 const darkMode = () => {
 	var app = document.getElementsByTagName("MAIN")[0];
     if (localStorage.lightMode == "dark") {
