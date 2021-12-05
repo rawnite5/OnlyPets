@@ -8,7 +8,7 @@ const Post = ({ post }) => {
 		borderWidth: 1,
 		marginBottom: 5,
 		width: 400,
-		justifyContent: 'center'
+		justifyContent: 'center',
 	}
 
 	const [detailsVisible, setDetailsVisible] = useState(true)
@@ -55,8 +55,8 @@ const Post = ({ post }) => {
 		<div className={'post'} style={postStyle}>
 			<div>
 				<h5>{post.author}</h5>
-				<button id={'detailsButton'} onClick={() => setDetailsVisible(!detailsVisible)} type='button'>
-				</button>
+				<button id={'detailsButton'} onClick={() => setDetailsVisible(!detailsVisible)} type='button'class="
+glyphicon glyphicon-chevron-down"></button>
 			</div>
 			{showDetails(detailsVisible)}
 		</div>
