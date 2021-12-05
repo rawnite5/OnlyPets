@@ -23,19 +23,15 @@ const ProfilePictures = () => {
 				{/* Navbar */}
 				<div class="navbar">
 					<nav class="navbar navbar-expand-lg navbar-light bg-light">
-					<img src={textLogo} id="navBarTextLogo" />
-						<a class="nav-link glyphicon glyphicon-home" href="homepage.html" id="home"><span
+						<img src={textLogo} id="navBarTextLogo" />
+						<a class="nav-link glyphicon glyphicon-home" href="/home" id="home"><span class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-user" href="/profile" id="profile"> <span class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-wrench" href="/settings" id="settings"><span
 							class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-user" href="profile.html" id="profile"> <span
+						<a class="nav-link glyphicon glyphicon-bell" href="/profile" id="notifications"> <span class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-envelope" href="/messages" id="messages"> <span
 							class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-wrench" href="settings.html" id="settings"><span
-							class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-bell" href="#" id="notifications"> <span
-							class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-envelope" href="messages.html" id="messages"> <span
-							class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-log-out" href="index.html" id="logout"><span
-							class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-log-out" href="/" id="logout"><span class="sr-only"></span></a>
 
 
 						<div class="search-bar">
@@ -44,7 +40,7 @@ const ProfilePictures = () => {
 
 						<a href="search.html"><span class="glyphicon glyphicon-search"></span></a>
 						<div class="lightModeButton7-container">
-						<button class="btn btn-dark" id="light-mode-button7" onClick={toggle_light_mode}>Dark Mode</button>
+							<button class="btn btn-dark" id="light-mode-button7" onClick={toggle_light_mode}>Dark Mode</button>
 						</div>
 
 					</nav>
@@ -90,14 +86,14 @@ const script = () => {
 }
 
 function toggle_light_mode() {
-    var app = document.getElementsByTagName("MAIN")[0];
-    if (localStorage.lightMode == "dark") {
-	localStorage.lightMode = "light";
-	app.setAttribute("light-mode", "light");
-    } else {
-	localStorage.lightMode = "dark";
-	app.setAttribute("light-mode", "dark");
-    }	
+	var app = document.getElementsByTagName("MAIN")[0];
+	if (localStorage.lightMode == "dark") {
+		localStorage.lightMode = "light";
+		app.setAttribute("light-mode", "light");
+	} else {
+		localStorage.lightMode = "dark";
+		app.setAttribute("light-mode", "dark");
+	}
 }
 
 export default ProfilePictures;

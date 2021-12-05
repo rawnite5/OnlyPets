@@ -13,52 +13,12 @@ const axios = require('axios').default;
 const apiURL = config.baseUrl;
 
 
-const Settings = ({ username, setUsername, setPage }) => {
+const Settings = ({ setPage }) => {
 	const script = () => {
-        window.onload = function () {
+		window.onload = function () {
 
-            /* handle nav bar redirects*/
-            let homeIcon = document.querySelector("#home");
-            let profileIcon = document.querySelector("#profile");
-            let settingsIcon = document.querySelector("#settings");
-            let notificationsIcon = document.querySelector("#notifications");
-            let messagesIcon = document.querySelector("#messages");
-            let logoutIcon = document.querySelector("#logout");
-
-            homeIcon.addEventListener("click", event => {
-                event.preventDefault();
-                window.sessionStorage.setItem('currPage', "home");
-                setPage("home");
-            });
-            profileIcon.addEventListener("click", event => {
-                event.preventDefault();
-                window.sessionStorage.setItem('currPage', "profile");
-                setPage("profile");
-            });
-            settingsIcon.addEventListener("click", event => {
-                event.preventDefault();
-                window.sessionStorage.setItem('currPage', "settings");
-                setPage("settings");
-            });
-            notificationsIcon.addEventListener("click", event => {
-                event.preventDefault();
-                window.sessionStorage.setItem('currPage', "profile");
-                setPage("profile");
-            });
-            messagesIcon.addEventListener("click", event => {
-                event.preventDefault();
-                window.sessionStorage.setItem('currPage', "messages");
-                setPage("messages");
-            });
-            logoutIcon.addEventListener("click", event => {
-                event.preventDefault();
-                window.sessionStorage.setItem('currPage', "login");
-                sessionStorage.clear();
-                localStorage.clear();
-                setPage("login");
-            });
-        }
-    }
+		}
+	}
 
 	return (
 		<div>
@@ -75,18 +35,14 @@ const Settings = ({ username, setUsername, setPage }) => {
 				<div class="navbar">
 					<nav class="navbar navbar-expand-lg navbar-light bg-light">
 						<img src={textlogo} id="navBarTextLogo" />
-						<a class="nav-link glyphicon glyphicon-home" href="homepage.html" id="home"><span
+						<a class="nav-link glyphicon glyphicon-home" href="/home" id="home"><span class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-user" href="/profile" id="profile"> <span class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-wrench" href="/settings" id="settings"><span
 							class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-user" href="profile.html" id="profile"> <span
+						<a class="nav-link glyphicon glyphicon-bell" href="/profile" id="notifications"> <span class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-envelope" href="/messages" id="messages"> <span
 							class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-wrench" href="settings.html" id="settings"><span
-							class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-bell" href="#" id="notifications"> <span
-							class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-envelope" href="messages.html" id="messages">
-							<span class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-log-out" href="index.html" id="logout"><span
-							class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-log-out" href="/" id="logout"><span class="sr-only"></span></a>
 
 
 						<div class="search-bar">
@@ -192,13 +148,13 @@ const Settings = ({ username, setUsername, setPage }) => {
 
 const darkMode = () => {
 	var app = document.getElementsByTagName("MAIN")[0];
-    if (localStorage.lightMode == "dark") {
-	localStorage.lightMode = "light";
-	app.setAttribute("light-mode", "light");
-    } else {
-	localStorage.lightMode = "dark";
-	app.setAttribute("light-mode", "dark");
-    }	
+	if (localStorage.lightMode == "dark") {
+		localStorage.lightMode = "light";
+		app.setAttribute("light-mode", "light");
+	} else {
+		localStorage.lightMode = "dark";
+		app.setAttribute("light-mode", "dark");
+	}
 
 }
 

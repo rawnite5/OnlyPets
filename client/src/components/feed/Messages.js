@@ -9,50 +9,10 @@ import textlogo from '../../assests/textLogo.jpg'
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
 
-const Messages = ({ username, setUsername, setPage }) => {
+const Messages = ({ setPage }) => {
 	const script = () => {
         window.onload = function () {
 
-            /* handle nav bar redirects*/
-            let homeIcon = document.querySelector("#home");
-            let profileIcon = document.querySelector("#profile");
-            let settingsIcon = document.querySelector("#settings");
-            let notificationsIcon = document.querySelector("#notifications");
-            let messagesIcon = document.querySelector("#messages");
-            let logoutIcon = document.querySelector("#logout");
-
-            homeIcon.addEventListener("click", event => {
-                event.preventDefault();
-                window.sessionStorage.setItem('currPage', "home");
-                setPage("home");
-            });
-            profileIcon.addEventListener("click", event => {
-                event.preventDefault();
-                window.sessionStorage.setItem('currPage', "profile");
-                setPage("profile");
-            });
-            settingsIcon.addEventListener("click", event => {
-                event.preventDefault();
-                window.sessionStorage.setItem('currPage', "settings");
-                setPage("settings");
-            });
-            notificationsIcon.addEventListener("click", event => {
-                event.preventDefault();
-                window.sessionStorage.setItem('currPage', "profile");
-                setPage("profile");
-            });
-            messagesIcon.addEventListener("click", event => {
-                event.preventDefault();
-                window.sessionStorage.setItem('currPage', "messages");
-                setPage("messages");
-            });
-            logoutIcon.addEventListener("click", event => {
-                event.preventDefault();
-                window.sessionStorage.setItem('currPage', "login");
-                sessionStorage.clear();
-                localStorage.clear();
-                setPage("login");
-            });
         }
     }
 
@@ -70,20 +30,15 @@ const Messages = ({ username, setUsername, setPage }) => {
 				{/* Navbar */}
 				<div class="navbar">
 					<nav class="navbar navbar-expand-lg navbar-light bg-light">
-					<img src={textlogo} id="navBarTextLogo" />
-						<a class="nav-link glyphicon glyphicon-home" href="homepage.html" id="home"><span
+						<img src={textlogo} id="navBarTextLogo" />
+						<a class="nav-link glyphicon glyphicon-home" href="/home" id="home"><span class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-user" href="/profile" id="profile"> <span class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-wrench" href="/settings" id="settings"><span
 							class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-user" href="profile.html" id="profile"> <span
+						<a class="nav-link glyphicon glyphicon-bell" href="/profile" id="notifications"> <span class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-envelope" href="/messages" id="messages"> <span
 							class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-wrench" href="settings.html" id="settings"><span
-							class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-bell" href="#" id="notifications"> <span
-							class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-envelope" href="#" id="messages"> <span
-							class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-log-out" href="index.html" id="logout"><span
-							class="sr-only"></span></a>
-
+						<a class="nav-link glyphicon glyphicon-log-out" href="/" id="logout"><span class="sr-only"></span></a>
 
 						<div class="search-bar">
 							<input id="search" type="search" class="form-control" />
@@ -91,8 +46,8 @@ const Messages = ({ username, setUsername, setPage }) => {
 
 						<a href="search.html"><span class="glyphicon glyphicon-search"></span></a>
 
-						<div class="lightModeButton9-container">
-						<button class="btn btn-dark" id="light-mode-button9" onClick={toggle_light_mode}>Dark Mode</button>
+						<div class="lightModeButton3-container">
+							<button class="btn btn-dark" id="light-mode-button3" onClick={toggle_light_mode}>Dark Mode</button>
 						</div>
 
 					</nav>

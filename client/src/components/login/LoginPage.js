@@ -5,38 +5,41 @@ import '../components.css';
 import config from '../../utils/config';
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
+import { useNavigate } from 'react-router';
 
-const LoginPage = ({setPage}) => {
+const LoginPage = () => {
 	const loginScript = () => {
+		let navigate = useNavigate();
+
 		window.onload = function () {
 			let emailLogin = document.querySelector("#emailLoginInput");
 			let passwordLogin = document.querySelector("#passwordLoginInput");
 			let loginButton = document.querySelector("#loginButton");
-	
+
 			let petName = document.querySelector("#petNameInput");
 			let email = document.querySelector("#emailInput");
 			let confirmEmail = document.querySelector("#confirmEmailInput");
 			let password = document.querySelector("#passwordInput");
 			let registerButton = document.querySelector("#registerPetButton");
-	
+
 			registerButton.addEventListener("click", event => {
 				event.preventDefault();
-	
+
 				if (!petName.value || !password.value || !email.value) {
 					alert("Please enter all the required information");
 					return;
 				};
-	
+
 				if (email.value !== confirmEmail.value) {
 					alert("Email addresses do not match");
 					return;
 				};
-	
+
 				const accountDetails = {
 					username: petName.value,
 					password: password.value,
 				};
-	
+
 				// send the request to the login API with the data
 				axios.post(`${apiURL}/register`, accountDetails)
 					.then(response => {
@@ -44,28 +47,27 @@ const LoginPage = ({setPage}) => {
 							alert("A user with that name already exists");
 						} else {
 							window.sessionStorage.setItem("username", accountDetails.username);
-							window.sessionStorage.setItem("currPage", "home");
-							setPage("home");
+							navigate('/home');
 						}
 					})
 					.catch(error => console.log(error));
 			});
-	
+
 			loginButton.addEventListener("click", event => {
 				event.preventDefault();
-	
+
 				// didnt give us info for something
 				if (!emailLogin.value || !passwordLogin.value) {
 					alert("Please enter in all of your login info");
 					return;
 				};
-	
+
 				// put the data being sent in an object to be converted to JSON
 				const loginCredentials = {
 					username: emailLogin.value,
 					password: passwordLogin.value,
 				};
-	
+
 				// send the request to the login API with the data
 				axios.post(`${apiURL}/login`, loginCredentials)
 					.then(response => {
@@ -73,8 +75,7 @@ const LoginPage = ({setPage}) => {
 							alert("Invalid username or password");
 						} else {
 							window.sessionStorage.setItem("username", loginCredentials.username);
-							window.sessionStorage.setItem("currPage", "home");
-							setPage("home");
+							navigate('/home');
 						}
 					})
 					.catch(error => console.log(error));
@@ -90,8 +91,7 @@ const LoginPage = ({setPage}) => {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<title>OnlyPets Login</title>
 
-				<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-					integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+				<link href="client\src\components\bootstrap-5.1.1-dist" rel="stylesheet" crossorigin="anonymous" />
 				<script dangerouslySetInnerHTML={{ __html: loginScript() }} type="text/javascript" />
 
 			</Helmet>

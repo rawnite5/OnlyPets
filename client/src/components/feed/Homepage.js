@@ -16,78 +16,14 @@ import like from '../../assests/like.svg';
 
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
+import { Link, useNavigate } from "react-router";
 
-const Homepage = ({setPage }) => {
+const Homepage = () => {
+	let navigate = useNavigate();
+
 	const script = () => {
 		window.onload = function () {
 
-			/* handle quick nav redirects*/
-			let profilePill = document.querySelector("#profilePill");
-			let settingsPill = document.querySelector("#settingsPill");
-			let pagesPill = document.querySelector("#pagesPill");
-			let friendsPill = document.querySelector("#friendsPill");
-
-			profilePill.addEventListener("click", event => {
-				event.preventDefault();
-				window.sessionStorage.setItem('page', "profile");
-				setPage("profile");
-			});
-			settingsPill.addEventListener("click", event => {
-				event.preventDefault();
-				window.sessionStorage.setItem('page', "settings");
-				setPage("settings");
-			});
-			pagesPill.addEventListener("click", event => {
-				event.preventDefault();
-				window.sessionStorage.setItem('page', "home");
-				setPage("home");
-			});
-			friendsPill.addEventListener("click", event => {
-				event.preventDefault();
-				window.sessionStorage.setItem('page', "profile");
-				setPage("profile");
-			});
-
-			/* handle nav bar redirects*/
-			let homeIcon = document.querySelector("#home");
-			let profileIcon = document.querySelector("#profile");
-			let settingsIcon = document.querySelector("#settings");
-			let notificationsIcon = document.querySelector("#notifications");
-			let messagesIcon = document.querySelector("#messages");
-			let logoutIcon = document.querySelector("#logout");
-
-			homeIcon.addEventListener("click", event => {
-				event.preventDefault();
-				window.sessionStorage.setItem('currPage', "home");
-				setPage("home");
-			});
-			profileIcon.addEventListener("click", event => {
-				event.preventDefault();
-				window.sessionStorage.setItem('currPage', "profile");
-				setPage("profile");
-			});
-			settingsIcon.addEventListener("click", event => {
-				event.preventDefault();
-				window.sessionStorage.setItem('currPage', "settings");
-				setPage("settings");
-			});
-			notificationsIcon.addEventListener("click", event => {
-				event.preventDefault();
-				window.sessionStorage.setItem('currPage', "profile");
-				setPage("profile");
-			});
-			messagesIcon.addEventListener("click", event => {
-				event.preventDefault();
-				window.sessionStorage.setItem('currPage', "messages");
-				setPage("messages");
-			});
-			logoutIcon.addEventListener("click", event => {
-				event.preventDefault();
-				window.sessionStorage.setItem('currPage', "login");
-				sessionStorage.clear();
-				localStorage.clear();
-				setPage("login");
-			});
 		}
 	}
 
@@ -99,21 +35,23 @@ const Homepage = ({setPage }) => {
 				<meta name="description" content="" />
 				<title>OnlyPets Homepage</title>
 				<script dangerouslySetInnerHTML={{ __html: script() }} type="text/javascript" />
+				<link href="\client\src\components\bootstrap-5.1.1-dist" rel="stylesheet" crossorigin="anonymous" />
 			</Helmet>
 
 			<main class="entireHomepage">
 				{/* Navbar */}
+
 				<div class="navbar">
 					<nav class="navbar navbar-expand-lg navbar-light bg-light">
 						<img src={textlogo} id="navBarTextLogo" />
-						<a class="nav-link glyphicon glyphicon-home" href="homepage.html" id="home"><span class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-user" href="profile.html" id="profile"> <span class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-wrench" href="settings.html" id="settings"><span
+						<a class="nav-link glyphicon glyphicon-home" href="/home" id="home"><span class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-user" href="/profile" id="profile"> <span class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-wrench" href="/settings" id="settings"><span
 							class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-bell" href="#" id="notifications"> <span class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-envelope" href="messages.html" id="messages"> <span
+						<a class="nav-link glyphicon glyphicon-bell" href="/profile" id="notifications"> <span class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-envelope" href="/messages" id="messages"> <span
 							class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-log-out" href="index.html" id="logout"><span class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-log-out" href="/" id="logout"><span class="sr-only"></span></a>
 
 						<div class="search-bar">
 							<input id="search" type="search" class="form-control" />
@@ -137,10 +75,10 @@ const Homepage = ({setPage }) => {
 					<div class="sec-nav-container">
 						<h3 id="quickNavText">Quick Navigation...</h3>
 						<div class="btn-group-vertical" id="moreSettingsButtonGroup">
-							<button class="button" id="profilePill">Profile</button>
-							<button class="button" id="settingsPill">Settings</button>
-							<button class="button" id="pagesPill">Pages</button>
-							<button class="button" id="friendsPill">Friends</button>
+							<Link to="/profile"><button class="button" id="profilePill">Profile</button> </Link>
+							<Link to="/settings"><button class="button" id="settingsPill">Settings</button> </Link>
+							<Link to="/home"><button class="button" id="pagesPill">Pages</button> </Link>
+							<Link to="/profileFriends"><button class="button" id="friendsPill">Friends</button> </Link>
 						</div>
 					</div>
 
@@ -219,7 +157,7 @@ const Homepage = ({setPage }) => {
 				<div id="chat-bubble">
 					<div class="chat-container">
 						<div class="chat-header">
-							<div class="user-avatar" onclick={openChatBubble}>
+							<div class="user-avatar" onClick={openChatBubble}>
 								<div class="img-container">
 									<img src="./icons/dogPhoto1 copy.jpg"></img>
 								</div>
@@ -242,7 +180,7 @@ const Homepage = ({setPage }) => {
 							<a href="#">
 								<img src={settings}></img>
 							</a>
-							<a href="#" onclick={openChatBubble}>
+							<a href="#" onClick={openChatBubble}>
 								<img src={close}></img>
 							</a>
 						</nav>

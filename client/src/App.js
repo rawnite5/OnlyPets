@@ -1,4 +1,3 @@
-import React from 'react'
 import LoginPage from './components/login/LoginPage'
 import ForgotPassword from './components/login/ForgotPassword'
 import ResetPassword from './components/login/ResetPassword'
@@ -14,32 +13,30 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./components/globalStyles";
 import { lightTheme, darkTheme } from "./components/theme"
 import { useState } from 'react'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+import { BrowserRouter as Router, Routes, Route } from "react-router";
+import React from 'react';
 
 function App() {
-  const currPage = window.sessionStorage.getItem('currPage');
-
-  const defaultPage = "login";
-  let page, setPage;
-
-  if(currPage) {
-    [page, setPage] = useState(currPage);
-    window.sessionStorage.setItem("currPage", currPage);
-  } else {
-    [page, setPage] = useState(defaultPage);
-  }
 
   return (
-    <div>
-      {page === "login" && (<LoginPage setPage={setPage} />)}
-      {page === "home" && (<Homepage setPage={setPage} />)}
-      {page === "profile" && (<Profile setPage={setPage} />)}
-      {page === "profileAbout" && (<ProfileAbout setPage={setPage} />)}
-      {page === "profileFriends" && (<ProfileFriends setPage={setPage} />)}
-      {page === "profilePictures" && (<ProfilePictures setPage={setPage} />)}
-      {page === "forgotPassword" && (<ForgotPassword setPage={setPage} />)}
-      {page === "settings" && (<Settings setPage={setPage} />)}
-      {page === "search" && (<Search setPage={setPage} />)}
-      {page === "messages" && (<Messages setPage={setPage} />)}
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<LoginPage />} />
+          <Route path="/home" element={<Homepage />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route exact path="/profileAbout" element={<ProfileAbout />} />
+          <Route path="/profileFriends" element={<ProfileFriends />} />
+          <Route path="/profilePictures" element={<ProfilePictures />} />
+          <Route exact path="/forgotPassword" element={<ForgotPassword />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/messages" element={<Messages />} />
+          <Route path="/resetPassword" element={<ResetPassword />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

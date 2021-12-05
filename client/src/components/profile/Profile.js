@@ -13,70 +13,6 @@ const Profile = ({ username, setUsername, setPage }) => {
     const script = () => {
         window.onload = function () {
 
-
-            /* handle quick nav redirects*/
-            let profileAbout = document.querySelector("#profile-about");
-            let profilePosts = document.querySelector("#profile-posts");
-            let profileFriends = document.querySelector("#profile-friends");
-            let profilePhotos = document.querySelector("#profile-photos");
-
-            profileAbout.addEventListener("click", event => {
-                event.preventDefault();
-                setPage("profileAbout");
-            });
-            profilePosts.addEventListener("click", event => {
-                event.preventDefault();
-                setPage("profile");
-            });
-            profileFriends.addEventListener("click", event => {
-                event.preventDefault();
-                setPage("profileFriends");
-            });
-            profilePhotos.addEventListener("click", event => {
-                event.preventDefault();
-                setPage("ProfilePictures");
-            });
-
-            /* handle nav bar redirects*/
-            let homeIcon = document.querySelector("#home");
-            let profileIcon = document.querySelector("#profile");
-            let settingsIcon = document.querySelector("#settings");
-            let notificationsIcon = document.querySelector("#notifications");
-            let messagesIcon = document.querySelector("#messages");
-            let logoutIcon = document.querySelector("#logout");
-
-            homeIcon.addEventListener("click", event => {
-                event.preventDefault();
-                window.sessionStorage.setItem('currPage', "home");
-                setPage("home");
-            });
-            profileIcon.addEventListener("click", event => {
-                event.preventDefault();
-                window.sessionStorage.setItem('currPage', "profile");
-                setPage("profile");
-            });
-            settingsIcon.addEventListener("click", event => {
-                event.preventDefault();
-                window.sessionStorage.setItem('currPage', "settings");
-                setPage("settings");
-            });
-            notificationsIcon.addEventListener("click", event => {
-                event.preventDefault();
-                window.sessionStorage.setItem('currPage', "profile");
-                setPage("profile");
-            });
-            messagesIcon.addEventListener("click", event => {
-                event.preventDefault();
-                window.sessionStorage.setItem('currPage', "messages");
-                setPage("messages");
-            });
-            logoutIcon.addEventListener("click", event => {
-                event.preventDefault();
-                window.sessionStorage.setItem('currPage', "login");
-                sessionStorage.clear();
-                localStorage.clear();
-                setPage("login");
-            });
         }
     }
 
@@ -92,36 +28,30 @@ const Profile = ({ username, setUsername, setPage }) => {
 
             <main class="entire-profilepage">
                 {/* Navbar */}
-                <div class="navbar">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <img src={textlogo} id="navBarTextLogo" />
-                        <a class="nav-link glyphicon glyphicon-home" href="homepage.html" id="home"><span
-                            class="sr-only"></span></a>
-                        <a class="nav-link glyphicon glyphicon-user" href="profile.html" id="profile"> <span
-                            class="sr-only"></span></a>
-                        <a class="nav-link glyphicon glyphicon-wrench" href="settings.html" id="settings"><span
-                            class="sr-only"></span></a>
-                        <a class="nav-link glyphicon glyphicon-bell" href="#" id="notifications"> <span
-                            class="sr-only"></span></a>
-                        <a class="nav-link glyphicon glyphicon-envelope" href="messages.html" id="messages"> <span
-                            class="sr-only"></span></a>
-                        <a class="nav-link glyphicon glyphicon-log-out" href="index.html" id="logout"><span
-                            class="sr-only"></span></a>
+				<div class="navbar">
+					<nav class="navbar navbar-expand-lg navbar-light bg-light">
+						<img src={textlogo} id="navBarTextLogo" />
+						<a class="nav-link glyphicon glyphicon-home" href="/home" id="home"><span class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-user" href="/profile" id="profile"> <span class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-wrench" href="/settings" id="settings"><span
+							class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-bell" href="/profile" id="notifications"> <span class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-envelope" href="/messages" id="messages"> <span
+							class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-log-out" href="/" id="logout"><span class="sr-only"></span></a>
 
+						<div class="search-bar">
+							<input id="search" type="search" class="form-control" />
+						</div>
 
-                        <div class="search-bar">
-                            <input id="search" type="search" class="form-control" />
-                        </div>
+						<a href="search.html"><span class="glyphicon glyphicon-search"></span></a>
 
-                        <a href="search.html"><span class="glyphicon glyphicon-search"></span></a>
+						<div class="lightModeButton3-container">
+							<button class="btn btn-dark" id="light-mode-button3" onClick={toggle_light_mode}>Dark Mode</button>
+						</div>
 
-
-                        <div class="lightModeButton4-container">
-                            <button class="btn btn-dark" id="light-mode-button4" onClick={toggle_light_mode}>Dark Mode</button>
-                        </div>
-
-                    </nav>
-                </div>
+					</nav>
+				</div>
 
                 <div class="everythingButNavBar">
 
@@ -135,11 +65,10 @@ const Profile = ({ username, setUsername, setPage }) => {
 
                         <div class="profile-navbar">
                             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                                <a class="nav-link" href="profile-about.html" id="profile-about">| About |</a>
-                                <a class="nav-link" href="profile.html" id="profile-posts">| Posts |</a>
-                                <a class="nav-link" href="profile-friends.html" id="profile-friends">| Friends |</a>
-                                <a class="nav-link" href="profile-pictures.html" id="profile-photos">| Photos |</a>
-
+                                <a class="nav-link" href="/profileAbout" id="profile-about">| About |</a>
+                                <a class="nav-link" href="/profile" id="profile-posts">| Posts |</a>
+                                <a class="nav-link" href="/profileFriends" id="profile-friends">| Friends |</a>
+                                <a class="nav-link" href="/profilePictures" id="profile-photos">| Photos |</a>
                             </nav>
                             {/* <div class="card shadow p-3 mb-5 bg-white rounded" id="contentCard">
                         <div class="profile-options">
