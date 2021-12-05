@@ -15,6 +15,8 @@ img {
 }
 */
 
+/* Should help with two-toned homepage */
+/* background-repeat: repeat-y; */
 /* ---------------------------- Login Page ------------------------------------*/
 
 .loginNavbar{
@@ -207,13 +209,24 @@ img {
 /* ---------------------------- Starting In App ------------------------------------*/
 /*All pages using this css file*/
 main{
+    height: auto;
+    width: auto;
     background-color: #f5f5f5;
+    /* background-repeat: repeat-y; */
+    /* box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055); */
     /*
     display: flex;
     align-items: center;
     */
-    height: auto;
-    width: auto;
+
+}
+.darkMode{
+  background-color: black;
+  /* color: white; */
+}
+
+.lightMode{
+  background-color: white;
 }
 
 /* #logo{
@@ -222,10 +235,6 @@ main{
     /* height: auto; */
 /* ---------------------------- Nav Bar ------------------------------------*/
 
-.entire-homepage{
-    width: auto;
-    height: auto;
-}
 /* Nav Bar Stuff */
 .navbar{
     background-color: rgb(255, 255, 255);
@@ -237,6 +246,7 @@ main{
     width: auto;
     height: 60px;
     margin: 0 auto; /* top, right, bottom, left */
+    margin-top: -1px;
 
 }
 
@@ -295,6 +305,31 @@ main{
 
 /* ---------------------------- Nav Bar ------------------------------------*/
 /* ---------------------------- HOMEPAGE ------------------------------------*/
+
+
+.entireHomepage{
+  transition: background-color .2s;
+}
+
+.lightModeButton3-container{
+  margin-left: -350px;
+}
+
+.entireHomepage[light-mode=dark]{
+  background-color: #292929;
+  color: rgb(139, 140, 143);
+}
+
+
+.entireHomepage[light-mode="dark"] .light-mode-button3 span:nth-child(1){
+  background-color: #ced4e2;
+  color: #141516;
+}
+
+.entireHomepage[light-mode=dark] .light-mode-button3 span:nth-child(2) {
+  left: 65px;
+  background-color: #141516;
+}
 
 .sec-nav-container{
     display: flex;
@@ -786,15 +821,34 @@ main{
 
 /* ---------------------------- Profile ------------------------------------ */
 
-.everythingButNavBar{
-    /* padding: 10px; */
-}
-
 /* .profileSettings{
     background-color: palegoldenrod;
     height: 350px;
 } */
 
+.entire-profilepage{
+  transition: background-color .2s;
+}
+
+.lightModeButton4-container{
+  margin-left: -350px;
+}
+
+.entire-profilepage[light-mode=dark]{
+  background-color: #292929;
+  color: rgb(139, 140, 143);
+}
+
+
+.entire-profilepage[light-mode="dark"] .light-mode-button4 span:nth-child(1){
+  background-color: #ced4e2;
+  color: #141516;
+}
+
+.entire-profilepage[light-mode=dark] .light-mode-button4 span:nth-child(2) {
+  left: 65px;
+  background-color: #141516;
+}
 .profile-container{
     margin: 0 auto;
     width: auto;
@@ -935,6 +989,29 @@ main{
 /* ---------------------------- Profile ------------------------------------ */
 /* ---------------------------- Profile: About ------------------------------------ */
 
+.entire-profilepage{
+  transition: background-color .2s;
+}
+
+.lightModeButton5-container{
+  margin-left: -350px;
+}
+
+.entire-profilepage[light-mode=dark]{
+  background-color: #292929;
+  color: rgb(139, 140, 143);
+}
+
+
+.entire-profilepage[light-mode="dark"] .light-mode-button5 span:nth-child(1){
+  background-color: #ced4e2;
+  color: #141516;
+}
+
+.entire-profilepage[light-mode=dark] .light-mode-button5 span:nth-child(2) {
+  left: 65px;
+  background-color: #141516;
+}
 #AboutCard{
     width: 375px;
     height: 275px;
@@ -947,12 +1024,25 @@ main{
 }
 
 
+
+
 #editOverview{
     margin-bottom:auto;
 }
 
+
 #editIntroButton{
     background: #dedede;
+
+}
+
+#overViewText{
+  font-size: large;
+  font-weight: bold;
+}
+#introText{
+  font-size: large;
+  font-weight: bold;
 
 }
 .profiledetails-bottom #AnotherBioCard{
@@ -991,7 +1081,118 @@ main{
 
 }
 /* ---------------------------- Profile: About ------------------------------------ */
+/* ---------------------------- Profile: Friends ------------------------------------ */
+
+.entire-profilepage{
+  transition: background-color .2s;
+}
+
+.lightModeButton6-container{
+  margin-left: -350px;
+}
+
+.lightModeButton5-container{
+  margin-left: -350px;
+}
+
+.entire-profilepage[light-mode=dark]{
+  background-color: #292929;
+  color: rgb(139, 140, 143);
+}
+
+
+.entire-profilepage[light-mode="dark"] .light-mode-button6 span:nth-child(1){
+  background-color: #ced4e2;
+  color: #141516;
+}
+
+.entire-profilepage[light-mode=dark] .light-mode-button6 span:nth-child(2) {
+  left: 65px;
+  background-color: #141516;
+}
+/* ---------------------------- Profile: Friends ------------------------------------ */
+
+.entire-profilepage{
+  transition: background-color .2s;
+}
+
+.lightModeButton7-container{
+  margin-left: -350px;
+}
+
+.lightModeButton5-container{
+  margin-left: -350px;
+}
+
+.entire-profilepage[light-mode=dark]{
+  background-color: #292929;
+  color: rgb(139, 140, 143);
+}
+
+
+.entire-profilepage[light-mode="dark"] .light-mode-button7 span:nth-child(1){
+  background-color: #ced4e2;
+  color: #141516;
+}
+
+.entire-profilepage[light-mode=dark] .light-mode-button7 span:nth-child(2) {
+  left: 65px;
+  background-color: #141516;
+}
+
+/* ---------------------------- Profile: Pictures ------------------------------------ */
+
+.entire-profilepage{
+  transition: background-color .2s;
+}
+
+.lightModeButton7-container{
+  margin-left: -350px;
+}
+
+.lightModeButton5-container{
+  margin-left: -350px;
+}
+
+.entire-profilepage[light-mode=dark]{
+  background-color: #292929;
+  color: rgb(139, 140, 143);
+}
+
+
+.entire-profilepage[light-mode="dark"] .light-mode-button7 span:nth-child(1){
+  background-color: #ced4e2;
+  color: #141516;
+}
+
+.entire-profilepage[light-mode=dark] .light-mode-button7 span:nth-child(2) {
+  left: 65px;
+  background-color: #141516;
+}
+/* ---------------------------- Profile: Pictures ------------------------------------ */
 /* ---------------------------- Settings: General Settings ------------------------------------*/
+
+
+.entireSettingsPage{
+  transition: background-color .2s;
+}
+
+.entireSettingsPage[light-mode=dark] {
+  background-color: #292929;
+  /* color: #ced4e2; */
+}
+
+
+.entireSettingsPage[light-mode="dark"] .light-mode-button span:nth-child(1){
+  background-color: #f5f5f5;
+  /* color: #141516; */
+}
+
+.entireSettingsPage[light-mode=dark] .light-mode-button span:nth-child(2) {
+  left: 65px;
+  background-color: #141516;
+}
+
 .settings-container{
     padding: 20px;
     /* margin: 0 auto; */
@@ -1002,15 +1203,6 @@ main{
     height: 700px;
 
 }
-
-
-/* .settings-options-container #settings-options-background{
-    margin-top: -745px;
-    margin-left: 150px;
-    width: 300px;
-    height: 300px;
-} */
-
 .full-settings-container{
     align-items: center;
 }
@@ -1019,9 +1211,9 @@ main{
     font-size: xx-large;
 }
 
-#customizeThemeSwitch{
+/* #customizeThemeSwitch{
     margin-right: 450px;
-}
+} */
 
 #darkModeSwitchText{
     /* margin-left: 200px; */
@@ -1090,9 +1282,11 @@ main{
     transition: .4s;
   }
   
-  input:checked + .slider {
+  input:checked + .slider{
     background-color: black;
   }
+  
+
   
   input:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
@@ -1112,79 +1306,20 @@ main{
   .slider.round:before {
     border-radius: 50%;
   }
-/* 
-#settingHeader{
-    margin: 0 auto;
-} */
 
-/* #settingsButtonGroup{
-    margin: 0 auto;
-    padding: 20px;
-} */
-/* Settings buttons: pill1 (General), pill2 (Privacy),
- pill3 (Blocking), pill4 (Notifications) */
-/* #pill1{
-        background-color: #ddd;
-        border: none;
-        color: black;
-        padding: 10px 53px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 16px;
-      }
-#pill2{
-        background-color: #ddd;
-        border: none;
-        color: black;
-        padding: 10px 53px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 16px;
-      }
-#pill3{
-        background-color: #ddd;
-        border: none;
-        color: black;
-        padding: 10px 50px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 16px;
-      }
-#pill4{
-        background-color: #ddd;
-        border: none;
-        color: black;
-        padding: 10px 40px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 16px;
-    
-      } */
 
-      #onlyMePrivactySwitch{
-          margin-left: 20px;
+  #onlyMePrivactySwitch{
+      margin-left: 20px;
 
-      }
-      #friendsPrivactySwitch{
-        margin-left: 25px;
+  }
+  #friendsPrivactySwitch{
+    margin-left: 25px;
 
-      }
-      #publicPrivactySwitch{
-        margin-left: 30px;
+  }
+  #publicPrivactySwitch{
+    margin-left: 30px;
 
-      }
+  }
 
 #menu-toggle {
     display: none;
@@ -1205,5 +1340,112 @@ main{
       width: 5%;
   }
 
-/* ---------------------------- Settings: General Settings ------------------------------------*/
+  .light-mode-button {
+    background:0;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 40px;
+    width: 100px;
+    position: relative;
+    border: 1px solid rgba(255,255,255,0);
+}
 
+.light-mode-button:focus {
+    outline:none; /* Not ideal for accessibility */
+}
+
+.light-mode-button span:nth-child(1) {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100px;
+    height:40px;
+    border-radius: 20px;
+    background-color: #d6d7db;
+    box-shadow: inset 1px 1px 3px 0 rgb(0 0 0 / 40%);
+    transition: .3s;
+}
+
+.light-mode-button span:nth-child(2) {
+    position: absolute;
+    top:5px;
+    left:5px;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 1px 1px 2px 0 rgb(0 0 0 / 40%);
+    transition: .3s;
+}
+
+/* ---------------------------- Settings: General Settings ------------------------------------*/
+/* ---------------------------- Search ------------------------------------*/
+
+
+.entireSearchpage {
+  background-color: #f6f6f6;
+  transition: background-color .3s;
+}
+
+.lightModeButton2-container{
+  margin-left: -350px;
+}
+
+.entireSearchpage[light-mode=dark] {
+  background-color: #292929;
+  color: rgb(139, 140, 143);
+}
+
+.entireSearchpage[light-mode="dark"] .light-mode-button2 span:nth-child(1){
+  background-color: #ced4e2;
+  color: #141516;
+}
+
+.entireSearchpage[light-mode=dark] .light-mode-button2 span:nth-child(2) {
+  left: 65px;
+  background-color: #141516;
+}
+#serchPostCard{
+  margin-top: -300px;
+  margin-left: 350px;
+  height: 200px
+}
+.filter-container{
+  margin-top: -300px;
+}
+#filter-card-container{
+  width: 300px;
+  height: 400px;
+}
+
+
+
+
+/* ---------------------------- Search ------------------------------------*/
+
+/* ---------------------------- Messages ------------------------------------*/
+.entire-messagepage{
+  background-color: #f6f6f6;
+  transition: background-color .3s;
+}
+
+.lightModeButton9-container{
+  margin-left: -350px;
+}
+
+.entire-messagepage[light-mode=dark] {
+  background-color: #292929;
+  color: #ced4e2;
+}
+
+.entire-messagepage[light-mode="dark"] .light-mode-button9 span:nth-child(1){
+  background-color: #ced4e2;
+  color: #141516;
+}
+
+.entire-messagepage[light-mode=dark] .light-mode-button9 span:nth-child(2) {
+  left: 65px;
+  background-color: #141516;
+}
+/* ---------------------------- Messages ------------------------------------*/

@@ -11,8 +11,8 @@ import call from '../../assests/call.svg';
 import settings from '../../assests/settings.svg';
 import upload from '../../assests/upload.svg';
 import camera from '../../assests/camera.svg';
-import check from'../../assests/check.svg';
-import like from'../../assests/like.svg';
+import check from '../../assests/check.svg';
+import like from '../../assests/like.svg';
 
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
@@ -28,7 +28,7 @@ const Homepage = () => {
 				<script dangerouslySetInnerHTML={{ __html: script() }} type="text/javascript" />
 			</Helmet>
 
-			<main class="entire-homepage">
+			<main class="entireHomepage">
 				{/* Navbar */}
 				<div class="navbar">
 					<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -42,12 +42,15 @@ const Homepage = () => {
 							class="sr-only"></span></a>
 						<a class="nav-link glyphicon glyphicon-log-out" href="index.html" id="logout"><span class="sr-only"></span></a>
 
-
 						<div class="search-bar">
 							<input id="search" type="search" class="form-control" />
 						</div>
 
 						<a href="search.html"><span class="glyphicon glyphicon-search"></span></a>
+
+						<div class="lightModeButton3-container">
+						<button class="btn btn-dark" id="light-mode-button3" onClick={toggle_light_mode}>Dark Mode</button>
+						</div>
 
 					</nav>
 				</div>
@@ -72,7 +75,7 @@ const Homepage = () => {
 
 				{/* User's Friends List */}
 				<div class="user-contacts-container">
-					<h5 id="contactsText">Contacts</h5>
+					<h5 id="contactsText">Friends</h5>
 					<button class="btn glyphicon glyphicon-option-horizontal" id="moreOptContactsButton"></button>
 					<div class="user-friends-list">
 						<li>Friend 1</li>
@@ -140,90 +143,50 @@ const Homepage = () => {
 					</div>
 				</div>
 
-				{/* User's Friends List
-				<div class="user-contacts-container">
-					<h5 id="contactsText">Contacts</h5>
-					<button class="btn glyphicon glyphicon-option-horizontal" id="moreOptContactsButton"></button>
-					<div class="user-friends-list">
-						<li>Friend 1</li>
-						<li>Friend 2</li>
-						<li>Friend 3</li>
-						<li>Friend 4</li>
-						<li>Friend 5</li>
-						<li>Friend 6</li>
-						<li>Friend 8</li>
-						<li>Friend 9</li>
+				<div id="chat-bubble">
+					<div class="chat-container">
+						<div class="chat-header">
+							<div class="user-avatar" onclick={openChatBubble}>
+								<div class="img-container">
+									<img src="./icons/dogPhoto1 copy.jpg"></img>
+								</div>
+								<div class="user-status-info">
+									<a href="#">Woof Smith</a>
+									<p>Active now</p>
+								</div>
+							</div>
+						</div>
 					</div>
 
-
-				</div>
-
-				{/* For ads (<br> = filler for now) */}
-				{/* <div class="ads-container">
-					<h5 id="adTitleText">Advertisements</h5>
-					<div class="internal-ad-container">
-						<a class="nav-link" href="profile-about.html" id="create-ad-navlink">Create your own ad!<br /> (Rates and
-							restrictions apply)</a>
+					<div class="chat-comm">
+						<nav>
+							<a href="#">
+								<img src={video}></img>
+							</a>
+							<a href="#">
+								<img src={call}></img>
+							</a>
+							<a href="#">
+								<img src={settings}></img>
+							</a>
+							<a href="#" onclick={openChatBubble}>
+								<img src={close}></img>
+							</a>
+						</nav>
 					</div>
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-				</div> */}
 
-<div id="chat-bubble">
-      <div class="chat-container">
-        <div class="chat-header">
-          <div class="user-avatar" onclick={openChatBubble}>
-            <div class="img-container">
-              <img src="./icons/dogPhoto1 copy.jpg"></img>
-            </div>
-            <div class="user-status-info">
-              <a href="#">Woof Smith</a>
-              <p>Active now</p>
-            </div>
-          </div>
-		  </div>
-		  </div>
-		  </div>
-{/* 
-          <div class="chat-comm">
-            <nav>
-              <a href="#">
-                <img src={video}></img>
-              </a>
-              <a href="#">
-                <img src={call}></img>
-              </a>
-              <a href="#">
-                <img src={settings}></img>
-              </a>
-              <a href="#" onclick={openChatBubble}>
-                <img  src={close}></img>
-              </a>
-            </nav>
-          </div>
-        </div> */}
-          {/* <div class="sender-me">
+					{/* <div class="sender-me">
             <div class="my-message">
               Hello
             </div>
             <div class="seen-at">
               <img class="check" src={check}> Seen 8:00 AM</img>
             </div>
-          </div>
-        </div> */}
+          </div> */}
+				</div>
 
-
-        {/* <div class="chat-footer">
+				{/* 
+        <div class="chat-footer">
           <input type="textarea" placeholder="Type a message..."></input>
           <div class="chat-media">
             <nav>
@@ -238,8 +201,8 @@ const Homepage = () => {
               <img class="like" src={like}></img>
             </a>
           </div>
-		  </div>
 		  </div> */}
+
 
 			</main>
 		</div >
@@ -252,9 +215,24 @@ const script = () => {
 }
 
 
-const openChatBubble = () => {
+function openChatBubble() {
+	// doesnt give alert
+	alert("open"); 
 	var element = document.getElementById("chat-bubble");
 	element.classList.toggle("open")
 }
+
+function toggle_light_mode() {
+	var app = document.getElementsByTagName("MAIN")[0];
+	if (localStorage.lightMode == "dark") {
+		localStorage.lightMode = "light";
+		app.setAttribute("light-mode", "light");
+	} else {
+		localStorage.lightMode = "dark";
+		app.setAttribute("light-mode", "dark");
+	}
+}
+
+
 
 export default Homepage;

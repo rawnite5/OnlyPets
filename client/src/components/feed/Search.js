@@ -4,6 +4,7 @@ import dogHeader from '../../assests/dogHeader.jpg';
 import { Helmet } from "react-helmet";
 import '../components.css';
 import config from '../../utils/config';
+import textLogo from '../../assests/textLogo.jpg';
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
 
@@ -18,11 +19,11 @@ const Search = () => {
 				<script dangerouslySetInnerHTML={{ __html: script() }} type="text/javascript" />
 			</Helmet>
 
-			<main class="entire-searchpage">
+			<main class="entireSearchpage">
 				{/* Navbar */}
 				<div class="navbar">
 					<nav class="navbar navbar-expand-lg navbar-light bg-light">
-						<img src={logWithBorder} alt="Logo" class="logo" id="logo" />
+						<img src={textLogo} id="navBarTextLogo" />
 						<a class="nav-link glyphicon glyphicon-home" href="homepage.html" id="home"><span
 							class="sr-only"></span></a>
 						<a class="nav-link glyphicon glyphicon-user" href="profile.html" id="profile"> <span
@@ -43,8 +44,15 @@ const Search = () => {
 
 						<a href="search.html"><span class="glyphicon glyphicon-search"></span></a>
 
+						<div class="lightModeButton2-container">
+							<button class="btn btn-dark" id="light-mode-button2" onClick={toggle_light_mode}>Dark Mode</button>
+						</div>
+
 					</nav>
+
 				</div>
+
+
 
 				{/* For ads (<br> = filler for now) */}
 				<div class="ads-container">
@@ -70,6 +78,21 @@ const Search = () => {
 					<br />
 				</div>
 
+				<div class="search-container">
+					<div class="card w-50 shadow p-3 mb-5 bg-white rounded" id="serchPostCard">
+						</div>
+
+							</div>
+
+					<div class="filter-container">
+						<div class="card shadow p-3 mb-5 bg-white rounded" id="filter-card-container">
+							<h2>Filters</h2>
+
+						</div>
+					</div>
+
+
+
 			</main>
 		</div>
 	)
@@ -77,6 +100,17 @@ const Search = () => {
 
 const script = () => {
 	window.onload = function () {
+	}
+}
+
+function toggle_light_mode() {
+	var app = document.getElementsByTagName("MAIN")[0];
+	if (localStorage.lightMode == "dark") {
+		localStorage.lightMode = "light";
+		app.setAttribute("light-mode", "light");
+	} else {
+		localStorage.lightMode = "dark";
+		app.setAttribute("light-mode", "dark");
 	}
 }
 

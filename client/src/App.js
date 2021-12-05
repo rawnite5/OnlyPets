@@ -10,19 +10,28 @@ import Settings from './components/profile/Settings'
 import Messages from './components/feed/Messages'
 import Homepage from './components/feed/Homepage'
 import Search from './components/feed/Search'
+import {ThemeProvider} from "styled-components";
+import { GlobalStyles } from "./components/globalStyles";
+import { lightTheme, darkTheme } from "./components/theme"
 
 function App() {
 
   return (
     <div>
+      
       {/* <LoginPage></LoginPage> */}
       {/* <ForgotPassword></ForgotPassword> */}
 
-      <Homepage></Homepage>
+      {/* <Homepage></Homepage> */}
 
       {/* <Profile></Profile> */}
-      {/* <ProfileAbout></ProfileAbout> */}
+      <ProfileAbout></ProfileAbout>
+      {/* <ProfileFriends></ProfileFriends> */}
+      {/* <ProfilePictures></ProfilePictures> */}
       {/* <Settings></Settings> */}
+      {/* <Search></Search> */}
+
+      {/* <Messages></Messages> */}
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { ReactDOM } from 'react';
 import logWithBorder from '../../assests/logoWithBorder.jpg';
 import dogHeader from '../../assests/dogHeader.jpg';
 import { Helmet } from "react-helmet";
@@ -6,6 +7,8 @@ import '../components.css';
 import config from '../../utils/config';
 import textlogo from '../../assests/textLogo.jpg';
 import privacyimage from '../../assests/_Pngtree_lock_icon_5091662-removebg-preview.png';
+import theme from '../../components/theme';
+import { withTheme } from 'styled-components';
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
 
@@ -21,7 +24,7 @@ const Settings = () => {
 				<script dangerouslySetInnerHTML={{ __html: script() }} type="text/javascript" />
 			</Helmet>
 
-			<main class="entire-settingspage">
+			<main class="entireSettingsPage">
 				{/* }Navbar */}
 				<div class="navbar">
 					<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -60,14 +63,14 @@ const Settings = () => {
 								<text>Customize your display by turning OnlyPets into dark mode!</text>
 								<br></br>
 								<br></br>
-								<text id="darkModeSwitchText">Turn on/off dark mode</text>
-								<label class="switch" id="customizeThemeSwitch">
-									<input type="checkbox"></input>
-									<span class="slider round"></span>
-								</label>
+								<text id="darkModeSwitchText">Click to turn on/off dark mode</text>
+								<br></br>
+
+								<button class="btn btn-dark" id="light-mode-button" onClick={darkMode}>Dark Mode</button>
+
 								<h2>Blocked Bitches</h2>
 								<text>Manage your blocked users. Once you block someone, that person can no longer see things you post on your timeline, tag you, start conversations with you, or add you as a friend. </text>
-								
+
 								<div class="searchBarBlockedUsers-Container">
 									<input id="search" type="search" class="form-control" />
 									<button class="btn btn-primary" id="blockButton">Block</button>
@@ -135,18 +138,6 @@ const Settings = () => {
 
 						</div>
 					</div>
-					{/* <div class="settings-options-container">
-						<div class="card shadow p-3 mb-5 bg-white rounded" id="settings-options-background">
-							<h1 id="settingHeader">Settings</h1> */}
-					{/* When onclick, the respected info will be come visible */}
-					{/* <div class="btn-group-vertical" id="settingsButtonGroup">
-								<button class="button" id="pill1">General</button>
-								<button class="button" id="pill2">Privacy</button>
-								<button class="button" id="pill3">Blocking</button>
-								<button class="button" id="pill4">Notifications</button>
-							</div>
-						</div>
-					</div> */}
 				</div>
 			</main>
 		</div>
@@ -156,9 +147,23 @@ const Settings = () => {
 
 const script = () => {
 	window.onload = function () {
+
 	}
 
 
+
 }
+const darkMode = () => {
+	var app = document.getElementsByTagName("MAIN")[0];
+    if (localStorage.lightMode == "dark") {
+	localStorage.lightMode = "light";
+	app.setAttribute("light-mode", "light");
+    } else {
+	localStorage.lightMode = "dark";
+	app.setAttribute("light-mode", "dark");
+    }	
+
+}
+
 
 export default Settings;

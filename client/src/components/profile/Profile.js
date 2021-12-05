@@ -45,6 +45,11 @@ const Profile = () => {
 
                         <a href="search.html"><span class="glyphicon glyphicon-search"></span></a>
 
+
+						<div class="lightModeButton4-container">
+						<button class="btn btn-dark" id="light-mode-button4" onClick={toggle_light_mode}>Dark Mode</button>
+						</div>
+
                     </nav>
                 </div>
 
@@ -52,8 +57,6 @@ const Profile = () => {
 
 
                     {/* Add script for "Edit Cover Photo Button" */}
-
-
                     <div class="profile-container">
                         <div class="coverphoto">
                             <img src={dogHeader} class="cover-img" alt="small dog in a field" />
@@ -153,5 +156,17 @@ const script = () => {
     window.onload = function () {
     }
 }
+
+function toggle_light_mode() {
+    var app = document.getElementsByTagName("MAIN")[0];
+    if (localStorage.lightMode == "dark") {
+	localStorage.lightMode = "light";
+	app.setAttribute("light-mode", "light");
+    } else {
+	localStorage.lightMode = "dark";
+	app.setAttribute("light-mode", "dark");
+    }	
+}
+
 
 export default Profile;

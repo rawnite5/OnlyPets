@@ -44,6 +44,10 @@ const ProfileAbout = () => {
 
 						<a href="search.html"><span class="glyphicon glyphicon-search"></span></a>
 
+						<div class="lightModeButton5-container">
+						<button class="btn btn-dark" id="light-mode-button5" onClick={toggle_light_mode}>Dark Mode</button>
+						</div>
+
 					</nav>
 				</div>
 
@@ -83,6 +87,10 @@ const ProfileAbout = () => {
 									<div>
 										<h3 id="AboutCardTitle">Overview of Woof Smith</h3>
 										<button class="btn btn-light" id="editOverview">Edit</button>
+										<br></br>
+										<br></br>
+										<br></br>
+										<text id="overViewText">Name: Woof Smith<br></br> Age: 30 <br></br>Type of Animal: Mammal <br></br>Breed: Pomeranian <br></br> </text>
 									</div>
 								</div>
 							</div>
@@ -93,6 +101,10 @@ const ProfileAbout = () => {
 								<div>
 									<h3 id="IntroCardTitle">Introductory</h3>
 									<button class="btn btn-light" id="editIntroButton">Edit</button>
+									<br></br>
+									<br></br>
+									<br></br>
+									<text id="introText"> I'm a 2 year old Pomeranian! I like long walks, playing at the park, and chasing the mailman. *bark*</text>
 								</div>
 							</div>
 						</div>
@@ -116,6 +128,17 @@ const ProfileAbout = () => {
 const script = () => {
 	window.onload = function () {
 	}
+}
+
+function toggle_light_mode() {
+    var app = document.getElementsByTagName("MAIN")[0];
+    if (localStorage.lightMode == "dark") {
+	localStorage.lightMode = "light";
+	app.setAttribute("light-mode", "light");
+    } else {
+	localStorage.lightMode = "dark";
+	app.setAttribute("light-mode", "dark");
+    }	
 }
 
 export default ProfileAbout;
