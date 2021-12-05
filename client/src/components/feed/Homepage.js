@@ -136,7 +136,10 @@ const Homepage = () => {
 							</div>
 
 							<a href="#"><span class="glyphicon glyphicon-camera" id="importPhoto"></span></a>
+							
 							<a href="#"><span class="glyphicon glyphicon-film" id="importVideo"></span></a>
+							<button class="glyphicon glyphicon-heart" id="likeButton"></button>
+							<button class="glyphicon glyphicon-pencil" id="commentButton"></button>
 
 							<div class="dropdown">
 								<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
@@ -149,7 +152,7 @@ const Homepage = () => {
 									<a class="dropdown-item" href="#">Friends Only</a>
 								</div>
 							</div>
-							<button href="#" id="postButton" class="btn btn-primary">Publish</button>
+							<button href="#" id="postButton" class="btn btn-primary" onClick={publishStatus}>Publish</button>
 						</div>
 					</div>
 				</div>
@@ -236,6 +239,16 @@ function toggle_light_mode() {
 		localStorage.lightMode = "dark";
 		app.setAttribute("light-mode", "dark");
 	}
+}
+
+function publishStatus() {
+	var privacyButon = document.getElementsByTagName("dropdownMenuButton");
+	var cameraIcon = document.getElementsByTagName("importPhoto");
+	var videoIcon = document.getElementsByTagName("importVideo");
+	var likeIcon = document.getElementsByTagName("likeButton");
+
+
+
 }
 
 
