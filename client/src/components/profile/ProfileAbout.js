@@ -113,9 +113,9 @@ const ProfileAbout = () => {
 								<button class="btn btn-light" id="bioContactButton" onClick={contactButton}> Contact Information</button>
 							</div>
 							<div class="text-container">
-							<text id="placesText"> Places lived: South Bend, Indiana</text>
-							<text id="workText"> Job: Stay at home puppy</text>
-							<text id="contactText"> Email: cmtidmarsh@gmail.com</text>
+							<text id="placesText"> South Bend, IN <br></br> Nashville, TN<br></br> SoCal, CA</text>
+							<text id="workText"> Stay at home puppy</text>
+							<text id="contactText"> cmtidmarsh@gmail.com <br></br> Twitch.tv/cmeichuan</text>
 							</div>
 						</div>
 					</div>

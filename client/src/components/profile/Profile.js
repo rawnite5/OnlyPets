@@ -135,7 +135,7 @@ const Profile = ({ username, setUsername, setPage }) => {
                                                 <a class="dropdown-item" href="#">Friends Only</a>
                                             </div>
                                         </div>
-                                        <button class="btn btn-primary" id="postButton">Publish</button>
+                                        <button class="btn btn-primary" id="postButton" onClick={postStatus}>Publish</button>
                                     </div>
                                 </div>
                             </div>
@@ -166,6 +166,12 @@ function toggle_light_mode() {
         app.setAttribute("light-mode", "dark");
     }
 }
+
+
+function postStatus() { 
+    alert("Status published");
+}
+
 
 
 export default Profile;

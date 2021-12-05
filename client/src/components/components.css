@@ -339,7 +339,7 @@ main{
     margin-left: 1150px;
     margin-top: 10px;
     border-radius: 10px;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
     #statusHeaderText{
@@ -455,15 +455,19 @@ main{
     background-color:rgb(247, 228, 247);
     border-color: rgb(247, 228, 247);
     color: black;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
 }
 
 #likeButton{
   margin-right: 300px;
   margin-top: 50px;
   font-size: 15px;
+  color:rgb(250, 156, 156);
+  border-color:rgb(250, 156, 156);;
+  display: inline-block;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 30px;
- color:rgb(250, 156, 156);
- display: inline-block;
 
 
 
@@ -473,7 +477,10 @@ main{
   font-size: 15px;
   border-radius: 30px;
   color: rgb(214, 151, 250);
+  border-color: rgb(214, 151, 250);;
   display: show;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
 }
 .commentButton-Container{
   margin-top: -23px;
@@ -502,6 +509,8 @@ main{
   background-color: #c3dbfc;
   border-color: #c3dbfc;
   color: black;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
 }
 
 
@@ -541,6 +550,8 @@ main{
     background: rgb(241, 241, 241);
     width: 240px;
     height: flex;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
     /* border-radius: 10px; */
     /* box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
 }
@@ -1005,6 +1016,7 @@ main{
 .post-col{
     width: 80%;
     margin-right: 200px;
+    
 
 }
 
@@ -1021,21 +1033,43 @@ main{
    background-color: #c3dbfc;
    border-color: #c3dbfc;
    color: black;
+   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
  }
 
 .post-col #publishPostButton{
     margin-left: 650px;
     margin-top: -48px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
 }
 
 #friendButton{
     margin-left: 0px;
+    border-radius: 30px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+}
+#friendButton:hover {
+  background: rgb(203, 255, 203);
 }
 #messageButton{
     margin-left: 10px;
+    border-radius: 30px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+}
+#messageButton:hover {
+  background: rgb(203, 239, 255);
 }
 #profileBlockButton{
     margin-left: 10px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+}
+
+#profileBlockButton:hover {
+  background: rgb(250, 182, 182);
 }
 /* ---------------------------- Profile ------------------------------------ */
 /* ---------------------------- Profile: About ------------------------------------ */
@@ -1075,15 +1109,19 @@ main{
 }
 
 
-
-
 #editOverview{
     margin-bottom:auto;
+    margin-left: 300px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
 }
 
 
 #editIntroButton{
-    background: #dedede;
+    background: #faf9f9;
+    margin-left: 500px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
 
 }
 
@@ -1113,23 +1151,54 @@ main{
     height: 50px;
     margin: 10px;
     font-weight: bold;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
 
 
 
 }
+#bioPlacesButton:hover{
+  background-color: rgb(218, 228, 255);
+}
+
+#bioPlacesButton:focus{
+  background-color: rgb(192, 209, 255);
+}
+
 #bioWorkButton{
     width: 250px;
     height: 50px;
     margin: 10px;
     font-weight: bold;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
 
 }
+
+#bioWorkButton:hover{
+  background-color: rgb(218, 228, 255);
+}
+
+#bioWorkButton:focus{
+  background-color: rgb(192, 209, 255);
+}
+
 #bioContactButton{
     width: 250px;
     height: 50px;
     margin: 10px;
     font-weight: bold;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
 
+}
+
+#bioContactButton:hover{
+  background-color: rgb(218, 228, 255);
+}
+
+#bioContactButton:focus{
+  background-color: rgb(192, 209, 255);
 }
 
 .text-container{
