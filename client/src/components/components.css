@@ -1386,6 +1386,9 @@ main{
 #blockButton{
     margin-left: 325px;
     margin-top: -50px;
+    border-radius: 5px;
+    background-color: rgb(211, 6, 6);
+    border-color: rgb(211, 6, 6);
 }
 #profilePageText{
     font-weight: bold;
