@@ -16,7 +16,7 @@ import like from '../../assests/like.svg';
 
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from 'react-router-dom';
 
 const Homepage = () => {
 	let navigate = useNavigate();

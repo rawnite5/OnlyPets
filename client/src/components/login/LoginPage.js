@@ -5,7 +5,7 @@ import '../components.css';
 import config from '../../utils/config';
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
 	const loginScript = () => {
