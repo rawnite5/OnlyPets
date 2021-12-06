@@ -97,8 +97,8 @@ const Homepage = () => {
 
 				<div class="statusHeaderText-Container">
 					<h1 id="statusHeaderText">What's Up On OnlyPets...</h1>
-
-					{posts.map(post => <Post key={post.id} post={post} />)}
+{/* 
+					{posts.map(post => <Post key={post.id} post={post}/>)} */}
 
 					{/* {posts.map(post => <Post key={post.id} post={post} />)} */}
 				</div>
@@ -136,12 +136,12 @@ const Homepage = () => {
 
 
 				</div>
-				<div class="publishedPosts">
+				{/* <div class="publishedPosts">
 					{posts.map(post => <Post key={post.id} post={post} />)}
-				</div>
+				</div> */}
 
 				{/* For ads (<br> = filler for now) */}
-				<div class="ads-container">
+				{/* <div class="ads-container">
 					<h5 id="adTitleText">Advertisements</h5>
 					<div class="internal-ad-container">
 						<a class="nav-link" href="profile-about.html" id="create-ad-navlink">Create your own ad!<br /> (Rates and
@@ -159,8 +159,9 @@ const Homepage = () => {
 					<br />
 					<br />
 					<br />
-				</div>
-				{/* new post : using cards */}
+				</div> */}
+				{/* new post : using car
+				ds */}
 				<div class="status-container">
 					<div class="card w-50 shadow p-3 mb-5 bg-white rounded" id="postCard">
 
@@ -197,6 +198,9 @@ const Homepage = () => {
 					</div>
 				</div>
 
+				<div class="publishedPosts">
+					{posts.map(post => <Post key={post.id} post={post} />)}
+				</div>
 
 				<div id="chat-bubble">
 					<div class="chat-container">
