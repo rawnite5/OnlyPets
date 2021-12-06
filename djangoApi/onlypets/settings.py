@@ -80,7 +80,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'crispy_forms',
-    'corsheaders',
 
     "django.contrib.admin",
     "django.contrib.auth",
@@ -92,15 +91,6 @@ INSTALLED_APPS = [
     'rest_framework',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-]
-
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',
-)
-
-CORS_ORIGIN_ALLOW_ALL = True
 SITE_ID=1
 
 MIDDLEWARE = [
@@ -111,8 +101,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = "onlypets.urls"
@@ -245,7 +233,7 @@ DEBUG = env("DEBUG")
 
 
 
-#---- comment before deploying ----
+# # ---- comment before deploying ----
 
 # """
 # Django settings for onlypets project.

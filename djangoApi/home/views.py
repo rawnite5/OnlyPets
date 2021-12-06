@@ -163,7 +163,6 @@ class PostDetailView(APIView):
             return Response({"status": "error", "data": serializer.errors})
     
 
-
 class CommentDetailView(APIView):
 
     def get_commentobject(self, *args, **kwargs):
