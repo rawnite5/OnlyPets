@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
+import { withTheme } from 'styled-components'
 
 const Post = ({ post }) => {
 	const postStyle = {
 		paddingTop: 10,
 		paddingLeft: 2,
 		border: 'solid',
+		borderRadius: 10,
 		borderWidth: 1,
+		borderColor: "white",
 		marginBottom: 5,
 		width: 400,
 		justifyContent: 'center',
+		backgroundColor: "white",
+		boxShadow: "1px 3px 1px #adadad",
 	}
 
 	const [detailsVisible, setDetailsVisible] = useState(true)
