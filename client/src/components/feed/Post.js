@@ -38,39 +38,35 @@ const Post = ({ post }) => {
 		// bottom: 300,
 	}
 
-	const [detailsVisible, setDetailsVisible] = useState(true)
+	const [detailsVisible, setDetailsVisible] = useState(false)
 
-	/*
+
 	const addLikeToPost = (PostToUpdate) => {
-		const updatedPost = {
-			id: PostToUpdate.id,
-			title: PostToUpdate.title,
-			author: PostToUpdate.author,
-			url: PostToUpdate.url,
-			likes: Post.likes + 1
-		}
-		likeButtonClickHandler(updatedPost)
+		// author: window.sessionStorage.getItem("userId"),
 	}
-	
+
 
 	const removePost = (PostToRemove) => {
-		const result = window.confirm(`Remove Post: ${PostToRemove.title}`);
-		if(result)
-			removeButtonClickHandler(PostToRemove)
+		const result = window.confirm(`Remove Post: ${PostToRemove.post_content}`);
+
+		if (result) {
+			axios.delete(`${apiURL}/home/${PostToRemove.post_content}`)
+				.then(response => {
+					
+				})
+				.catch(error => console.log(error))
+		}
 	}
-	
-*/
+
 	const showDetails = (visible) => {
 		if (visible) {
 			return (
 				<div>
-					{post.post_content} <br />
+					{author.username} <br />
 					{post.post_timestamp.slice(0, 10)} <br />
-					{'likes: '} {post.likes.length}
-					{/*
-					<button id={'likeButton'} onClick={() => addLikeToPost(Post)} type='submit'>like</button> <br />
-					<button id={'removePostButton'} onClick={() => removePost(Post)} type='submit'>remove</button>
-					*/}
+					{'likes: '} {post.likes.length} <br />
+					<button id={'likeButton'} onClick={() => addLikeToPost(post)} type='submit'>like</button>
+					<button id={'removePostButton'} onClick={() => removePost(post)} type='submit'>remove</button>
 				</div>
 			)
 		} else {
@@ -81,8 +77,8 @@ const Post = ({ post }) => {
 	return (
 		<div className={'post'} style={postStyle} id="postedStatus">
 			<div>
-			<h5>{author.username}</h5>
-				<button id={'detailsButton'} onClick={() => setDetailsVisible(!detailsVisible)} type='button'class="
+				<h5>{post.post_content}</h5>
+				<button id={'detailsButton'} onClick={() => setDetailsVisible(!detailsVisible)} type='button' class="
 glyphicon glyphicon-chevron-down"></button>
 			</div>
 			{showDetails(detailsVisible)}

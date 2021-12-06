@@ -23,11 +23,20 @@ class PostCollectionView(APIView):
                 serializer = PostCollectionSerializer(item)
                 return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
             except PostCollection.DoesNotExist:
-                return Response({"status": "error", "data": "post does not exist"}, status=status.HTTP_400_BAD_REQUEST)
+                return Response({"status": "error", "data": "post does not exist"}, status=status.HTTP_200_OK)
 
         items = PostCollection.objects.all().order_by('-post_timestamp')
         serializer = PostCollectionSerializer(items, many=True)
         return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
+
+    def delete(self, request, content=None):
+        try:
+            item = PostCollection.objects.get(post_content=content)
+        except PostCollection.DoesNotExist:
+            return Response({"status": "error", "data": "username does not exist"}, status=status.HTTP_200_OK)
+
+        item.delete()
+        return Response({"status": "success", "data": "Item Deleted"})
 
     def post(self, request, *args, **kwargs):
         serializer = PostCollectionSerializer(data=request.data)
@@ -35,17 +44,16 @@ class PostCollectionView(APIView):
             serializer.save()
             return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
         else:
-            return Response({"status": "error", "data": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"status": "error", "data": serializer.errors}, status=status.HTTP_200_OK)
 
 
 class PostEditView(APIView):
-
     def get_object(self, *args, **kwargs):
         id = self.kwargs.get('pk')
         try: 
             return PostCollection.objects.get(id = id)
         except PostCollection.DoesNotExist:
-            return Response({"status": "error", "data": "post does not exist"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"status": "error", "data": "post does not exist"}, status=status.HTTP_200_OK)
 
     def get(self, request, *args, **kwargs):
         post = self.get_object()
@@ -124,7 +132,7 @@ class PostDetailView(APIView):
         try: 
             return PostCollection.objects.get(id = pid)
         except PostCollection.DoesNotExist:
-            return Response({"status": "error", "data": "post does not exist"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"status": "error", "data": "post does not exist"}, status=status.HTTP_200_OK)
        
     def get(self, *args, **kwargs):
         post = self.get_object()
@@ -149,7 +157,7 @@ class PostDetailView(APIView):
             commentserializer.save()
             return Response({"status": "success", "data": {"post": postserializer.data,"comments":commentserializer.data}}, status=status.HTTP_200_OK)
         else:
-            return Response({"status": "error", "data": commentserializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"status": "error", "data": commentserializer.errors}, status=status.HTTP_200_OK)
             
         post = self.get_object()
         
@@ -170,14 +178,14 @@ class CommentDetailView(APIView):
         try: 
             return CommentCollection.objects.get(id = cid)
         except CommentCollection.DoesNotExist:
-            return Response({"status": "error", "data": "comment does not exist"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"status": "error", "data": "comment does not exist"}, status=status.HTTP_200_OK)
 
     def get_postobject(self, *args, **kwargs):
         pid = self.kwargs.get('postId')
         try: 
             return PostCollection.objects.get(id = pid)
         except PostCollection.DoesNotExist:
-            return Response({"status": "error", "data": "post does not exist"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"status": "error", "data": "post does not exist"}, status=status.HTTP_200_OK)
 
         pid = self.kwargs.get('postId')
 

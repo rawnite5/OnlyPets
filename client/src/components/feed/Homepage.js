@@ -34,7 +34,25 @@ const Homepage = () => {
 
 	const script = () => {
 		window.onload = function () {
+			let postButton = document.querySelector("#postButton");
 
+			postButton.addEventListener("click", event => {
+				event.preventDefault();
+				var text = document.querySelector('#editContent').value;
+
+				const postInfo = {
+					author: window.sessionStorage.getItem("userId"),
+					post_content: text
+				};
+				console.log("hi")
+				console.log(postInfo.author)
+
+				axios.post(`${apiURL}/home/`, postInfo)
+					.then(response => {
+						setPosts(posts.append(response.data.data))
+					})
+					.catch(error => console.log(error));
+			})
 		}
 	}
 
@@ -80,7 +98,7 @@ const Homepage = () => {
 				<div class="statusHeaderText-Container">
 					<h1 id="statusHeaderText">What's Up On OnlyPets...</h1>
 
-					{posts.map(post => <Post key={post.id} post={post}/>)}
+					{posts.map(post => <Post key={post.id} post={post} />)}
 
 					{/* {posts.map(post => <Post key={post.id} post={post} />)} */}
 				</div>
@@ -147,7 +165,7 @@ const Homepage = () => {
 					<div class="card w-50 shadow p-3 mb-5 bg-white rounded" id="postCard">
 
 						<div class="card-body">
-							<h5 class="card-title" id="cardTitle">{"Hi " + window.sessionStorage.getItem("username")}</h5>
+							<h5 class="card-title" id="cardTitle">{"Hi " + window.sessionStorage.getItem("username") + "!"}</h5>
 
 							<div class="col-xs-12" id="post_content">
 								<div class="textarea_wrap"> <textarea class="col-xs-11" placeholder="What's on your mind?"
@@ -275,20 +293,7 @@ function publishStatus() {
 	// var videoIcon = document.getElementsByTagName("importVideo");
 	var likeIcon = document.getElementsByTagName("likeButton");
 	var commentIcon = document.getElementsByTagName("commentButton");
-	if (publishButton.style.display === "block") {
-		privacyButton.style.display = "none";
-		publishButton.style.display = "none";
-		likeIcon.style.display = "inline-block";
-		commentIcon.style.display = "inline-block";
-	} else {
-		likeIcon.style.display = "inline-block";
-		commentIcon.style.display = "inline-block";
-	}
 
-	privacyButton.style.display = "none";
-	publishButton.style.display = "none";
-	likeIcon.style.display = "inline-block";
-	commentIcon.style.display = "inline-block";
 	// cameraIcon.style.display = "none";
 	// videoIcon.style.display = "none";
 
