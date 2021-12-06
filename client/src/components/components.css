@@ -947,6 +947,11 @@ main{
 #coverphotobutton{
     margin-top: -75px;
     margin-left: 890px;
+    border-radius: 30px;
+    background-color: #97c4ff;
+    border: none;
+    color: black;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)
 }
 
 #contentCard{
