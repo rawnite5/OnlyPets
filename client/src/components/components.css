@@ -247,6 +247,7 @@ main{
     height: 60px;
     margin: 0 auto; /* top, right, bottom, left */
     margin-top: -1px;
+    position: fixed;
 
 }
 
