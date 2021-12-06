@@ -25,7 +25,7 @@ const Post = ({ post }) => {
 		paddingTop: 10,
 		paddingLeft: 2,
 		border: 'solid',
-		borderRadius: 10,
+		borderRadius: 5,
 		borderWidth: 1,
 		borderColor: "white",
 		marginBottom: 5,
