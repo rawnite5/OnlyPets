@@ -441,7 +441,11 @@ main{
 }
 
 .status-container{
-    margin-top: -500px;
+  width: 80%;
+  position: absolute;
+  margin-top: -500px;
+  margin-left: 100px;
+
 }
 /* Status Update  */
 #postCard{
@@ -1637,4 +1641,11 @@ main{
   border-color: rgb(255, 231, 204);
   border-radius: 30px;
 }
+
+#postedStatus{
+  margin-left: 500px;
+  margin-top: 40px;
+}
+
+
 /* ---------------------------- Posts.js ------------------------------------*/

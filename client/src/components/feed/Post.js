@@ -3,6 +3,7 @@ const axios = require('axios').default;
 const apiURL = config.baseUrl;
 import config from '../../utils/config';
 import { withTheme } from 'styled-components'
+import React, { useState } from 'react'
 
 const Post = ({ post }) => {
 	const [author, setAuthor] = useState({})
@@ -33,6 +34,9 @@ const Post = ({ post }) => {
 		justifyContent: 'center',
 		backgroundColor: "white",
 		boxShadow: "1px 3px 1px #adadad",
+		// position: "absolute",
+		// left: 500,
+		// bottom: 300,
 	}
 
 	const [detailsVisible, setDetailsVisible] = useState(true)
@@ -76,7 +80,7 @@ const Post = ({ post }) => {
 	}
 
 	return (
-		<div className={'post'} style={postStyle}>
+		<div className={'post'} style={postStyle} id="postedStatus">
 			<div>
 			<h5>{author.username}</h5>
 				<button id={'detailsButton'} onClick={() => setDetailsVisible(!detailsVisible)} type='button'class="

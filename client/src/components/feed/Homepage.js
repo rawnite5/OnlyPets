@@ -82,7 +82,9 @@ const Homepage = () => {
 
 					{posts.map(post => <Post key={post.id} post={post}/>)}
 
+					{/* {posts.map(post => <Post key={post.id} post={post} />)} */}
 				</div>
+
 
 				{/* "side nav bar" */}
 				<div class="secondNav">
@@ -96,6 +98,8 @@ const Homepage = () => {
 						</div>
 					</div>
 				</div>
+
+				
 
 				{/* User's Friends List */}
 				<div class="user-contacts-container">
@@ -113,6 +117,9 @@ const Homepage = () => {
 					</div>
 
 
+				</div>
+				<div class="publishedPosts">
+					{posts.map(post => <Post key={post.id} post={post} />)}
 				</div>
 
 				{/* For ads (<br> = filler for now) */}
@@ -135,7 +142,6 @@ const Homepage = () => {
 					<br />
 					<br />
 				</div>
-
 				{/* new post : using cards */}
 				<div class="status-container">
 					<div class="card w-50 shadow p-3 mb-5 bg-white rounded" id="postCard">
@@ -173,6 +179,7 @@ const Homepage = () => {
 					</div>
 				</div>
 
+
 				<div id="chat-bubble">
 					<div class="chat-container">
 						<div class="chat-header">
@@ -204,6 +211,8 @@ const Homepage = () => {
 							</a>
 						</nav>
 					</div>
+
+			
 
 					{/* <div class="sender-me">
             <div class="my-message">
