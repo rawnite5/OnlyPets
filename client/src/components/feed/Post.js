@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react'
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
 import config from '../../utils/config';
-import { withTheme } from 'styled-components'
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 
 const Post = ({ post }) => {
 	const [author, setAuthor] = useState({})
