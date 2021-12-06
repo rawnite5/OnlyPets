@@ -81,6 +81,7 @@ const Homepage = () => {
 					<h1 id="statusHeaderText">What's Up On OnlyPets...</h1>
 
 					{posts.map(post => <Post key={post.id} post={post}/>)}
+
 				</div>
 
 				{/* "side nav bar" */}
@@ -140,7 +141,7 @@ const Homepage = () => {
 					<div class="card w-50 shadow p-3 mb-5 bg-white rounded" id="postCard">
 
 						<div class="card-body">
-							<h5 class="card-title" id="cardTitle">*Input Username Here</h5>
+							<h5 class="card-title" id="cardTitle">{"Hi " + window.sessionStorage.getItem("username")}</h5>
 
 							<div class="col-xs-12" id="post_content">
 								<div class="textarea_wrap"> <textarea class="col-xs-11" placeholder="What's on your mind?"

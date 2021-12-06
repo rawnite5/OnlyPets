@@ -1,7 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+const axios = require('axios').default;
+const apiURL = config.baseUrl;
+import config from '../../utils/config';
 import { withTheme } from 'styled-components'
 
 const Post = ({ post }) => {
+	const [author, setAuthor] = useState({})
+
+	useEffect(() => {
+		axios.get(`${apiURL}/profile/`)
+			.then(response => {
+				let profiles = response.data.data;
+				for (let i = 0; i < profiles.length; i++) {
+					if (profiles[i].id === post.author) {
+						setAuthor(profiles[i]);
+						break;
+					}
+				}
+			})
+			.catch(error => console.log(error))
+	}, [])
+
 	const postStyle = {
 		paddingTop: 10,
 		paddingLeft: 2,
@@ -59,7 +78,7 @@ const Post = ({ post }) => {
 	return (
 		<div className={'post'} style={postStyle}>
 			<div>
-				<h5>{post.author}</h5>
+			<h5>{author.username}</h5>
 				<button id={'detailsButton'} onClick={() => setDetailsVisible(!detailsVisible)} type='button'class="
 glyphicon glyphicon-chevron-down"></button>
 			</div>

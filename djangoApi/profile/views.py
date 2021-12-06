@@ -22,7 +22,15 @@ class ProfileView(APIView):
                 return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
             except Profile.DoesNotExist:
                 return Response({"status": "error", "data": "username does not exist"}, status=status.HTTP_200_OK)
-
+        """
+        if id:
+            try:
+                item = Profile.objects.get(id=id)
+                serializer = ProfileSerializer(item)
+                return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
+            except Profile.DoesNotExist:
+                return Response({"status": "error", "data": "id does not exist"}, status=status.HTTP_200_OK)
+        """
         items = Profile.objects.all()
         serializer = ProfileSerializer(items, many=True)
         return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
