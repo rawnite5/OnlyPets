@@ -627,13 +627,14 @@ main{
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)
 }
 
-/* .chat-box{
+.chat-box{
 	position: absolute;
 	right: 20px;
 	bottom: 0px;
 	background: white;
 	width: 300px;
 	border-radius: 5px 5px 0px 0px;
+  display: none;
 }
 .chat-head{
 	width: inherit;
@@ -713,7 +714,7 @@ main{
 }
 .msg-receive:hover, .msg-send:hover{
 	opacity: .9;
-} */
+}
 
 #chat-bubble {
     height: 55px;
@@ -1647,6 +1648,43 @@ main{
   left: 65px;
   background-color: #141516;
 }
+
+.composeMessage-Container{
+  /* position: absolute; */
+  margin-top: 500px;
+  margin-left: 400px;
+  /* position: absolute;
+  top: 600px;
+  left: 500px; */
+}
+
+#composeMessageTextArea{
+  width: 500px;
+  height: 100px;
+}
+
+.messageButtons{
+  /* margin: 0 auto; */
+  /* margin-top: 10px; */
+  margin-left: 825px;
+  padding: 20px;
+  /* position : absolute;
+  top: 600px;
+  left: 500px; */
+}
+
+#sendButton{
+  width: 50px;
+}
+
+.userFiltering-Container{
+  margin-top: 10px;
+  margin-left: 25px;
+
+}
+#searchForUsersToMessage{
+  width: 200px;
+}
 /* ---------------------------- Messages ------------------------------------*/
 /* ---------------------------- Posts.js ------------------------------------*/
 #detailsButton{
@@ -1662,3 +1700,4 @@ main{
 
 
 /* ---------------------------- Posts.js ------------------------------------*/
+

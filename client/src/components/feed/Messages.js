@@ -4,17 +4,17 @@ import dogHeader from '../../assests/dogHeader.jpg';
 import { Helmet } from "react-helmet";
 import '../components.css';
 import config from '../../utils/config';
-import textlogo from '../../assests/textLogo.jpg'
+import textlogo from '../../assests/textLogo.jpg';
 
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
 
 const Messages = ({ setPage }) => {
 	const script = () => {
-        window.onload = function () {
+		window.onload = function () {
 
-        }
-    }
+		}
+	}
 
 	return (
 		<div>
@@ -53,20 +53,29 @@ const Messages = ({ setPage }) => {
 					</nav>
 				</div>
 
-				{/* User's Friends List */}
-				<div class="user-contacts-container">
-					<h5 id="contactsText">Contacts</h5>
-					<button class="btn glyphicon glyphicon-option-horizontal" id="moreOptContactsButton"></button>
-					<div class="user-friends-list">
-						<li>Friend 1</li>
-						<li>Friend 2</li>
-						<li>Friend 3</li>
-						<li>Friend 4</li>
-						<li>Friend 5</li>
-						<li>Friend 6</li>
-						<li>Friend 8</li>
-						<li>Friend 9</li>
-					</div>
+				<div class="userFiltering-Container">
+					<input type="text" id="searchForUsersToMessage" placeholder="Search for users"></input>
+
+					<ul id="myUL">
+						<li><a href="#">Adele</a></li>
+						<li><a href="#">Agnes</a></li>
+
+						<li><a href="#">Billy</a></li>
+						<li><a href="#">Bob</a></li>
+
+						<li><a href="#">Calvin</a></li>
+						<li><a href="#">Christina</a></li>
+						<li><a href="#">Cindy</a></li>
+					</ul>
+				</div>
+
+				<div class="composeMessage-Container">
+					<textarea placeholder="Type message.." name="msg" id="composeMessageTextArea" required></textarea>
+				</div>
+
+				<div class="messageButtons">
+					<button class="btn btn-primary" onClick={send} id="sendButton"> Send</button>
+
 				</div>
 			</main>
 		</div>
@@ -82,6 +91,10 @@ function toggle_light_mode() {
 		localStorage.lightMode = "dark";
 		app.setAttribute("light-mode", "dark");
 	}
+}
+
+function send() {
+	alert("message sent");
 }
 
 export default Messages;

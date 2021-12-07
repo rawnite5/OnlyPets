@@ -97,7 +97,7 @@ const Homepage = () => {
 
 				<div class="statusHeaderText-Container">
 					<h1 id="statusHeaderText">What's Up On OnlyPets...</h1>
-{/* 
+					{/* 
 					{posts.map(post => <Post key={post.id} post={post}/>)} */}
 
 					{/* {posts.map(post => <Post key={post.id} post={post} />)} */}
@@ -117,7 +117,7 @@ const Homepage = () => {
 					</div>
 				</div>
 
-				
+
 
 				{/* User's Friends List */}
 				<div class="user-contacts-container">
@@ -202,10 +202,10 @@ const Homepage = () => {
 					{posts.map(post => <Post key={post.id} post={post} />)}
 				</div>
 
-				<div id="chat-bubble">
+				{/* <div id="chat-bubble">
 					<div class="chat-container">
 						<div class="chat-header">
-							<div class="user-avatar" onClick={openChatBubble}>
+							<div class="user-avatar" onClick={open}>
 								<div class="img-container">
 									<img src="./icons/dogPhoto1 copy.jpg"></img>
 								</div>
@@ -228,15 +228,15 @@ const Homepage = () => {
 							<a href="#">
 								<img src={settings}></img>
 							</a>
-							<a href="#" onClick={openChatBubble}>
+							<a href="#">
 								<img src={close}></img>
 							</a>
 						</nav>
-					</div>
+					</div> */}
 
-			
 
-					{/* <div class="sender-me">
+
+				{/* <div class="sender-me">
             <div class="my-message">
               Hello
             </div>
@@ -244,7 +244,6 @@ const Homepage = () => {
               <img class="check" src={check}> Seen 8:00 AM</img>
             </div>
           </div> */}
-				</div>
 
 				{/* 
         <div class="chat-footer">
@@ -264,18 +263,30 @@ const Homepage = () => {
           </div>
 		  </div> */}
 
+{/* <div class="chat-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+    <h1>Chat</h1>
+
+    <label for="msg"><b>Message</b></label>
+    <textarea placeholder="Type message.." name="msg" required></textarea>
+
+    <button type="submit" class="btn">Send</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div> */}
+
 
 			</main>
 		</div >
 	)
 }
 
-function openChatBubble() {
-	// doesnt give alert
-	alert("open");
-	var element = document.getElementById("chat-bubble");
-	element.classList.toggle("open")
-}
+// function openChatBubble() {
+// 	// doesnt give alert
+// 	alert("open");
+// 	var element = document.getElementById("chat-bubble");
+// 	element.classList.toggle("open")
+// }
 
 function toggle_light_mode() {
 	var app = document.getElementsByTagName("MAIN")[0];
@@ -303,6 +314,13 @@ function publishStatus() {
 
 }
 
+// function openForm() {
+// 	document.getElementById("myForm").style.display = "block";
+//   }
+  
+//   function closeForm() {
+// 	document.getElementById("myForm").style.display = "none";
+//   }
 
 
 
