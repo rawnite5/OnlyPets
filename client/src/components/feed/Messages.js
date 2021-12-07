@@ -53,8 +53,10 @@ const Messages = ({ setPage }) => {
 					</nav>
 				</div>
 
+				<div class="fullUserFiltering-Container">
 				<div class="userFiltering-Container">
-					<input type="text" id="searchForUsersToMessage" placeholder="Search for users"></input>
+					<h3 id="userFilteringTitle">Search for Other Pets...</h3>
+					<input type="text" id="searchForUsersToMessage" placeholder="Search"></input>
 
 					<ul id="myUL">
 						<li><a href="#">Adele</a></li>
@@ -68,6 +70,10 @@ const Messages = ({ setPage }) => {
 						<li><a href="#">Cindy</a></li>
 					</ul>
 				</div>
+				</div>
+				
+
+				<div class="fullMessage-Container">
 
 				<div class="composeMessage-Container">
 					<textarea placeholder="Type message.." name="msg" id="composeMessageTextArea" required></textarea>
@@ -76,6 +82,7 @@ const Messages = ({ setPage }) => {
 				<div class="messageButtons">
 					<button class="btn btn-primary" onClick={send} id="sendButton"> Send</button>
 
+				</div>
 				</div>
 			</main>
 		</div>

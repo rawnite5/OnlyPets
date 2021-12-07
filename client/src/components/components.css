@@ -237,6 +237,7 @@ main{
 
 /* Nav Bar Stuff */
 .navbar{
+  width: fit-content;
     background-color: rgb(255, 255, 255);
     border: 1px solid #dedede;
     border-radius: 4px;
@@ -1636,7 +1637,7 @@ main{
 
 .entire-messagepage[light-mode=dark] {
   background-color: #292929;
-  color: #ced4e2;
+  color: #000000;
 }
 
 .entire-messagepage[light-mode="dark"] .light-mode-button9 span:nth-child(1){
@@ -1649,10 +1650,27 @@ main{
   background-color: #141516;
 }
 
-.composeMessage-Container{
-  /* position: absolute; */
-  margin-top: 500px;
+.fullMessage-Container{
+  margin-top: -275px;
   margin-left: 400px;
+  /* background-color: ; */
+  border: solid;
+  border-style: double;
+  border-radius: 5px;
+  border-width: 0.5px;
+  border-color:rgb(218, 217, 217);
+  width:700px;
+  height: 700px;
+  box-shadow: 2px 2px 2px 1px rgba(0.2, 0.2, 0.2, 0.2);
+}
+
+.composeMessage-Container{
+  position: absolute;
+  margin-top: 550px;
+  margin-left: 75px;
+  /* position: absolute; */
+  /* margin-top: 500px;
+  margin-left: 200px; */
   /* position: absolute;
   top: 600px;
   left: 500px; */
@@ -1661,25 +1679,46 @@ main{
 #composeMessageTextArea{
   width: 500px;
   height: 100px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .messageButtons{
+  position: absolute;
   /* margin: 0 auto; */
   /* margin-top: 10px; */
-  margin-left: 825px;
+  margin-left: 250px;
   padding: 20px;
+  bottom: 2px;
   /* position : absolute;
   top: 600px;
   left: 500px; */
 }
 
 #sendButton{
-  width: 50px;
+  width: 100px;
+  border-radius: 30px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  background-color: #8ffaf6;
+  color: black;
+  border: none;
+  font: bold;
 }
+.fullUserFiltering-Container{
+  width: 300px;
+  margin-left: 20px;
+  background-color: rgb(231, 231, 231);
+  border-radius: 20px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 
+}
+#userFilteringTitle{
+  font: bolder;
+}
 .userFiltering-Container{
-  margin-top: 10px;
+  margin-top: 80px;
   margin-left: 25px;
+  padding: 20px;
 
 }
 #searchForUsersToMessage{
