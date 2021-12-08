@@ -29,7 +29,7 @@ const Post = ({ post }) => {
 		borderWidth: 1,
 		borderColor: "white",
 		marginBottom: 5,
-		width: 400,
+		width: 565,
 		justifyContent: 'center',
 		backgroundColor: "white",
 		boxShadow: "1px 3px 1px #adadad",
@@ -65,7 +65,8 @@ const Post = ({ post }) => {
 					{author.username} <br />
 					{post.post_timestamp.slice(0, 10)} <br />
 					{'likes: '} {post.likes.length} <br />
-					<button id={'likeButton'} onClick={() => addLikeToPost(post)} type='submit'>like</button>
+					<button class="glyphicon glyphicon-pencil" id={'commentButton'}></button>
+					<button id={'likeButton'} onClick={() => addLikeToPost(post)} class="glyphicon glyphicon-heart" type='submit'></button>
 					<button id={'removePostButton'} onClick={() => removePost(post)} type='submit'>remove</button>
 				</div>
 			)

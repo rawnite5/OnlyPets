@@ -220,7 +220,7 @@ const Homepage = () => {
 					<div class="card w-50 shadow p-3 mb-5 bg-white rounded" id="postCard">
 
 						<div class="card-body">
-							<h5 class="card-title" id="cardTitle">{"Hi " + window.sessionStorage.getItem("username") + "!"}</h5>
+							<h5 class="card-title" id="cardTitle">{"Hi " + window.sessionStorage.getItem("username") + ","}</h5>
 
 							<div class="col-xs-12" id="post_content">
 								<div class="textarea_wrap"> <textarea class="col-xs-11" placeholder="What's on your mind?"
@@ -231,9 +231,8 @@ const Homepage = () => {
 							
 							<a href="#"><span class="glyphicon glyphicon-film" id="importVideo"></span></a> */}
 
-							<button class="glyphicon glyphicon-heart" id="likeButton"></button>
-							<div class="commentButton-Container">
-								<button class="glyphicon glyphicon-pencil" id="commentButton"></button>
+							<div class="uploadButton-Container">
+								<button class="glyphicon glyphicon-upload" id="uploadButton"></button>
 							</div>
 
 							<div class="dropdown">
