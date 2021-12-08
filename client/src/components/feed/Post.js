@@ -65,8 +65,10 @@ const Post = ({ post }) => {
 					{author.username} <br />
 					{post.post_timestamp.slice(0, 10)} <br />
 					{'likes: '} {post.likes.length} <br />
-					<button class="glyphicon glyphicon-pencil" id={'commentButton'}></button>
+					<div class="likeCommentButton-Container">
+					<button button class="glyphicon glyphicon-pencil" id={'commentButton'} type="submit"></button>
 					<button id={'likeButton'} onClick={() => addLikeToPost(post)} class="glyphicon glyphicon-heart" type='submit'></button>
+					</div>
 					<button id={'removePostButton'} onClick={() => removePost(post)} type='submit'>remove</button>
 				</div>
 			)

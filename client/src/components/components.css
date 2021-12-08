@@ -450,7 +450,7 @@ main{
 .status-container{
   width: 80%;
   position: absolute;
-  margin-top: -175px;
+  margin-top: -75px;
   margin-left: 100px;
   /* margin-right: 700px; */
   /* margin-right: 900px; */
@@ -1746,6 +1746,11 @@ main{
 }
 /* ---------------------------- Messages ------------------------------------*/
 /* ---------------------------- Posts.js ------------------------------------*/
+
+.likeCommentButton-Container{
+  margin-left: -25px;
+
+}
 #detailsButton{
   background-color: rgb(255, 215, 170);
   border-color: rgb(255, 231, 204);
@@ -1754,8 +1759,13 @@ main{
 
 #postedStatus{
   margin-left: 395px;
-  margin-top: 40px;
+  margin-top: 100px;
+  padding: 10px;
 }
+
+/* .pubishedPosts{
+  margin-top: -200px;
+} */
 
 #removePostButton{
   margin-left: 500px;

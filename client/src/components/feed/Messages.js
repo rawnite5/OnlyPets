@@ -76,7 +76,6 @@ const Messages = ({ setPage }) => {
 				</div>
 
 				<div class="fullUserFiltering-Container">
-<<<<<<< Updated upstream
 					<div class="userFiltering-Container">
 						<h3 id="userFilteringTitle">Search for Other Pets...</h3>
 						<input type="text" id="searchForUsersToMessage" placeholder="Search"></input>
@@ -93,7 +92,6 @@ const Messages = ({ setPage }) => {
 							<li><a href="#">Cindy</a></li>
 						</ul>
 					</div>
-=======
 				<div class="userFiltering-Container">
 					<h3 id="userFilteringTitle">Search for Other Pets...</h3>
 					<input type="text" id="searchForUsersToMessage" placeholder="Search"></input>
@@ -106,7 +104,6 @@ const Messages = ({ setPage }) => {
 						<li><a href="#"></a></li>
 					</ul>
 				</div>
->>>>>>> Stashed changes
 				</div>
 
 
