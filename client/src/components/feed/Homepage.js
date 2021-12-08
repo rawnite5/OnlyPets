@@ -20,52 +20,46 @@ const apiURL = config.baseUrl;
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 
+let addFriends = (f) => {
+	if (f.length > 0) {
+		return (f.map((username) => <li>{username}</li>))
+	} else {
+		return <li>You have no Friends :(</li>
+	}
+}
+
 const Homepage = () => {
 	const [posts, setPosts] = useState([])
-
-	let style = {
-		"margin-left": 200
-	}
-
-	let f1;
-	let f2;
-	let f3;
-	let f4;
-	let f5;
-	let f6;
-	let f7;
-	let f8;
-	let f9;
-	let f10;
-
-	if (window.sessionStorage.getItem("username") === "Woof Smith") {
-		f1 = 'sara';
-		f2 = 'pika777';
-		f3 = 'bob1234';
-		f4 = 'bob';
-		f5 = 'jenna';
-		f6 = '';
-		f7 = '';
-		f8 = '';
-		f9 = '';
-		f10 = '';
-	} else {
-		f1 = '';
-		f2 = '';
-		f3 = '';
-		f4 = '';
-		f5 = '';
-		f6 = '';
-		f7 = '';
-		f8 = '';
-		f9 = '';
-		f10 = '';
-	}
+	const [friends, setFriends] = useState([])
 
 	useEffect(() => {
 		axios.get(`${apiURL}/home/`)
 			.then(response => {
 				setPosts(response.data.data);
+			})
+			.catch(error => console.log(error))
+	}, [])
+
+	let user_id = window.sessionStorage.getItem("userId");
+	useEffect(() => {
+		axios.get(`${apiURL}/profile/friends/${user_id}/`)
+			.then(response => {
+				return response.data.data;
+			}).then(response => {
+				axios.get(`${apiURL}/profile/`).then(response2 => {
+					let friends = response;
+					let profiles = response2.data.data;
+
+					let matchingProfile = []
+					for (let i = 0; i < friends.length; i++) {
+						for (let j = 0; j < profiles.length; j++) {
+							if (friends[i].friend == profiles[j].id && !matchingProfile.includes(profiles[j].username)) {
+								matchingProfile.push(profiles[j].username)
+							}
+						}
+					}
+					setFriends(matchingProfile)
+				})
 			})
 			.catch(error => console.log(error))
 	}, [])
@@ -82,12 +76,26 @@ const Homepage = () => {
 					author: window.sessionStorage.getItem("userId"),
 					post_content: text
 				};
-				console.log("hi")
-				console.log(postInfo.author)
 
 				axios.post(`${apiURL}/home/`, postInfo)
 					.then(response => {
 						setPosts(posts.append(response.data.data))
+					})
+					.catch(error => console.log(error));
+			})
+
+			let searchInput = document.querySelector("#search");
+			let searchAnchorTag = document.querySelector("#searchAnchor");
+
+			searchAnchorTag.addEventListener("click", event => {
+				event.preventDefault();
+				var text = searchInput.value;
+
+				axios.get(`${apiURL}/profile/id/${text}/`)
+					.then(response => {
+						console.log(response.data.data);
+						// what do on search?
+						
 					})
 					.catch(error => console.log(error));
 			})
@@ -124,7 +132,7 @@ const Homepage = () => {
 							<input id="search" type="search" class="form-control" />
 						</div>
 
-						<a href="search.html"><span class="glyphicon glyphicon-search"></span></a>
+						<a id="searchAnchor" href="search.html"><span class="glyphicon glyphicon-search"></span></a>
 
 						<div class="lightModeButton3-container">
 							<button class="btn btn-dark" id="light-mode-button3" onClick={toggle_light_mode}>Dark Mode</button>
@@ -143,7 +151,7 @@ const Homepage = () => {
 
 
 				{/* "side nav bar" */}
-				<div class="secondNav" style={style}>
+				<div class="secondNav">
 					<div class="sec-nav-container">
 						<h3 id="quickNavText">Quick Navigation...</h3>
 						<div class="btn-group-vertical" id="moreSettingsButtonGroup">
@@ -162,6 +170,8 @@ const Homepage = () => {
 					<h5 id="contactsText">Friends</h5>
 					<button class="btn glyphicon glyphicon-option-horizontal" id="moreOptContactsButton"></button>
 					<div class="user-friends-list">
+						{addFriends(friends)}
+						{/*
 						<li>{f1}</li>
 						<li>{f2}</li>
 						<li>{f3}</li>
@@ -172,6 +182,7 @@ const Homepage = () => {
 						<li>{f8}</li>
 						<li>{f9}</li>
 						<li>{f10}</li>
+						*/}
 					</div>
 				</div>
 				{/* <div class="publishedPosts">
@@ -302,7 +313,7 @@ const Homepage = () => {
           </div>
 		  </div> */}
 
-{/* <div class="chat-popup" id="myForm">
+				{/* <div class="chat-popup" id="myForm">
   <form action="/action_page.php" class="form-container">
     <h1>Chat</h1>
 
@@ -356,7 +367,7 @@ function publishStatus() {
 // function openForm() {
 // 	document.getElementById("myForm").style.display = "block";
 //   }
-  
+
 //   function closeForm() {
 // 	document.getElementById("myForm").style.display = "none";
 //   }

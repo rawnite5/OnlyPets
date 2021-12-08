@@ -96,8 +96,11 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+)
 
+CORS_ORIGIN_ALLOW_ALL = True
 SITE_ID=1
 
 MIDDLEWARE = [
@@ -242,7 +245,7 @@ DEBUG = env("DEBUG")
 
 
 
-# # ---- comment before deploying ----
+#---- comment before deploying ----
 
 # """
 # Django settings for onlypets project.

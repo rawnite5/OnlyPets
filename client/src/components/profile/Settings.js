@@ -11,12 +11,45 @@ import theme from '../../components/theme';
 import { withTheme } from 'styled-components';
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
-
+import { useState, useEffect } from 'react'
+import $ from 'jquery';
 
 const Settings = ({ setPage }) => {
+
 	const script = () => {
 		window.onload = function () {
+			console.log($('#toggle1').bootstrapToggle('toggle'));
 
+			let profiles = []
+
+			axios.get(`${apiURL}/profile/`)
+				.then(response => {
+					profiles = response.data.data;
+				})
+				.catch(error => console.log(error));
+
+			let blockedSearchInput = document.querySelector("#search2");
+			let blockedSearchButton = document.querySelector("#blockButton");
+
+			blockedSearchButton.addEventListener("click", event => {
+				event.preventDefault();
+				var profileToBlock = blockedSearchInput.value;
+				let found = false;
+
+				for (let i = 0; i < profiles.length; i++) {
+					if (profiles[i].username === profileToBlock) {
+						found = true;
+						break;
+					}
+				}
+
+				if (!found) {
+					alert(`User ${profileToBlock} does not exist.`);
+				} else {
+					alert(`${profileToBlock} has been blocked, good riddance.`);
+				}
+
+			})
 		}
 	}
 
@@ -74,7 +107,7 @@ const Settings = ({ setPage }) => {
 								<text>Manage your blocked users. Once you block someone, that person can no longer see things you post on your timeline, tag you, start conversations with you, or add you as a friend. </text>
 
 								<div class="searchBarBlockedUsers-Container">
-									<input id="search" type="search" class="form-control" />
+									<input id="search2" type="search" class="form-control" />
 									<button class="btn btn-primary" id="blockButton">Block</button>
 								</div>
 
@@ -82,7 +115,7 @@ const Settings = ({ setPage }) => {
 								<text>Once you block a Page, that Page can no longer interact with your posts or like or reply to your comments. You'll be unable to post to the Page's timeline or message the Page. If you currently like the Page, blocking it will also unline and unfollow.</text>
 
 								<div class="searchBarBlockedPages-Container">
-									<input id="search" type="search" class="form-control" />
+									<input id="search3" type="search" class="form-control" />
 									<button class="btn btn-primary" id="blockButton">Block</button>
 								</div>
 
@@ -105,7 +138,7 @@ const Settings = ({ setPage }) => {
 									<br></br>
 									Public
 									<label class="switch" id="publicPrivactySwitch">
-										<input type="checkbox"></input>
+										<input type="checkbox" checked></input>
 										<span class="slider round"></span>
 									</label>
 									<br></br>
@@ -127,9 +160,9 @@ const Settings = ({ setPage }) => {
 									</label>
 									<br></br>
 									Public
-									<label class="switch" id="publicPrivactySwitch">
-										<input type="checkbox"></input>
-										<span class="slider round"></span>
+									<label class="switch" id="publicPrivactySwitch" >
+										<input type="checkbox" id="toggle1" />
+										<span class="slider round" ></span>
 									</label>
 								</div>
 

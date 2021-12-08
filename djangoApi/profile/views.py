@@ -12,7 +12,7 @@ class ProfileView(APIView):
             serializer.save()
             return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
         else:
-            return Response({"status": "error", "data": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"status": "error", "data": serializer.errors}, status=status.HTTP_200_OK)
 
     def get(self, request, username=None):
         if username:
@@ -21,7 +21,7 @@ class ProfileView(APIView):
                 serializer = ProfileSerializer(item)
                 return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
             except Profile.DoesNotExist:
-                return Response({"status": "error", "data": "username does not exist"}, status=status.HTTP_400_BAD_REQUEST)
+                return Response({"status": "error", "data": "username does not exist"}, status=status.HTTP_200_OK)
 
         items = Profile.objects.all()
         serializer = ProfileSerializer(items, many=True)
@@ -32,7 +32,7 @@ class ProfileView(APIView):
         try:
             item = Profile.objects.get(username=username)
         except Profile.DoesNotExist:
-            return Response({"status": "error", "data": "username does not exist"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"status": "error", "data": "username does not exist"}, status=status.HTTP_200_OK)
 
         item.delete()
         return Response({"status": "success", "data": "Item Deleted"})
@@ -41,7 +41,7 @@ class ProfileView(APIView):
         try:
             item = Profile.objects.get(username=username)
         except Profile.DoesNotExist:
-            return Response({"status": "error", "data": "username does not exist"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"status": "error", "data": "username does not exist"}, status=status.HTTP_200_OK)
 
         serializer = ProfileSerializer(item, data=request.data, partial=True)
         if serializer.is_valid():
@@ -51,19 +51,19 @@ class ProfileView(APIView):
             return Response({"status": "error", "data": serializer.errors})
 
 class FriendsView(APIView):
-    def get(self, request, username, *args, **kwargs):
-        username = Profile.objects.get(username = username)
-        friends = Friends.objects.filter(user = username).all()
+    def get(self, request, id=None):
+        id2 = Profile.objects.get(id=id)
+        friends = Friends.objects.filter(user_id = id2).all()
         serializer = FriendSerializer(friends, many = True)
         return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request, username=None):
         serializer = FriendSerializer(data = request.data)
         if serializer.is_valid():
             serializer.save()
             return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
         else:
-            return Response({"status": "error", "data": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"status": "error", "data": serializer.errors}, status=status.HTTP_200_OK)
 
 class FriendsDetailView(APIView):
     def get(self, *args, **kwargs):
@@ -89,7 +89,7 @@ class FriendsDetailView(APIView):
 
             relationship = Friends.objects.get(user = user, friend = friend)
         except Friends.DoesNotExist:
-            return Response({"status": "error", "data": "username does not exist"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"status": "error", "data": "username does not exist"}, status=status.HTTP_200_OK)
 
         relationship.delete()
         return Response({"status": "success", "data": "Unfollowed"})        
