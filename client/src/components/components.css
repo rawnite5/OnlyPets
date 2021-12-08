@@ -471,6 +471,7 @@ main{
 
 #cardTitle{
   margin-top: -10px;
+  font-weight: bold;
 }
 
 #post_content{
@@ -597,10 +598,13 @@ main{
 
 #contactsText{
     padding: 10px;
+    font-weight: bold;
 }
 
 .user-friends-list{
     padding: 15px;
+    list-style-type: none;
+    font-weight: bold;
 }
 
 .ads-container{

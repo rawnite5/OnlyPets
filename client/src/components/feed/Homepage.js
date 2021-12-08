@@ -176,44 +176,9 @@ const Homepage = () => {
 					<button class="btn glyphicon glyphicon-option-horizontal" id="moreOptContactsButton"></button>
 					<div class="user-friends-list">
 						{addFriends(friends)}
-						{/*
-						<li>{f1}</li>
-						<li>{f2}</li>
-						<li>{f3}</li>
-						<li>{f4}</li>
-						<li>{f5}</li>
-						<li>{f6}</li>
-						<li>{f7}</li>
-						<li>{f8}</li>
-						<li>{f9}</li>
-						<li>{f10}</li>
-						*/}
 					</div>
 				</div>
-				{/* <div class="publishedPosts">
-					{posts.map(post => <Post key={post.id} post={post} />)}
-				</div> */}
 
-				{/* For ads (<br> = filler for now) */}
-				{/* <div class="ads-container">
-					<h5 id="adTitleText">Advertisements</h5>
-					<div class="internal-ad-container">
-						<a class="nav-link" href="profile-about.html" id="create-ad-navlink">Create your own ad!<br /> (Rates and
-							restrictions apply)</a>
-					</div>
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-				</div> */}
 				{/* new post : using car
 				ds */}
 				<div class="status-container">
