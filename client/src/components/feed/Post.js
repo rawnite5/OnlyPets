@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 const axios = require('axios').default;
-const apiURL = config.baseUrl;
 import config from '../../utils/config';
+const apiURL = config.baseUrl;
 // import React, { useState } from 'react'
 
 const Post = ({ post }) => {

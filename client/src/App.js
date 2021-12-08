@@ -15,7 +15,7 @@ import { lightTheme, darkTheme } from "./components/theme"
 import { useState } from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React from 'react';
 
 function App() {
@@ -23,19 +23,19 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Routes>
-          <Route exact path="/" element={<LoginPage />} />
-          <Route path="/home" element={<Homepage />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route exact path="/profileAbout" element={<ProfileAbout />} />
-          <Route path="/profileFriends" element={<ProfileFriends />} />
-          <Route path="/profilePictures" element={<ProfilePictures />} />
-          <Route exact path="/forgotPassword" element={<ForgotPassword />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/messages" element={<Messages />} />
-          <Route path="/resetPassword" element={<ResetPassword />} />
-        </Routes>
+        <Switch>
+          <Route exact path="/" component={LoginPage} />
+          <Route path="/home" component={Homepage} />
+          <Route path="/profile" component={Profile} />
+          <Route exact path="/profileAbout" component={ProfileAbout} />
+          <Route path="/profileFriends" component={ProfileFriends} />
+          <Route path="/profilePictures" component={ProfilePictures} />
+          <Route exact path="/forgotPassword" component={ForgotPassword} />
+          <Route path="/settings" component={Settings} />
+          <Route path="/search" component={Search} />
+          <Route path="/messages" component={Messages} />
+          <Route path="/resetPassword" component={ResetPassword} />
+        </Switch>
       </Router>
     </div>
   );

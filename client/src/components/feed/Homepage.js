@@ -17,11 +17,10 @@ import Post from './Post';
 
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 
 const Homepage = () => {
-	let navigate = useNavigate();
 	const [posts, setPosts] = useState([])
 
 	let style = {

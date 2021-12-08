@@ -5,11 +5,11 @@ import '../components.css';
 import config from '../../utils/config';
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const LoginPage = () => {
 	const loginScript = () => {
-		let navigate = useNavigate();
+		let history = useHistory();
 
 		window.onload = function () {
 			let usernameLogin = document.querySelector("#usernameLoginInput");
@@ -49,7 +49,7 @@ const LoginPage = () => {
 						} else {
 							window.sessionStorage.setItem("username", accountDetails.username);
 							window.sessionStorage.setItem("userId", response.data.data.id);
-							navigate('/home');
+							history.push('/home');
 						}
 					})
 					.catch(error => console.log(error));
@@ -88,7 +88,7 @@ const LoginPage = () => {
 						} else {
 							window.sessionStorage.setItem("username", loginCredentials.username);
 							window.sessionStorage.setItem("userId", rightProfile.id);
-							navigate('/home');
+							history.push('/home');
 						}
 					})
 					.catch(error => console.log(error));
