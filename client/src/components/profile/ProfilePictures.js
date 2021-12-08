@@ -59,11 +59,10 @@ const ProfilePictures = () => {
 
 						<div class="profile-navbar">
 							<nav class="navbar navbar-expand-lg navbar-light bg-light">
-								<a class="nav-link" href="profile-about.html" id="profile-about">| About |</a>
-								<a class="nav-link" href="profile.html" id="profile-posts">| Posts |</a>
-								<a class="nav-link" href="profile-friends.html" id="profile-friends">| Friends |</a>
-								<a class="nav-link" href="profile-pictures.html" id="profile-photos">| Photos |</a>
-
+								<a class="nav-link" href="/profileAbout" id="profile-about">| About |</a>
+								<a class="nav-link" href="/profile" id="profile-posts">| Posts |</a>
+								<a class="nav-link" href="/profileFriends" id="profile-friends">| Friends |</a>
+								<a class="nav-link" href="/profilePictures" id="profile-photos">| Photos |</a>
 							</nav>
 							{/* <div class="card shadow p-3 mb-5 bg-white rounded" id="contentCard">
                         <div class="profile-options">

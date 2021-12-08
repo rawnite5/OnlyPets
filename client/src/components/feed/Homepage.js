@@ -24,6 +24,45 @@ const Homepage = () => {
 	let navigate = useNavigate();
 	const [posts, setPosts] = useState([])
 
+	let style = {
+		"margin-left": 200
+	}
+
+	let f1;
+	let f2;
+	let f3;
+	let f4;
+	let f5;
+	let f6;
+	let f7;
+	let f8;
+	let f9;
+	let f10;
+
+	if (window.sessionStorage.getItem("username") === "Woof Smith") {
+		f1 = 'sara';
+		f2 = 'pika777';
+		f3 = 'bob1234';
+		f4 = 'bob';
+		f5 = 'jenna';
+		f6 = '';
+		f7 = '';
+		f8 = '';
+		f9 = '';
+		f10 = '';
+	} else {
+		f1 = '';
+		f2 = '';
+		f3 = '';
+		f4 = '';
+		f5 = '';
+		f6 = '';
+		f7 = '';
+		f8 = '';
+		f9 = '';
+		f10 = '';
+	}
+
 	useEffect(() => {
 		axios.get(`${apiURL}/home/`)
 			.then(response => {
@@ -105,7 +144,7 @@ const Homepage = () => {
 
 
 				{/* "side nav bar" */}
-				<div class="secondNav">
+				<div class="secondNav" style={style}>
 					<div class="sec-nav-container">
 						<h3 id="quickNavText">Quick Navigation...</h3>
 						<div class="btn-group-vertical" id="moreSettingsButtonGroup">
@@ -124,17 +163,17 @@ const Homepage = () => {
 					<h5 id="contactsText">Friends</h5>
 					<button class="btn glyphicon glyphicon-option-horizontal" id="moreOptContactsButton"></button>
 					<div class="user-friends-list">
-						<li>Friend 1</li>
-						<li>Friend 2</li>
-						<li>Friend 3</li>
-						<li>Friend 4</li>
-						<li>Friend 5</li>
-						<li>Friend 6</li>
-						<li>Friend 8</li>
-						<li>Friend 9</li>
+						<li>{f1}</li>
+						<li>{f2}</li>
+						<li>{f3}</li>
+						<li>{f4}</li>
+						<li>{f5}</li>
+						<li>{f6}</li>
+						<li>{f7}</li>
+						<li>{f8}</li>
+						<li>{f9}</li>
+						<li>{f10}</li>
 					</div>
-
-
 				</div>
 				{/* <div class="publishedPosts">
 					{posts.map(post => <Post key={post.id} post={post} />)}
@@ -233,6 +272,7 @@ const Homepage = () => {
 							</a>
 						</nav>
 					</div> */}
+
 
 
 

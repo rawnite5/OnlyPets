@@ -66,20 +66,28 @@ const LoginPage = () => {
 
 				// put the data being sent in an object to be converted to JSON
 				const loginCredentials = {
-
 					username: usernameLogin.value,
 					firstname: usernameLogin.value,
 					password: passwordLogin.value,
 				};
 
 				// send the request to the login API with the data
-				axios.get(`${apiURL}/profile/${usernameLogin.value}`, loginCredentials)
+				axios.get(`${apiURL}/profile/`)
 					.then(response => {
-						if (response.status === 'error' || loginCredentials.password !== response.data.data.password) {
+						let profiles = response.data.data;
+						let rightProfile;
+						for (let i = 0; i < profiles.length; i++) {
+							if (profiles[i].username === usernameLogin.value) {
+								rightProfile = profiles[i];
+								break;
+							}
+						}
+
+						if (!rightProfile || response.status === 'error' || loginCredentials.password !== rightProfile.password) {
 							alert("Invalid username or password");
 						} else {
 							window.sessionStorage.setItem("username", loginCredentials.username);
-							window.sessionStorage.setItem("userId", response.data.data.id);
+							window.sessionStorage.setItem("userId", rightProfile.id);
 							navigate('/home');
 						}
 					})

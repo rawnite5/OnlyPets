@@ -59,19 +59,18 @@ const ProfileAbout = () => {
 
 						<div class="profile-navbar">
 							<nav class="navbar navbar-expand-lg navbar-light bg-light">
-								<a class="nav-link" href="profile-about.html" id="profile-about">| About |</a>
-								<a class="nav-link" href="profile.html" id="profile-posts">| Posts |</a>
-								<a class="nav-link" href="profile-friends.html" id="profile-friends">| Friends |</a>
-								<a class="nav-link" href="profile-pictures.html" id="profile-photos">| Photos |</a>
-
+								<a class="nav-link" href="/profileAbout" id="profile-about">| About |</a>
+								<a class="nav-link" href="/profile" id="profile-posts">| Posts |</a>
+								<a class="nav-link" href="/profileFriends" id="profile-friends">| Friends |</a>
+								<a class="nav-link" href="/profilePictures" id="profile-photos">| Photos |</a>
 							</nav>
 							{/* <div class="card shadow p-3 mb-5 bg-white rounded" id="contentCard">
-								<div class="profile-options">
-									<a class="nav-link" href="#" id="profile-about"> About</a>
-									<a class="nav-link" href="#" id="profile-posts"> Posts</a>
-									<a class="nav-link" href="#" id="profile-friends"> Friends</a>
-									<a class="nav-link" href="#" id="profile-photos"> Photos</a>
-								</div> */}
+                        <div class="profile-options">
+                            <a class="nav-link" href="#" id="profile-about"> About</a>
+                            <a class="nav-link" href="#" id="profile-posts"> Posts</a>
+                            <a class="nav-link" href="#" id="profile-friends"> Friends</a>
+                            <a class="nav-link" href="#" id="profile-photos"> Photos</a>
+                        </div> */}
 						</div>
 					</div>
 
@@ -113,9 +112,9 @@ const ProfileAbout = () => {
 								<button class="btn btn-light" id="bioContactButton" onClick={contactButton}> Contact Information</button>
 							</div>
 							<div class="text-container">
-							<text id="placesText"> South Bend, IN <br></br> Nashville, TN<br></br> SoCal, CA</text>
-							<text id="workText"> Stay at home puppy</text>
-							<text id="contactText"> cmtidmarsh@gmail.com <br></br> Twitch.tv/cmeichuan</text>
+								<text id="placesText"> South Bend, IN <br></br> Nashville, TN<br></br> SoCal, CA</text>
+								<text id="workText"> Stay at home puppy</text>
+								<text id="contactText"> cmtidmarsh@gmail.com <br></br> Twitch.tv/cmeichuan</text>
 							</div>
 						</div>
 					</div>
@@ -131,44 +130,44 @@ const script = () => {
 }
 
 function toggle_light_mode() {
-    var app = document.getElementsByTagName("MAIN")[0];
-    if (localStorage.lightMode == "dark") {
-	localStorage.lightMode = "light";
-	app.setAttribute("light-mode", "light");
-    } else {
-	localStorage.lightMode = "dark";
-	app.setAttribute("light-mode", "dark");
-    }	
+	var app = document.getElementsByTagName("MAIN")[0];
+	if (localStorage.lightMode == "dark") {
+		localStorage.lightMode = "light";
+		app.setAttribute("light-mode", "light");
+	} else {
+		localStorage.lightMode = "dark";
+		app.setAttribute("light-mode", "dark");
+	}
 }
 
-function placesButton(){
+function placesButton() {
 	var placesTextVar = document.getElementById("placesText");
 	var workTextVar = document.getElementById("workText");
 	var contactTextVar = document.getElementById("contactText");
-	
+
 	if (placesTextVar.style.display === "none") {
 		placesTextVar.style.display = "block";
 		workTextVar.style.display = "none";
 		contactTextVar.style.display = "none";
-	  } else {
+	} else {
 		placesTextVar.style.display = "none";
-	  }
+	}
 }
-function workButton(){
+function workButton() {
 
 	var placesTextVar = document.getElementById("placesText");
 	var workTextVar = document.getElementById("workText");
 	var contactTextVar = document.getElementById("contactText");
-	if (workTextVar .style.display === "none") {
-		workTextVar .style.display = "block";
+	if (workTextVar.style.display === "none") {
+		workTextVar.style.display = "block";
 		placesTextVar.style.display = "none";
 		contactTextVar.style.display = "none";
-	  } else {
-		workTextVar .style.display = "none";
-	  }
+	} else {
+		workTextVar.style.display = "none";
+	}
 }
 
-function contactButton(){
+function contactButton() {
 	var placesTextVar = document.getElementById("placesText");
 	var workTextVar = document.getElementById("workText");
 	var contactTextVar = document.getElementById("contactText");
@@ -176,9 +175,9 @@ function contactButton(){
 		contactTextVar.style.display = "block";
 		workTextVar.style.display = "none";
 		placesTextVar.style.display = "none";
-	  } else {
+	} else {
 		contactTextVar.style.display = "none";
-	  }
+	}
 }
 
 

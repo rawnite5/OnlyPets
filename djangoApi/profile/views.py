@@ -28,6 +28,7 @@ class ProfileView(APIView):
         return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
 
     def delete(self, request, username=None):
+        print(username)
         try:
             item = Profile.objects.get(username=username)
         except Profile.DoesNotExist:
