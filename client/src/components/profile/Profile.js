@@ -28,23 +28,23 @@ const Profile = () => {
         window.onload = function () {
 
             let searchInput = document.querySelector("#search");
-			let searchAnchorTag = document.querySelector("#searchAnchor");
+            let searchAnchorTag = document.querySelector("#searchAnchor");
 
-			searchAnchorTag.addEventListener("click", event => {
-				event.preventDefault();
-				var text = searchInput.value;
+            searchAnchorTag.addEventListener("click", event => {
+                event.preventDefault();
+                var text = searchInput.value;
 
-				axios.get(`${apiURL}/profile/id/${text}/`)
-					.then(response => {
+                axios.get(`${apiURL}/profile/id/${text}/`)
+                    .then(response => {
                         if (response.data.status === "error") {
-							alert(`No user with the username ${text} exists`);
-						} else {
-							history.push(`/profileAbout/${text}`);
-						}
+                            alert(`No user with the username ${text} exists`);
+                        } else {
+                            history.push(`/profileAbout/${text}`);
+                        }
 
-					})
-					.catch(error => console.log(error));
-			})
+                    })
+                    .catch(error => console.log(error));
+            })
         }
     }
 
@@ -150,10 +150,13 @@ const Profile = () => {
                                         {/* 
                                         <a href="#"><span class="glyphicon glyphicon-camera" id="importPhoto"></span></a>
                                         <a href="#"><span class="glyphicon glyphicon-film" id="importVideo"></span></a> */}
-
+{/* 
                                         <button class="glyphicon glyphicon-heart" id="likeButton"></button>
                                         <div class="commentButton-Container">
                                             <button class="glyphicon glyphicon-pencil" id="commentButton"></button>
+                                        </div> */}
+                                        <div class="uploadButton-Container">
+                                            <button class="glyphicon glyphicon-upload" id="uploadButton"></button>
                                         </div>
 
                                         <div class="dropdown">
