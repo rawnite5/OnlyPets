@@ -16,7 +16,6 @@ const Messages = ({ setPage }) => {
 	const script = () => {
 		window.onload = function () {
 
-
 			let searchInput = document.querySelector("#search");
 			let searchAnchorTag = document.querySelector("#searchAnchor");
 
@@ -26,7 +25,12 @@ const Messages = ({ setPage }) => {
 
 				axios.get(`${apiURL}/profile/id/${text}/`)
 					.then(response => {
-						history.push(`/profileAbout/${text}`);
+
+						if (response.data.status === "error") {
+							alert(`No user with the username ${text} exists`);
+						} else {
+							history.push(`/profileAbout/${text}`);
+						}
 
 					})
 					.catch(error => console.log(error));
@@ -72,35 +76,35 @@ const Messages = ({ setPage }) => {
 				</div>
 
 				<div class="fullUserFiltering-Container">
-				<div class="userFiltering-Container">
-					<h3 id="userFilteringTitle">Search for Other Pets...</h3>
-					<input type="text" id="searchForUsersToMessage" placeholder="Search"></input>
+					<div class="userFiltering-Container">
+						<h3 id="userFilteringTitle">Search for Other Pets...</h3>
+						<input type="text" id="searchForUsersToMessage" placeholder="Search"></input>
 
-					<ul id="myUL">
-						<li><a href="#">Adele</a></li>
-						<li><a href="#">Agnes</a></li>
+						<ul id="myUL">
+							<li><a href="#">Adele</a></li>
+							<li><a href="#">Agnes</a></li>
 
-						<li><a href="#">Billy</a></li>
-						<li><a href="#">Bob</a></li>
+							<li><a href="#">Billy</a></li>
+							<li><a href="#">Bob</a></li>
 
-						<li><a href="#">Calvin</a></li>
-						<li><a href="#">Christina</a></li>
-						<li><a href="#">Cindy</a></li>
-					</ul>
+							<li><a href="#">Calvin</a></li>
+							<li><a href="#">Christina</a></li>
+							<li><a href="#">Cindy</a></li>
+						</ul>
+					</div>
 				</div>
-				</div>
-				
+
 
 				<div class="fullMessage-Container">
 
-				<div class="composeMessage-Container">
-					<textarea placeholder="Type message.." name="msg" id="composeMessageTextArea" required></textarea>
-				</div>
+					<div class="composeMessage-Container">
+						<textarea placeholder="Type message.." name="msg" id="composeMessageTextArea" required></textarea>
+					</div>
 
-				<div class="messageButtons">
-					<button class="btn btn-primary" onClick={send} id="sendButton"> Send</button>
+					<div class="messageButtons">
+						<button class="btn btn-primary" onClick={send} id="sendButton"> Send</button>
 
-				</div>
+					</div>
 				</div>
 			</main>
 		</div>

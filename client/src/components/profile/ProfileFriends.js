@@ -24,7 +24,11 @@ const ProfileFriends = () => {
 
 				axios.get(`${apiURL}/profile/id/${text}/`)
 					.then(response => {
-						history.push(`/profileAbout/${text}`);
+						if (response.data.status === "error") {
+							alert(`No user with the username ${text} exists`);
+						} else {
+							history.push(`/profileAbout/${text}`);
+						}
 
 					})
 					.catch(error => console.log(error));
