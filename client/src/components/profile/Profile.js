@@ -8,11 +8,39 @@ import config from '../../utils/config';
 import textlogo from '../../assests/textLogo.jpg';
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
+import { Link, useHistory, useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react'
 
-const Profile = ({ username, setUsername, setPage }) => {
+const Profile = () => {
+    const { user } = useParams()
+    const [profileData, setProfileData] = useState({})
+    let history = useHistory();
+
+    useEffect(() => {
+        axios.get(`${apiURL}/profile/id/${user}/`).then(response2 => {
+            setProfileData(response2.data.data)
+        })
+    }, [])
+
+    console.log(profileData)
+
     const script = () => {
         window.onload = function () {
 
+            let searchInput = document.querySelector("#search");
+			let searchAnchorTag = document.querySelector("#searchAnchor");
+
+			searchAnchorTag.addEventListener("click", event => {
+				event.preventDefault();
+				var text = searchInput.value;
+
+				axios.get(`${apiURL}/profile/id/${text}/`)
+					.then(response => {
+						history.push(`/profileAbout/${text}`);
+
+					})
+					.catch(error => console.log(error));
+			})
         }
     }
 
@@ -32,11 +60,11 @@ const Profile = ({ username, setUsername, setPage }) => {
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
                         <img src={textlogo} id="navBarTextLogo" />
                         <a class="nav-link glyphicon glyphicon-home" href="/home" id="home"><span class="sr-only"></span></a>
-                        <a class="nav-link glyphicon glyphicon-user" href="/profile" id="profile"> <span class="sr-only"></span></a>
+                        <a class="nav-link glyphicon glyphicon-user" href={`/profile/${window.sessionStorage.getItem("username")}/`} id="profile"> <span class="sr-only"></span></a>
                         <a class="nav-link glyphicon glyphicon-wrench" href="/settings" id="settings"><span
                             class="sr-only"></span></a>
-                        <a class="nav-link glyphicon glyphicon-bell" href="/profile" id="notifications"> <span class="sr-only"></span></a>
-                        <a class="nav-link glyphicon glyphicon-envelope" href="/messages" id="messages"> <span
+                        <a class="nav-link glyphicon glyphicon-bell" href={`/profile/${window.sessionStorage.getItem("username")}/`} id="notifications"> <span class="sr-only"></span></a>
+                        <a class="nav-link glyphicon glyphicon-envelope" href={`/messages/${window.sessionStorage.getItem("username")}/`} id="messages"> <span
                             class="sr-only"></span></a>
                         <a class="nav-link glyphicon glyphicon-log-out" href="/" id="logout"><span class="sr-only"></span></a>
 
@@ -44,7 +72,7 @@ const Profile = ({ username, setUsername, setPage }) => {
                             <input id="search" type="search" class="form-control" />
                         </div>
 
-                        <a href="search.html"><span class="glyphicon glyphicon-search"></span></a>
+                        <a id="searchAnchor" href="search.html"><span class="glyphicon glyphicon-search"></span></a>
 
                         <div class="lightModeButton3-container">
                             <button class="btn btn-dark" id="light-mode-button3" onClick={toggle_light_mode}>Dark Mode</button>
@@ -65,8 +93,8 @@ const Profile = ({ username, setUsername, setPage }) => {
 
                         <div class="profile-navbar">
                             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                                <a class="nav-link" href="/profileAbout" id="profile-about">| About |</a>
-                                <a class="nav-link" href="/profile" id="profile-posts">| Posts |</a>
+                                <a class="nav-link" href={`/profileAbout/${window.sessionStorage.getItem("username")}/`} id="profile-about">| About |</a>
+                                <a class="nav-link" href={`/profile/${window.sessionStorage.getItem("username")}/`} id="profile-posts">| Posts |</a>
                                 <a class="nav-link" href="/profileFriends" id="profile-friends">| Friends |</a>
                                 <a class="nav-link" href="/profilePictures" id="profile-photos">| Photos |</a>
                             </nav>
@@ -109,13 +137,13 @@ const Profile = ({ username, setUsername, setPage }) => {
                                 <div class="card w-60 shadow p-3 mb-5 bg-white rounded" id="profilepostCard">
                                     {/*  card's body */}
                                     <div class="-profile-card-body">
-                                        <h5 class="card-title" id="cardTitle">{username}</h5>
+                                        <h5 class="card-title" id="cardTitle"></h5>
 
                                         <div class="col-xs-12" id="post_content">
                                             <div class="textarea_wrap"> <textarea class="col-xs-11"
                                                 placeholder="What's on your mind?" id="editContent"></textarea> </div>
                                         </div>
-{/* 
+                                        {/* 
                                         <a href="#"><span class="glyphicon glyphicon-camera" id="importPhoto"></span></a>
                                         <a href="#"><span class="glyphicon glyphicon-film" id="importVideo"></span></a> */}
 
@@ -168,7 +196,7 @@ function toggle_light_mode() {
 }
 
 
-function postStatus() { 
+function postStatus() {
     alert("Status published");
 }
 

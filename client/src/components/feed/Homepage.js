@@ -17,7 +17,7 @@ import Post from './Post';
 
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 
 let addFriends = (f) => {
@@ -31,6 +31,7 @@ let addFriends = (f) => {
 const Homepage = () => {
 	const [posts, setPosts] = useState([])
 	const [friends, setFriends] = useState([])
+	let history = useHistory();
 
 	useEffect(() => {
 		axios.get(`${apiURL}/home/`)
@@ -66,6 +67,7 @@ const Homepage = () => {
 
 	const script = () => {
 		window.onload = function () {
+
 			let postButton = document.querySelector("#postButton");
 
 			postButton.addEventListener("click", event => {
@@ -93,9 +95,8 @@ const Homepage = () => {
 
 				axios.get(`${apiURL}/profile/id/${text}/`)
 					.then(response => {
-						console.log(response.data.data);
-						// what do on search?
-						
+						history.push(`/profileAbout/${text}`);
+
 					})
 					.catch(error => console.log(error));
 			})
@@ -120,11 +121,11 @@ const Homepage = () => {
 					<nav class="navbar navbar-expand-lg navbar-light bg-light">
 						<img src={textlogo} id="navBarTextLogo" />
 						<a class="nav-link glyphicon glyphicon-home" href="/home" id="home"><span class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-user" href="/profile" id="profile"> <span class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-user" href={`/profile/${window.sessionStorage.getItem("username")}/`} id="profile"> <span class="sr-only"></span></a>
 						<a class="nav-link glyphicon glyphicon-wrench" href="/settings" id="settings"><span
 							class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-bell" href="/profile" id="notifications"> <span class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-envelope" href="/messages" id="messages"> <span
+						<a class="nav-link glyphicon glyphicon-bell" href={`/profile/${window.sessionStorage.getItem("username")}/`} id="notifications"> <span class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-envelope" href={`/messages/${window.sessionStorage.getItem("username")}/`} id="messages"> <span
 							class="sr-only"></span></a>
 						<a class="nav-link glyphicon glyphicon-log-out" href="/" id="logout"><span class="sr-only"></span></a>
 

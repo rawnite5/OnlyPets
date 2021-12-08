@@ -14,8 +14,7 @@ import { GlobalStyles } from "./components/globalStyles";
 import { lightTheme, darkTheme } from "./components/theme"
 import { useState } from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, useParams } from 'react-router-dom';
 import React from 'react';
 
 function App() {
@@ -26,8 +25,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={LoginPage} />
           <Route path="/home" component={Homepage} />
-          <Route path="/profile" component={Profile} />
-          <Route exact path="/profileAbout" component={ProfileAbout} />
+          <Route path="/profile/:user" component={Profile} />
+          <Route exact path="/profileAbout/:user" component={ProfileAbout} />
           <Route path="/profileFriends" component={ProfileFriends} />
           <Route path="/profilePictures" component={ProfilePictures} />
           <Route exact path="/forgotPassword" component={ForgotPassword} />

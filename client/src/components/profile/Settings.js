@@ -13,12 +13,13 @@ const axios = require('axios').default;
 const apiURL = config.baseUrl;
 import { useState, useEffect } from 'react'
 import $ from 'jquery';
+import { Link, useHistory } from 'react-router-dom';
 
 const Settings = ({ setPage }) => {
+	let history = useHistory();
 
 	const script = () => {
 		window.onload = function () {
-			console.log($('#toggle1').bootstrapToggle('toggle'));
 
 			let profiles = []
 
@@ -33,6 +34,7 @@ const Settings = ({ setPage }) => {
 
 			blockedSearchButton.addEventListener("click", event => {
 				event.preventDefault();
+				console.log
 				var profileToBlock = blockedSearchInput.value;
 				let found = false;
 
@@ -49,6 +51,23 @@ const Settings = ({ setPage }) => {
 					alert(`${profileToBlock} has been blocked, good riddance.`);
 				}
 
+			})
+
+			let searchInput = document.querySelector("#search");
+			let searchAnchorTag = document.querySelector("#searchAnchor");
+			console.log(searchInput)
+			console.log(searchAnchorTag)
+
+			searchAnchorTag.addEventListener("click", event => {
+				event.preventDefault();
+				var text = searchInput.value;
+
+				axios.get(`${apiURL}/profile/id/${text}/`)
+					.then(response => {
+						history.push(`/profileAbout/${text}`);
+
+					})
+					.catch(error => console.log(error));
 			})
 		}
 	}
@@ -69,11 +88,11 @@ const Settings = ({ setPage }) => {
 					<nav class="navbar navbar-expand-lg navbar-light bg-light">
 						<img src={textlogo} id="navBarTextLogo" />
 						<a class="nav-link glyphicon glyphicon-home" href="/home" id="home"><span class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-user" href="/profile" id="profile"> <span class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-user" href={`/profile/${window.sessionStorage.getItem("username")}/`} id="profile"> <span class="sr-only"></span></a>
 						<a class="nav-link glyphicon glyphicon-wrench" href="/settings" id="settings"><span
 							class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-bell" href="/profile" id="notifications"> <span class="sr-only"></span></a>
-						<a class="nav-link glyphicon glyphicon-envelope" href="/messages" id="messages"> <span
+						<a class="nav-link glyphicon glyphicon-bell" href={`/profile/${window.sessionStorage.getItem("username")}/`} id="notifications"> <span class="sr-only"></span></a>
+						<a class="nav-link glyphicon glyphicon-envelope" href={`/messages/${window.sessionStorage.getItem("username")}/`} id="messages"> <span
 							class="sr-only"></span></a>
 						<a class="nav-link glyphicon glyphicon-log-out" href="/" id="logout"><span class="sr-only"></span></a>
 
@@ -82,7 +101,7 @@ const Settings = ({ setPage }) => {
 							<input id="search" type="search" class="form-control" />
 						</div>
 
-						<a href="search.html"><span class="glyphicon glyphicon-search"></span></a>
+						<a id="searchAnchor" href="search.html"><span class="glyphicon glyphicon-search"></span></a>
 
 					</nav>
 				</div>
