@@ -65,9 +65,9 @@ const Post = ({ post }) => {
 		const result = window.confirm(`Remove Post: ${PostToRemove.post_content}`);
 
 		if (result) {
-			axios.delete(`${apiURL}/home/${PostToRemove.post_content}`)
+			axios.delete(`${apiURL}/home/${PostToRemove.post_content}/`)
 				.then(response => {
-
+					console.log(response)
 				})
 				.catch(error => console.log(error))
 		}

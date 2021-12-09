@@ -55,16 +55,16 @@ const ProfileAbout = () => {
 		if (data.firstname && data.lastname) {
 			nameDefined = data.firstname + " " + data.lastname;
 		}
-		if (data.age) {
-			ageDefined = data.age;
+		if (data.city) {
+			ageDefined = data.city;
 		}
-		if (data.birthdate) {
-			birthdayDefined = data.birthdate;
+		if (data.country) {
+			birthdayDefined = data.country;
 		}
 		if (data.gender) {
 			genderDefined = data.gender;
 		}
-		return (<text id="overViewText">{"Name: " + nameDefined}<br></br>{"Age: " + ageDefined}<br></br>{"Birthday: " + birthdayDefined}<br></br>{"Gender: " + genderDefined}<br></br> </text>)
+		return (<text id="overViewText">{"Name: " + nameDefined}<br></br>{"Gender: " + genderDefined}<br></br>{"City: " + ageDefined}<br></br>{"Country: " + birthdayDefined}<br></br> </text>)
 	}
 
 	let addBio = (data) => {
@@ -87,8 +87,8 @@ const ProfileAbout = () => {
 		if (data.firstname && data.lastname) {
 			nameDefined = data.firstname + " " + data.lastname;
 		}
-		if (data.age) {
-			ageDefined = data.age;
+		if (data.city) {
+			ageDefined = data.city;
 		}
 		if (data.birthdate) {
 			birthdayDefined = data.birthdate;
@@ -96,7 +96,7 @@ const ProfileAbout = () => {
 		if (data.gender) {
 			genderDefined = data.gender;
 		}
-		return (<text id="overViewText">{"Name: " + nameDefined}<br></br>{"Age: " + ageDefined}<br></br>{"Birthday: " + birthdayDefined}<br></br>{"Gender: " + genderDefined}<br></br> </text>)
+		return (<text id="overViewText">{"Name: " + nameDefined}<br></br>{"City: " + ageDefined}<br></br>{"Birthday: " + birthdayDefined}<br></br>{"Gender: " + genderDefined}<br></br> </text>)
 	}
 
 	return (
@@ -182,7 +182,7 @@ const ProfileAbout = () => {
 						<div class="profiledetails-right">
 							<div class="card shadow p-3 mb-5 bg-white rounded" id="IntroCard">
 								<div>
-									<h3 id="IntroCardTitle">Introductory</h3>
+									<h3 id="IntroCardTitle">Bio</h3>
 									<button class="btn btn-light" id="editIntroButton">Edit</button>
 									<br></br>
 									<br></br>
