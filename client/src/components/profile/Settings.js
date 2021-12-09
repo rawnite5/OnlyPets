@@ -115,8 +115,8 @@ const Settings = ({ setPage }) => {
 						<div class="card shadow p-3 mb-5 bg-white rounded" id="settings-container-background">
 							<h1 id="settingsHeaderText">Settings</h1>
 							<div class="settingsToggleGroup">
-								<h2>Customize Your Display</h2>
-								<text>Customize your display by turning OnlyPets into dark mode!</text>
+								<h2   id="customizeDisplayHeader">Customize Your Display</h2>
+								<text id="customizeDisplayText">Customize your display by turning OnlyPets into dark mode!</text>
 								<br></br>
 								<br></br>
 								<text id="darkModeSwitchText">Click to turn on/off dark mode</text>
@@ -124,23 +124,23 @@ const Settings = ({ setPage }) => {
 
 								<button class="btn btn-dark" id="light-mode-button" onClick={darkMode}>Dark Mode</button>
 
-								<h2>Blocked Profiles</h2>
-								<text>Manage your blocked users. Once you block someone, that person can no longer see things you post on your timeline, tag you, start conversations with you, or add you as a friend. </text>
+								<h2 id="blockedProfilesHeader">Blocked Profiles</h2>
+								<text id="blockedProfilesText">Manage your blocked users. Once you block someone, that person can no longer see things you post on your timeline, tag you, start conversations with you, or add you as a friend. </text>
 
 								<div class="searchBarBlockedUsers-Container">
 									<input id="search2" type="search" class="form-control" />
 									<button class="btn btn-primary" id="blockButton">Block</button>
 								</div>
 
-								<h2>Blocked Pages</h2>
-								<text>Once you block a Page, that Page can no longer interact with your posts or like or reply to your comments. You'll be unable to post to the Page's timeline or message the Page. If you currently like the Page, blocking it will also unline and unfollow.</text>
+								<h2 id="blockedPagesHeader">Blocked Pages</h2>
+								<text id="blockedPagesText">Once you block a Page, that Page can no longer interact with your posts or like or reply to your comments. You'll be unable to post to the Page's timeline or message the Page. If you currently like the Page, blocking it will also unline and unfollow.</text>
 
 								<div class="searchBarBlockedPages-Container">
 									<input id="search3" type="search" class="form-control" />
 									<button class="btn btn-primary" id="blockButton">Block</button>
 								</div>
 
-								<h2>Privacy</h2>
+								<h2 id="privacySettingsText">Privacy</h2>
 								<text id="statusText">Status</text>
 
 								<br></br>

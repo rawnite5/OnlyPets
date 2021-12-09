@@ -137,7 +137,7 @@ const Messages = ({ setPage }) => {
 
 				<div class="fullUserFiltering-Container">
 					<div class="userFiltering-Container">
-						<h3 id="userFilteringTitle">Search for Other Pets...</h3>
+						<h3 id="userFilteringTitle">Search for Other Pets</h3>
 						<input type="text" id="searchForUsersToMessage" placeholder="Search"></input>
 						<div>
 							<button id="searchForUsersButton" class="glyphicon glyphicon-search"></button>
@@ -156,12 +156,8 @@ const Messages = ({ setPage }) => {
 
 				<div class="fullMessage-Container">
 
-					<div class="sentMessages-Container">
-						<div class="allMessages">
+						<div class="allMessages-Container">
 							{messages.map(message => <Message key={message.id} message={message} />)}
-						</div>
-
-
 					</div>
 
 					<div class="composeMessage-Container">

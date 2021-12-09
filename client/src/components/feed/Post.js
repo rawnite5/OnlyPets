@@ -95,7 +95,7 @@ const Post = ({ post }) => {
 	return (
 		<div className={'post'} style={postStyle} id="postedStatus">
 			<div>
-				<h5>{post.post_content}</h5>
+				<h5 id="postedStatusHeader">{post.post_content}</h5>
 				<button id={'detailsButton'} onClick={() => setDetailsVisible(!detailsVisible)} type='button' class="
 glyphicon glyphicon-chevron-down"></button>
 			</div>

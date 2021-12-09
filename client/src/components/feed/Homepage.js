@@ -154,7 +154,7 @@ const Homepage = () => {
 				{/* "side nav bar" */}
 				<div class="secondNav">
 					<div class="sec-nav-container">
-						<h3 id="quickNavText">Quick Navigation...</h3>
+						<h3 id="quickNavText">Quick Navigation</h3>
 						<div class="btn-group-vertical" id="moreSettingsButtonGroup">
 							<Link to="/profile"><button class="button" id="profilePill">Profile</button> </Link>
 							<Link to="/settings"><button class="button" id="settingsPill">Settings</button> </Link>

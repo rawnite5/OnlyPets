@@ -32,7 +32,7 @@ const Message = ({ message }) => {
 		marginBottom: 5,
 		width: 300,
 		justifyContent: 'center',
-		backgroundColor: "white",
+		backgroundColor: "#c3c3ca",
 		boxShadow: "1px 3px 1px #adadad",
 		marginLeft: 10,
 		// position: "absolute",
@@ -51,7 +51,7 @@ const Message = ({ message }) => {
 		marginTop: 8,
 		width: 300,
 		justifyContent: 'center',
-		backgroundColor: "white",
+		backgroundColor: "#9fe1fd",
 		boxShadow: "1px 3px 1px #adadad",
 		marginLeft: 390,
 		// position: "absolute",
@@ -78,8 +78,8 @@ const Message = ({ message }) => {
 	return (
 		<div className={'message'} style={message.toProfile === username ? messageStyleTo : messageStyleFrom} id="messageedStatus">
 			<div>
-				<h5>{message.message_content}</h5>
-				<button id={'detailsButton'} onClick={() => setDetailsVisible(!detailsVisible)} type='button' class="
+				<h5 id="postedMessageHeader">{message.message_content}</h5>
+				<button id={'detailsButtonMessages'} onClick={() => setDetailsVisible(!detailsVisible)} type='button' class="
 glyphicon glyphicon-chevron-down"></button>
 			</div>
 			{showDetails(detailsVisible)}

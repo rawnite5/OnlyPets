@@ -358,12 +358,14 @@ main{
     #statusHeaderText{
         margin: 30px 0 -20px 390px; /* top, right, bottom, left */
         margin-top: 30px;
+        font-family: "monoco", monospace;
         font-size: xx-large;
 
     }
 
 #quickNavText{
-    color: lightslategray;
+    color: rgb(73, 73, 73);
+    font-family: "monoco", monospace;
     white-space: nowrap;
     text-align: center;
     padding: 10px;
@@ -375,9 +377,14 @@ main{
 }
 
 #profilePill{
+   width: 90%;
     background-color: rgb(255, 222, 222);
     border: none;
     color: black;
+    font-weight: bold;
+    /* font-style: oblique;
+    font-style:inherit; */
+    font-family: "Monaco", monospace;
     padding: 10px 53px;
     text-align: center;
     text-decoration: none;
@@ -394,7 +401,11 @@ main{
 
 }
 #settingsPill{
-    background-color: rgb(253, 245, 202);
+    /* background-color: rgb(253, 245, 202); */
+    width: 90%;
+    background-color: rgb(236, 222, 255);
+    font-weight: bold;
+    font-family: "Monaco", monospace;
     border: none;
     color: black;
     padding: 10px 49px;
@@ -409,13 +420,15 @@ main{
 
 }
 #settingsPill:hover{
-  background-color: rgb(250, 246, 227);
+  background-color: rgb(246, 240, 255);
 
 }
 #pagesPill{
-    background-color: rgb(255, 223, 175);
+    background-color: rgb(225, 222, 255);
     border: none;
     color: black;
+    font-weight:bold;
+    font-family: "Monaco", monospace;
     padding: 10px 53px;
     text-align: center;
     text-decoration: none;
@@ -429,14 +442,17 @@ main{
 }
 
 #pagesPill:hover{
-  background-color: rgb(250, 230, 201)
+  background-color: rgb(240, 239, 255);
 
 }
 
 #friendsPill{
-    background-color: rgb(242, 187, 123);
+    background-color: rgb(200, 204, 253);
+    width: 95%;
     border: none;
     color: black;
+    font-weight: bold;
+    font-family: "Monaco", monospace;
     padding: 10px 50px;
     text-align: center;
     text-decoration: none;
@@ -450,7 +466,7 @@ main{
 }
 
 #friendsPill:hover{
-  background-color: rgb(248, 217, 180);
+  background-color: rgb(228, 230, 253);
 
 }
 
@@ -479,6 +495,7 @@ main{
 #cardTitle{
   margin-top: -10px;
   font-weight: bold;
+  font-family: "monoco", monospace;
 }
 
 #post_content{
@@ -497,6 +514,7 @@ main{
 #postButton{
     /* margin-left: 570px; */
     /* margin-right: 700px; */
+    font-family: "monoco", monospace;
     margin-left: 425px;
     margin-top: -8px;
     font-size: 10px;
@@ -565,6 +583,7 @@ main{
   color: black;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 30px;
+  font-family: "monoco", monospace;
 }
 
 
@@ -587,12 +606,14 @@ main{
 #contactsText{
     padding: 10px;
     font-weight: bold;
+    font-family: "monoco", monospace;
 }
 
 .user-friends-list{
     padding: 15px;
     list-style-type: none;
     font-weight: bold;
+    font-family: "monoco", monospace;
 }
 
 .ads-container{
@@ -880,10 +901,18 @@ main{
     height: 275px;
 }
 
+#AboutCardTitle{
+  font-family: "monoco", monospace;
+}
+
 #IntroCard{
     margin-right: 200px;
     width: 600px;
     height: 275px;
+}
+
+#IntroCardTitle{
+  font-family: "monoco", monospace;
 }
 
 
@@ -906,10 +935,12 @@ main{
 #overViewText{
   font-size: large;
   font-weight: bold;
+  font-family: "monoco", monospace;
 }
 #introText{
   font-size: large;
   font-weight: bold;
+  font-family: "monoco", monospace;
 
 }
 .profiledetails-bottom #AnotherBioCard{
@@ -931,6 +962,7 @@ main{
     font-weight: bold;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 30px;
+    font-family: "monoco", monospace;
 
 
 
@@ -950,6 +982,7 @@ main{
     font-weight: bold;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 30px;
+    font-family: "monoco", monospace;
 
 }
 
@@ -968,6 +1001,7 @@ main{
     font-weight: bold;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 30px;
+    font-family: "monoco", monospace;
 
 }
 
@@ -992,6 +1026,7 @@ main{
   font-size: large;
   margin-left: 125px;
   margin-top: 100px;
+  font-family: "monoco", monospace;
 
 
 }
@@ -1001,6 +1036,7 @@ main{
   font-size: large;
   margin-left: 125px;
   margin-top: 100px;
+  font-family: "monoco", monospace;
 }
 
 #contactText{
@@ -1009,6 +1045,7 @@ main{
   font-size: large;
   margin-left: 125px;
   margin-top: 100px;
+  font-family: "monoco", monospace;
 
 }
 /* ---------------------------- Profile: About ------------------------------------ */
@@ -1140,6 +1177,16 @@ main{
 #settingsHeaderText{
     margin: 0 auto;
     font-size: xx-large;
+    font-family: "monoco", monospace;
+
+}
+
+#customizeDisplayHeader{
+  font-family: "monoco", monospace;
+}
+
+#customizeDisplayText{
+  font-family: "monoco", monospace;
 }
 
 /* #customizeThemeSwitch{
@@ -1149,6 +1196,14 @@ main{
 #darkModeSwitchText{
     /* margin-left: 200px; */
     font-weight: bold;
+    font-family: "monoco", monospace;
+}
+
+#blockedProfilesHeader{
+  font-family: "monoco", monospace;
+}
+#blockedProfilesText{
+  font-family: "monoco", monospace;
 }
 
 .searchBarBlockedPages-Container{
@@ -1168,12 +1223,24 @@ main{
     background-color: rgb(211, 6, 6);
     border-color: rgb(211, 6, 6);
 }
+
+#blockedPagesHeader{
+  font-family: "monoco", monospace;
+}
+
+#blockedPagesText{
+  font-family: "monoco", monospace;
+}
 #profilePageText{
     font-weight: bold;
+    font-family: "monoco", monospace;
+
 }
 
 #statusText{
     font-weight: bold;
+    font-family: "monoco", monospace;
+
 }
 /* The switch - the box around the slider */
 .switch {
@@ -1243,11 +1310,12 @@ main{
 
 
   #onlyMePrivactySwitch{
-      margin-left: 20px;
+      margin-left: 25px;
 
   }
   #friendsPrivactySwitch{
     margin-left: 25px;
+
 
   }
   #publicPrivactySwitch{
@@ -1311,6 +1379,18 @@ main{
     border-radius: 50%;
     box-shadow: 1px 1px 2px 0 rgb(0 0 0 / 40%);
     transition: .3s;
+}
+
+#privacySettingsText{
+  font-family: "monoco", monospace;
+}
+
+.statusToggle{
+  font-family: "monoco", monospace;
+}
+
+.profileToggle{
+  font-family: "monoco", monospace;
 }
 
 /* ---------------------------- Settings: General Settings ------------------------------------*/
@@ -1386,7 +1466,7 @@ main{
 .fullMessage-Container{
   margin-top: 10px;
   margin-left: 400px;
-  background-color: rgb(247, 239, 239);
+  background-color: #e9e9e9;
   border: solid;
   border-style: double;
   border-radius: 5px;
@@ -1399,8 +1479,10 @@ main{
 
 .composeMessage-Container{
   position: absolute;
-  margin-top: 550px;
-  margin-left: 75px;
+  top: 625px;
+  left: 475px;
+  /* margin-top: 550px;
+  margin-left: 75px; */
   /* position: absolute; */
   /* margin-top: 500px;
   margin-left: 200px; */
@@ -1430,16 +1512,21 @@ main{
 
 #sendButton{
   width: 100px;
-  border-radius: 30px;
+  border-radius: 4px;
+  border: white;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  background-color: #8ffaf6;
+  background-color: #91fffb;
+  /* background-color:#f3f3f3; */
+  background-color: #85d8ff;
   color: black;
   border: none;
   font: bold;
+  font-family: "monoco", monospace;
 }
 
 #sendButton:hover{
-  background-color: #c7fcfa;
+  /* background-color: #c7fcfa; */
+  background-color: #3cc0fd;
 }
 .fullUserFiltering-Container{
   width: 300px;
@@ -1454,6 +1541,7 @@ main{
 }
 #userFilteringTitle{
   font: bolder;
+  font-family: "monoco", monospace;
 }
 .userFiltering-Container{
   margin-top: 1px;
@@ -1488,6 +1576,32 @@ main{
 
 #messageTitle{
   font-size: 55px;
+  font-family: "monoco", monospace;
+}
+.allMessages-Container{
+  /* background-color: #c3c3ca; */
+}
+
+#detailsButtonMessages{
+  color:rgb(0, 0, 0);
+  border-radius: 30px;
+}
+
+.message{
+  font-family: "monoco", monospace;
+}
+.message:hover{
+  color:rgb(255, 255, 255);
+
+}
+
+#postedMessageHeader{
+  font-family: "monoco", monospace;
+}
+
+#detailsButtonMessages:hover{
+  color:rgb(161, 186, 253);
+  /* background-color: rgb(212, 223, 252); */
 }
 /* ---------------------------- Messages ------------------------------------*/
 /* ---------------------------- Posts.js ------------------------------------*/
@@ -1497,18 +1611,28 @@ main{
 
 }
 #detailsButton{
-  background-color: rgb(255, 215, 170);
-  border-color: rgb(255, 231, 204);
+  /* background-color: rgb(255, 215, 170); */
+  background-color: rgb(238, 236, 236);
+  border-color: #89a2f7;
   border-radius: 30px;
+  color: #bfccf8;
 }
 
+#detailsButton:hover{
+  color: #89a2f7;
+}
 #postedStatus{
   margin-left: 395px;
   margin-top: 20px;
   /* margin-top: 150px; */
   /* margin-bottom: -00px; */
+  font-family: "monoco", monospace;
 
   padding: 10px;
+}
+
+#postedStatus:hover{
+  color: #6c8cf5;
 }
 
 /* .pubishedPosts{
@@ -1521,11 +1645,17 @@ main{
   border-color: rgb(250, 101, 101);
   border-radius: 30px;
 }
+#removePostButton:hover{
+  color: rgb(202, 0, 0);
+
+}
 
 .publishedPosts{
   margin-top: 150px;
 }
-
+#postedStatusHeader{
+  font-family: "monoco", monospace;
+}
 
 /* ---------------------------- Posts.js ------------------------------------*/
 
