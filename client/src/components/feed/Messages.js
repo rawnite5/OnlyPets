@@ -5,13 +5,36 @@ import { Helmet } from "react-helmet";
 import '../components.css';
 import config from '../../utils/config';
 import textlogo from '../../assests/textLogo.jpg';
-
+import Message from './Message';
 const axios = require('axios').default;
 const apiURL = config.baseUrl;
 import { Link, useHistory } from 'react-router-dom';
+import { useState, useEffect } from 'react'
 
 const Messages = ({ setPage }) => {
 	let history = useHistory();
+	const [messages, setMessages] = useState([])
+
+	let username = window.sessionStorage.getItem("username");
+	useEffect(() => {
+		axios.get(`${apiURL}/message/${username}/`)
+			.then(response => {
+				setMessages(response.data.data);
+			})
+			.catch(error => console.log(error))
+	}, [])
+	/*
+		<div class="composeMessage-Container">
+		<textarea placeholder="Type message.." name="msg" id="composeMessageTextArea" required></textarea>
+	</div>
+	
+	<div class="messageButtons">
+		<button class="btn btn-primary" onClick={send} id="sendButton"> Send</button>
+	
+	</div>
+	<input type="text" id="searchForUsersToMessage" placeholder="Search"></input>
+	*/
+
 
 	const script = () => {
 		window.onload = function () {
@@ -30,6 +53,39 @@ const Messages = ({ setPage }) => {
 							alert(`No user with the username ${text} exists`);
 						} else {
 							history.push(`/profileAbout/${text}`);
+						}
+
+					})
+					.catch(error => console.log(error));
+			})
+
+			let sendButton = document.querySelector("#sendButton");
+
+			sendButton.addEventListener("click", event => {
+				event.preventDefault();
+				var text = document.querySelector('#composeMessageTextArea').value;
+				var userToMsg = document.querySelector('#searchForUsersToMessage').value;
+
+				axios.get(`${apiURL}/profile/id/${userToMsg}/`)
+					.then(response => {
+
+						if (response.data.status === "error") {
+							alert(`No user with the username ${text} exists`);
+						} else {
+							const messageInfo = {
+								fromProfile: window.sessionStorage.getItem("username"),
+								toProfile: userToMsg,
+								message_content: text,
+								status: "sent"
+							};
+							console.log(messageInfo)
+
+							axios.post(`${apiURL}/message/`, messageInfo)
+								.then(response => {
+									setMessages(messages.append(response.data.data))
+								})
+								.catch(error => console.log(error));
+							alert("message sent")
 						}
 
 					})
@@ -84,7 +140,7 @@ const Messages = ({ setPage }) => {
 						<h3 id="userFilteringTitle">Search for Other Pets...</h3>
 						<input type="text" id="searchForUsersToMessage" placeholder="Search"></input>
 						<div>
-						<button id="searchForUsersButton" class="glyphicon glyphicon-search"></button>
+							<button id="searchForUsersButton" class="glyphicon glyphicon-search"></button>
 						</div>
 
 						<ul id="myUL">
@@ -101,6 +157,9 @@ const Messages = ({ setPage }) => {
 				<div class="fullMessage-Container">
 
 					<div class="sentMessages-Container">
+						<div class="allMessages">
+							{messages.map(message => <Message key={message.id} message={message} />)}
+						</div>
 
 
 					</div>
@@ -110,7 +169,7 @@ const Messages = ({ setPage }) => {
 					</div>
 
 					<div class="messageButtons">
-						<button class="btn btn-primary" onClick={send} id="sendButton"> Send</button>
+						<button class="btn btn-primary" id="sendButton"> Send</button>
 
 					</div>
 				</div>
@@ -130,10 +189,6 @@ function toggle_light_mode() {
 	}
 }
 
-function send() {
-	alert("message sent");
-}
-
 // function myFunction() {
 // 	// Declare variables
 // 	var input, filter, ul, li, a, i, txtValue;
@@ -141,7 +196,7 @@ function send() {
 // 	filter = input.value.toUpperCase();
 // 	ul = document.getElementById("myUL");
 // 	li = ul.getElementsByTagName('li');
-  
+
 // 	// Loop through all list items, and hide those who don't match the search query
 // 	for (i = 0; i < li.length; i++) {
 // 	  a = li[i].getElementsByTagName("a")[0];
