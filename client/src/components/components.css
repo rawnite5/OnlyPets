@@ -19,6 +19,13 @@ img {
 /* background-repeat: repeat-y; */
 /* ---------------------------- Login Page ------------------------------------*/
 
+
+#logoLogin{
+
+  margin-top: 100px;
+  margin-right: 40px;
+
+}
 .loginNavbar{
 	background-color: #fff;
 	border: 1px solid #dedede;
@@ -349,8 +356,8 @@ main{
 }
 
     #statusHeaderText{
-        margin: 30px 0 -20px 360px; /* top, right, bottom, left */
-        margin-top: -5px;
+        margin: 30px 0 -20px 390px; /* top, right, bottom, left */
+        margin-top: 30px;
         font-size: xx-large;
 
     }
@@ -450,7 +457,7 @@ main{
 .status-container{
   width: 80%;
   position: absolute;
-  margin-top: -75px;
+  margin-top: -50px;
   margin-left: 100px;
   /* margin-right: 700px; */
   /* margin-right: 900px; */
@@ -545,19 +552,6 @@ main{
 }
 
 
-
-
-/* .glyphicon.glyphicon-camera{
-    font-size: 20px;
-    padding: 10px;
-    display: inline-block;
-}
-.glyphicon.glyphicon-film{
-    font-size: 20px;
-    padding: 10px;
-    display: inline-block;
-    /* display: contents; */
-
 .dropdown{
     margin-left: 478px;
     margin-bottom: -26.5px;
@@ -574,12 +568,6 @@ main{
 }
 
 
-/* .chatting{
-    border: solid pink;
-    background-color: pink;
-    width: 300px;
-    height: 700px; 
-    margin: -220px 500px 250px 30px; top, right, bottom, left */
 
 .user-contacts-container{
     margin-left: 30px;
@@ -641,8 +629,6 @@ main{
 
 }
 
-/* not really sure why it is two toned
-*/
 .button-class #compose-message-button{
     font-size: x-large;
     /* margin: 700px 0 0 0; top, right, bottom, left */
@@ -652,286 +638,9 @@ main{
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)
 }
 
-.chat-box{
-	position: absolute;
-	right: 20px;
-	bottom: 0px;
-	background: white;
-	width: 300px;
-	border-radius: 5px 5px 0px 0px;
-  display: none;
-}
-.chat-head{
-	width: inherit;
-	height: 45px;
-	background: #2c3e50;
-	border-radius: 5px 5px 0px 0px;
-}
-.chat-head h2{
-	color: white;
-	padding: 8px;
-	display: inline-block;
-}
-.chat-head img{
-	cursor: pointer;
-	float: right;
-	width: 25px;
-	margin: 10px;
-}
-.chat-body{
-	height: 355px;
-	width: inherit;
-	overflow: auto;
-	margin-bottom: 45px;
-}
-.chat-text{
-	position: fixed;
-	bottom: 0px;
-	height: 45px;
-	width: inherit;
-}
-.chat-text textarea{
-	width: inherit;
-	height: inherit; 
-	box-sizing: border-box;
-	border: 1px solid #bdc3c7;
-	padding: 10px;
-	resize: none;
-}
-.chat-text textarea:active, .chat-text textarea:focus, .chat-text textarea:hover{
-	border-color: royalblue;
-}
-.msg-send{
-	background: #2ecc71;
-}
-.msg-receive{
-	background: #3498db;
-}
-.msg-send, .msg-receive{
-	width: 200px;
-	height: 35px;
-	padding: 5px 5px 5px 10px;
-	margin: 10px auto;
-	border-radius: 3px;
-	line-height: 30px;
-	position: relative;
-	color: white;
-}
-.msg-receive:before{
-	content: '';
-	width: 0px;
-	height: 0px;
-	position: absolute;
-	border: 15px solid;
-	border-color: transparent #3498db transparent transparent;
-	left: -29px;
-	top: 7px;
-}
-.msg-send:after{
-	content: '';
-	width: 0px;
-	height: 0px;
-	position: absolute;
-	border: 15px solid;
-	border-color: transparent transparent transparent #2ecc71;
-	right: -29px;
-	top: 7px;
-}
-.msg-receive:hover, .msg-send:hover{
-	opacity: .9;
-}
 
-#chat-bubble {
-    height: 55px;
-    overflow: hidden;
-    min-width: 285px;
-    background-color: #fff;
-    position: absolute;
-    bottom: 0;
-    right: 50px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border: 1px solid #e4e4e4;
-  }
 
-  /* #chat-bubble.open {
-    min-height: 350px;
-  } */
-  
-  .chat-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 25px;
-    z-index: 10;
-    position: relative;
-    padding: 8px;
-    box-shadow:  0 2px 1px rgba(0, 0, 0, .1);
-    cursor: pointer;
-    background-color: #fff;
-    transition: background-color 0.3s ease-in;
-  }
-  .chat-header:hover {
-    background-color: #f7f7f7;
-  }
-  
-  .user-avatar {
-    display: flex;
-    flex: 1;
-  }
-  
-  .user-avatar img {
-    border-radius: 50%;
-    margin-right: 8px;
-  }
-  
-  .user-avatar .img-container {
-    position: relative;
-  }
  
-  .user-avatar .img-container::after {
-    content: '';
-    width: 10px;
-    height: 10px;
-    background-color: #1ba71b;
-    position: absolute;
-    right: 4px;
-    bottom: 4px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-  }
-  
-  .user-avatar .user-status-info a {
-    font-size: 13px;
-    margin: 0;
-    text-decoration: none;
-    font-weight: bold;
-    color: #000;
-  }
-  
-  .user-avatar .user-status-info p {
-    font-size: 11px;
-    color: gray;
-  } 
-/*   
-  .chat-comm {
-    display: none;
-  }
-
-  #chat-bubble.open .chat-comm {
-    display: block;
-  }
-  
-  .chat-comm a {
-    text-decoration: none;
-  }
-  
-  .chat-comm a:not(:last-child) {
-    margin-right: 8px;
-  }
-  
-  .chat-body {
-    padding: 8px;
-  }
-  
-  .sender-other .user-avatar .img-container img {
-    width: 25px;
-  }
-  
-  .sender-other .user-avatar .img-container::after {
-    width: 7px;
-    height: 7px;
-    right: 4px;
-    bottom: 6px;
-  }
-  
-  .sender-other .other-message {
-    background-color: #f1f0f0;
-    border-radius: 25px;
-    padding: 8px 11px;
-    font-size: 14px;
-  }
-
-
-.sender-me {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  
-  .sender-me .my-message {
-    background-color: #3578e5;
-    color: #fff;
-    border-radius: 25px;
-    padding: 8px 11px;
-    font-size: 14px;
-  }
-  
-  .sender-me .seen-at {
-    display: flex;
-    align-items: center;
-    color: #90949C;
-    font-size: 11px;
-    margin-top: 8px;
-  }
-  
-  .sender-me .seen-at img.check {
-    width: 12px;
-    margin-right: 4px;
-  }
-
-  .chat-footer {
-    border-top: 1px solid #e4e4e4;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding-top: 8px;
-  }
-  
-  .chat-footer input[type=textarea] {
-    width: 100%;
-    border: none;
-    padding: 0 8px;
-  }
-  
-  .chat-footer svg path {
-    fill: #bec2c9;
-  }
-  
-  .chat-footer input[type=textarea]:focus {
-    outline: none;
-  }
-  .chat-media {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px;
-  }
-
-  .chat-media a {
-    text-decoration: none;
-  }
-  
-  .chat-media a:not(:last-child) {
-    margin-right: 8px;
-  }
-  
-  .chat-media img {
-    width: 18px;
-  }
-  
-  .chat-media img.game {
-    width: 20px;
-  }
-  
-  .chat-media img.attach {
-    width: 14px;
-  }
-  
-  .chat-media img.camera {
-    width: 16px;
-  } */
-
 
 /* ---------------------------- HOMEPAGE ------------------------------------*/
 
@@ -1661,7 +1370,7 @@ main{
 
 .entire-messagepage[light-mode=dark] {
   background-color: #292929;
-  color: #000000;
+  color: #868686;
 }
 
 .entire-messagepage[light-mode="dark"] .light-mode-button9 span:nth-child(1){
@@ -1675,9 +1384,9 @@ main{
 }
 
 .fullMessage-Container{
-  margin-top: -225px;
+  margin-top: 10px;
   margin-left: 400px;
-  /* background-color: ; */
+  background-color: rgb(247, 239, 239);
   border: solid;
   border-style: double;
   border-radius: 5px;
@@ -1728,10 +1437,17 @@ main{
   border: none;
   font: bold;
 }
+
+#sendButton:hover{
+  background-color: #c7fcfa;
+}
 .fullUserFiltering-Container{
   width: 300px;
-  margin-left: 20px;
-  background-color: rgb(231, 231, 231);
+  position: absolute;
+  /* margin-left: 20px; */
+  top: 150px;
+  left: 20px;
+  background-color: rgb(233, 233, 233);
   border-radius: 20px;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 
@@ -1740,17 +1456,38 @@ main{
   font: bolder;
 }
 .userFiltering-Container{
-  margin-top: 80px;
-  margin-left: 25px;
+  margin-top: 1px;
+  margin-left: 20px;
   padding: 20px;
+  
 
 }
 #searchForUsersToMessage{
   width: 200px;
+  border-radius: 20px;
+}
+
+#searchForUsersButton{
+  position: absolute;
+  left: 175px;
+  top: 48px;
+  border-radius: 30px;
+  font-size: small;
 }
 
 #myUL{
   list-style-type: none;
+}
+
+.messageTitle-container{
+  width: 19%;
+  position: absolute;
+  bottom: 645px;
+  left: 50px;
+}
+
+#messageTitle{
+  font-size: 55px;
 }
 /* ---------------------------- Messages ------------------------------------*/
 /* ---------------------------- Posts.js ------------------------------------*/
@@ -1767,7 +1504,10 @@ main{
 
 #postedStatus{
   margin-left: 395px;
-  margin-top: 100px;
+  margin-top: 20px;
+  /* margin-top: 150px; */
+  /* margin-bottom: -00px; */
+
   padding: 10px;
 }
 
@@ -1780,6 +1520,10 @@ main{
   color: rgb(250, 101, 101);
   border-color: rgb(250, 101, 101);
   border-radius: 30px;
+}
+
+.publishedPosts{
+  margin-top: 150px;
 }
 
 

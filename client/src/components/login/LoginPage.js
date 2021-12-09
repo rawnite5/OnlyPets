@@ -1,5 +1,5 @@
 import React from 'react'
-import logWithBorder from '../../assests/logoWithBorder.jpg';
+import logoWithBorderLogin from '../../assests/logoWithBorder.jpg';
 import { Helmet } from "react-helmet";
 import '../components.css';
 import config from '../../utils/config';
@@ -110,6 +110,7 @@ const LoginPage = () => {
 			</Helmet>
 
 			<main className="loginMain">
+
 				<div className="form-signin">
 					<form>
 
@@ -143,7 +144,7 @@ const LoginPage = () => {
 
 				{/* Logo */}
 				<div className="logo">
-					<img src={logWithBorder} alt="Logo" className="logo" />
+					<img src={logoWithBorderLogin} alt="Logo" className="logo" id="logoLogin" />
 				</div>
 
 				{/* Register */}
