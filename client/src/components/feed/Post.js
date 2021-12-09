@@ -56,11 +56,8 @@ const Post = ({ post }) => {
 					.then(response2 => {
 					})
 					.catch(error => console.log(error))
-
 			})
 			.catch(error => console.log(error))
-
-
 	}
 
 

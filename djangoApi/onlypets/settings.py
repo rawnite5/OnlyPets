@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'home',
     'login',
     'profile',
+    'message',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',

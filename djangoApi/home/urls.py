@@ -4,7 +4,7 @@ from .views import PostCollectionView, PostEditView, CommentDetailView, PostDeta
 
 urlpatterns = [
     path('', PostCollectionView.as_view(), name='post-collection'),
-    path('<str:content>', PostCollectionView.as_view(), name='post-remove'),
+    path('<str:id>', PostCollectionView.as_view(), name='post-remove'),
     path('post/<uuid:pk>/', PostEditView.as_view(), name='post-edit'),
     # path('post/<uuid:id>/', PostEditView.as_view(), name = 'post-edit'),
     # path('post/<uuid:id>/', PostDeleteView.as_view(), name = 'post-delete'),

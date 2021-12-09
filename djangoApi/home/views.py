@@ -15,8 +15,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 class PostCollectionView(APIView):
-    def get(self, request, *args, **kwargs):
-        id = self.kwargs.get('pk')
+    def get(self, request, id=None):
         if id:
             try:
                 item = PostCollection.objects.get(id=id)
@@ -45,6 +44,19 @@ class PostCollectionView(APIView):
             return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
         else:
             return Response({"status": "error", "data": serializer.errors}, status=status.HTTP_200_OK)
+
+    def patch(self, request, id=None):
+        try:
+            item = PostCollection.objects.get(id=id)
+        except PostCollection.DoesNotExist:
+            return Response({"status": "error", "data": "post id does not exist"}, status=status.HTTP_200_OK)
+
+        serializer = PostCollectionSerializer(item, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"status": "success", "data": serializer.data})
+        else:
+            return Response({"status": "error", "data": serializer.errors})
 
 
 class PostEditView(APIView):
