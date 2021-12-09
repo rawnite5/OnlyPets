@@ -42,7 +42,25 @@ const Post = ({ post }) => {
 
 
 	const addLikeToPost = (PostToUpdate) => {
-		// author: window.sessionStorage.getItem("userId"),
+		axios.get(`${apiURL}/home/${PostToUpdate.id}`)
+			.then(response => {
+				response.data.data.likes.push(window.sessionStorage.getItem("userId"))
+				let updatedData = {
+					"id": response.data.data.id,
+					"likes": response.data.data.likes
+				}
+
+				return updatedData
+			}).then(response => {
+				axios.patch(`${apiURL}/home/${PostToUpdate.id}`, response)
+					.then(response2 => {
+					})
+					.catch(error => console.log(error))
+
+			})
+			.catch(error => console.log(error))
+
+
 	}
 
 
@@ -52,7 +70,7 @@ const Post = ({ post }) => {
 		if (result) {
 			axios.delete(`${apiURL}/home/${PostToRemove.post_content}`)
 				.then(response => {
-					
+
 				})
 				.catch(error => console.log(error))
 		}
@@ -66,8 +84,8 @@ const Post = ({ post }) => {
 					{post.post_timestamp.slice(0, 10)} <br />
 					{'likes: '} {post.likes.length} <br />
 					<div class="likeCommentButton-Container">
-					<button button class="glyphicon glyphicon-pencil" id={'commentButton'} type="submit"></button>
-					<button id={'likeButton'} onClick={() => addLikeToPost(post)} class="glyphicon glyphicon-heart" type='submit'></button>
+						<button button class="glyphicon glyphicon-pencil" id={'commentButton'} type="submit"></button>
+						<button id={'likeButton'} onClick={() => addLikeToPost(post)} class="glyphicon glyphicon-heart" type='submit'></button>
 					</div>
 					<button id={'removePostButton'} onClick={() => removePost(post)} type='submit'>remove</button>
 				</div>

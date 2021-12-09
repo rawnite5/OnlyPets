@@ -68,25 +68,13 @@ const ProfileAbout = () => {
 	}
 
 	let addBio = (data) => {
-		let defaultStr = "";
-		let nameDefined = defaultStr
-		let ageDefined = defaultStr
-		let birthdayDefined = defaultStr
-		let genderDefined = defaultStr
+		let defaultStr = "No bio added";
+		let bioDefined = defaultStr
 
-		if (data.firstname && data.lastname) {
-			nameDefined = data.firstname + " " + data.lastname;
+		if (data.bio) {
+			bioDefined = data.bio;
 		}
-		if (data.age) {
-			ageDefined = data.age;
-		}
-		if (data.birthdate) {
-			birthdayDefined = data.birthdate;
-		}
-		if (data.gender) {
-			genderDefined = data.gender;
-		}
-		return (<text id="overViewText">{"Name: " + nameDefined}<br></br>{"Age: " + ageDefined}<br></br>{"Birthday: " + birthdayDefined}<br></br>{"Gender: " + genderDefined}<br></br> </text>)
+		return (<text id="introText">{bioDefined}</text>)
 	}
 
 	let addFacts = (data) => {
@@ -199,7 +187,7 @@ const ProfileAbout = () => {
 									<br></br>
 									<br></br>
 									<br></br>
-									<text id="introText"> I'm a 2 year old Pomeranian! I like long walks, playing at the park, and chasing the mailman. *bark*</text>
+									{addBio(profileData)}
 								</div>
 							</div>
 						</div>

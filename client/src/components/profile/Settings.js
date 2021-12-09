@@ -55,8 +55,6 @@ const Settings = ({ setPage }) => {
 
 			let searchInput = document.querySelector("#search");
 			let searchAnchorTag = document.querySelector("#searchAnchor");
-			console.log(searchInput)
-			console.log(searchAnchorTag)
 
 			searchAnchorTag.addEventListener("click", event => {
 				event.preventDefault();
@@ -126,7 +124,7 @@ const Settings = ({ setPage }) => {
 
 								<button class="btn btn-dark" id="light-mode-button" onClick={darkMode}>Dark Mode</button>
 
-								<h2>Blocked Female Dogs</h2>
+								<h2>Blocked Profiles</h2>
 								<text>Manage your blocked users. Once you block someone, that person can no longer see things you post on your timeline, tag you, start conversations with you, or add you as a friend. </text>
 
 								<div class="searchBarBlockedUsers-Container">
