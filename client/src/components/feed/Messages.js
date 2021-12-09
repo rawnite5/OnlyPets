@@ -93,6 +93,11 @@ const Messages = ({ setPage }) => {
 
 				<div class="fullMessage-Container">
 
+					<div class="sentMessages-Container">
+
+
+					</div>
+
 					<div class="composeMessage-Container">
 						<textarea placeholder="Type message.." name="msg" id="composeMessageTextArea" required></textarea>
 					</div>

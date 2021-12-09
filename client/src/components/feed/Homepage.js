@@ -148,10 +148,6 @@ const Homepage = () => {
 
 				<div class="statusHeaderText-Container">
 					<h1 id="statusHeaderText">What's Up On OnlyPets...</h1>
-					{/* 
-					{posts.map(post => <Post key={post.id} post={post}/>)} */}
-
-					{/* {posts.map(post => <Post key={post.id} post={post} />)} */}
 				</div>
 
 
