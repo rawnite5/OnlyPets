@@ -19,6 +19,13 @@ img {
 /* background-repeat: repeat-y; */
 /* ---------------------------- Login Page ------------------------------------*/
 
+
+#logoLogin{
+
+  margin-top: 100px;
+  margin-right: 40px;
+
+}
 .loginNavbar{
 	background-color: #fff;
 	border: 1px solid #dedede;
