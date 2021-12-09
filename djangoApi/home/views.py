@@ -28,9 +28,9 @@ class PostCollectionView(APIView):
         serializer = PostCollectionSerializer(items, many=True)
         return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
 
-    def delete(self, request, content=None):
+    def delete(self, request, id=None):
         try:
-            item = PostCollection.objects.get(post_content=content)
+            item = PostCollection.objects.get(post_content=id)
         except PostCollection.DoesNotExist:
             return Response({"status": "error", "data": "username does not exist"}, status=status.HTTP_200_OK)
 
