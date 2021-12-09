@@ -1363,7 +1363,7 @@ main{
 
 .entire-messagepage[light-mode=dark] {
   background-color: #292929;
-  color: #000000;
+  color: #868686;
 }
 
 .entire-messagepage[light-mode="dark"] .light-mode-button9 span:nth-child(1){
@@ -1377,9 +1377,9 @@ main{
 }
 
 .fullMessage-Container{
-  margin-top: -165px;
+  margin-top: 10px;
   margin-left: 400px;
-  /* background-color: ; */
+  background-color: rgb(247, 239, 239);
   border: solid;
   border-style: double;
   border-radius: 5px;
@@ -1430,10 +1430,17 @@ main{
   border: none;
   font: bold;
 }
+
+#sendButton:hover{
+  background-color: #c7fcfa;
+}
 .fullUserFiltering-Container{
   width: 300px;
-  margin-left: 20px;
-  background-color: rgb(231, 231, 231);
+  position: absolute;
+  /* margin-left: 20px; */
+  top: 150px;
+  left: 20px;
+  background-color: rgb(233, 233, 233);
   border-radius: 20px;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 
@@ -1442,17 +1449,38 @@ main{
   font: bolder;
 }
 .userFiltering-Container{
-  margin-top: 80px;
-  margin-left: 25px;
+  margin-top: 1px;
+  margin-left: 20px;
   padding: 20px;
+  
 
 }
 #searchForUsersToMessage{
   width: 200px;
+  border-radius: 20px;
+}
+
+#searchForUsersButton{
+  position: absolute;
+  left: 175px;
+  top: 48px;
+  border-radius: 30px;
+  font-size: small;
 }
 
 #myUL{
   list-style-type: none;
+}
+
+.messageTitle-container{
+  width: 19%;
+  position: absolute;
+  bottom: 645px;
+  left: 50px;
+}
+
+#messageTitle{
+  font-size: 55px;
 }
 /* ---------------------------- Messages ------------------------------------*/
 /* ---------------------------- Posts.js ------------------------------------*/

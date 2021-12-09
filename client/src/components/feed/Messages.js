@@ -75,10 +75,17 @@ const Messages = ({ setPage }) => {
 					</nav>
 				</div>
 
+				<div class="messageTitle-container">
+					<h1 id="messageTitle">Message</h1>
+				</div>
+
 				<div class="fullUserFiltering-Container">
 					<div class="userFiltering-Container">
 						<h3 id="userFilteringTitle">Search for Other Pets...</h3>
 						<input type="text" id="searchForUsersToMessage" placeholder="Search"></input>
+						<div>
+						<button id="searchForUsersButton" class="glyphicon glyphicon-search"></button>
+						</div>
 
 						<ul id="myUL">
 							<li><a href="#"></a></li>
